@@ -1125,7 +1125,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 	// System.out.println (e.getPoint());
                     Key key = piano.getKey(e.getPoint());
                     piano.Setprevkey(key);
-                   if (!midierror)  key.on(currentChannel,  !midierror);
+                   if (key != null && !midierror)  key.on(currentChannel,  !midierror);
                     if (key!=null) {
                         if (key.Getknum()==60 && !parti) {
 
