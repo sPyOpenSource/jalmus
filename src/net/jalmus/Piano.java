@@ -28,6 +28,9 @@ public class Piano {
   Color pink = new Color(255, 175, 175);
 
   net.jalmus.Key prevKey;
+  net.jalmus.Key hintKey;
+  float hintProgress;
+  String hintLetter;
   final int kw = 16, kh = 80;
   final int ypos = 315;
   int marge = 43;
@@ -101,6 +104,16 @@ public class Piano {
 
   public net.jalmus.Key Getprevkey() {
     return this.prevKey;
+  }
+
+  /**
+   * Set the falling hint bar target: which key (pitch), how far it has fallen (0-1),
+   * and the key letter to show on the bar.
+   */
+  public void setHint(int pitch, float progress, String letter) {
+    this.hintKey = getKeyByPitch(pitch);
+    this.hintProgress = progress;
+    this.hintLetter = letter;
   }
 
   /**
@@ -183,6 +196,46 @@ public class Piano {
         key.on(cc, midiok);
       else if (onoff == 0 & key.kNum == pitch)
         key.off(cc, midiok);
+    }
+  }
+
+  /**
+   * Paint the falling hint bar over the target piano key.
+   * @param g Graphics to paint
+   * @param width window width (for offset)
+   */
+  public void paintHint(Graphics g, int width) {
+    if (hintKey == null) return;
+    Graphics2D g2 = (Graphics2D) g;
+    int offx = (width / 2) - 390;
+
+    // Compute key screen x-position mirroring paint() layout math.
+    int keyX;
+    int keyW;
+    boolean isBlack = blackKeys.contains(hintKey);
+    if (isBlack) {
+      int bi = blackKeys.indexOf(hintKey);
+      keyX = marge + offx + hintKey.getXoffset() - 2 + ((bi + 1) * kw);
+      keyW = kw / 2;
+    } else {
+      int wi = whiteKeys.indexOf(hintKey);
+      keyX = 2 + marge + offx + (kw * wi);
+      keyW = kw - 1;
+    }
+
+    // Y interpolates from above staff down to key top as progress 0->1.
+    int staffY = ypos - 120;
+    int keyY = ypos;
+    int barY = (int) (staffY + (keyY - staffY) * hintProgress);
+
+    g2.setColor(new Color(255, 215, 0)); // gold
+    g2.fillRect(keyX, barY, keyW, 12);
+    g2.setColor(Color.black);
+    g2.drawRect(keyX, barY, keyW, 12);
+
+    if (hintLetter != null && !hintLetter.isEmpty()) {
+      g2.setColor(Color.black);
+      g2.drawString(hintLetter, keyX + keyW / 2 - 4, barY + 9);
     }
   }
 
