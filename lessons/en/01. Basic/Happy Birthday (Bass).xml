@@ -9,7 +9,7 @@ Description: Happy Birthday note-reading lesson on bass clef, C major
 
 <levels>
 <notereading id = '0'>
-<message>Happy Birthday - learn C D E on bass clef</message>
+<message>Happy Birthday - learn E F G on bass clef</message>
 <game>learning</game>
 <learningduration>15</learningduration>
 <clef>bass</clef>
@@ -20,7 +20,7 @@ Description: Happy Birthday note-reading lesson on bass clef, C major
 </notereading>
 
 <notereading id = '1'>
-<message>Happy Birthday - play C D E without help</message>
+<message>Happy Birthday - play E F G without help</message>
 <game>normal</game>
 <clef>bass</clef>
 <notes>notes</notes>
@@ -30,7 +30,7 @@ Description: Happy Birthday note-reading lesson on bass clef, C major
 </notereading>
 
 <notereading id = '2'>
-<message>Happy Birthday - learn F G A on bass clef</message>
+<message>Happy Birthday - learn G A B on bass clef</message>
 <game>learning</game>
 <learningduration>15</learningduration>
 <clef>bass</clef>
@@ -41,7 +41,7 @@ Description: Happy Birthday note-reading lesson on bass clef, C major
 </notereading>
 
 <notereading id = '3'>
-<message>Happy Birthday - play F G A without help</message>
+<message>Happy Birthday - play G A B without help</message>
 <game>normal</game>
 <clef>bass</clef>
 <notes>notes</notes>
@@ -51,22 +51,22 @@ Description: Happy Birthday note-reading lesson on bass clef, C major
 </notereading>
 
 <notereading id = '4'>
-<message>Happy Birthday - learn B and high C on bass clef</message>
+<message>Happy Birthday - learn C D E on bass clef</message>
 <game>learning</game>
 <learningduration>15</learningduration>
 <clef>bass</clef>
 <notes>notes</notes>
-<nbnotes>2</nbnotes>
+<nbnotes>3</nbnotes>
 <speed>20</speed>
 <startingnote>-2</startingnote>
 </notereading>
 
 <notereading id = '5'>
-<message>Happy Birthday - play B and high C without help</message>
+<message>Happy Birthday - play C D E without help</message>
 <game>normal</game>
 <clef>bass</clef>
 <notes>notes</notes>
-<nbnotes>2</nbnotes>
+<nbnotes>3</nbnotes>
 <speed>15</speed>
 <startingnote>-2</startingnote>
 </notereading>
