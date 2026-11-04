@@ -114,8 +114,10 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Properties;
 
@@ -238,6 +240,28 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private int noteDuration = 2000;
     private ChannelData currentChannel; // current channel
     private boolean open;
+
+    // Keyboard-to-piano mapping (home row, language independent)
+    private static final Map<Character,String> NOTE_BY_KEY = new HashMap<Character,String>();
+    private static final Map<Character,Integer> PITCH_BY_KEY = new HashMap<Character,Integer>();
+    private net.jalmus.Key keyboardSoundingKey = null;
+
+    private void ensureKeyboardMaps() {
+        if (!NOTE_BY_KEY.isEmpty()) return;
+        NOTE_BY_KEY.put('a', DO);     PITCH_BY_KEY.put('a', 60);
+        NOTE_BY_KEY.put('s', RE);     PITCH_BY_KEY.put('s', 62);
+        NOTE_BY_KEY.put('d', MI);     PITCH_BY_KEY.put('d', 64);
+        NOTE_BY_KEY.put('f', FA);     PITCH_BY_KEY.put('f', 65);
+        NOTE_BY_KEY.put('g', SOL);    PITCH_BY_KEY.put('g', 67);
+        NOTE_BY_KEY.put('h', LA);     PITCH_BY_KEY.put('h', 69);
+        NOTE_BY_KEY.put('j', SI);     PITCH_BY_KEY.put('j', 71);
+        NOTE_BY_KEY.put('k', DO);     PITCH_BY_KEY.put('k', 72); // DO2, same name as DO
+        NOTE_BY_KEY.put('w', DO+"#"); PITCH_BY_KEY.put('w', 61);
+        NOTE_BY_KEY.put('e', RE+"#"); PITCH_BY_KEY.put('e', 63);
+        NOTE_BY_KEY.put('t', FA+"#"); PITCH_BY_KEY.put('t', 66);
+        NOTE_BY_KEY.put('y', SOL+"#");PITCH_BY_KEY.put('y', 68);
+        NOTE_BY_KEY.put('u', LA+"#"); PITCH_BY_KEY.put('u', 70);
+    }
 
     private Piano piano;
   //  private int transpose = 0;  // number of 1/2tons for MIDI transposition -24 +24
