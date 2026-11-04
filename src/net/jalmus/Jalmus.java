@@ -1096,6 +1096,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
         addComponentListener(new java.awt.event.ComponentAdapter()
     	{
+                    @Override
     		public void componentResized(ComponentEvent e)
     		{
     			System.out.println("Jalmus has been resized !");
@@ -1122,7 +1123,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 	repaint();
                 	
                 	// System.out.println (e.getPoint());
-                    Key key=piano.getKey(e.getPoint());
+                    Key key = piano.getKey(e.getPoint());
                     piano.Setprevkey(key);
                    if (!midierror)  key.on(currentChannel,  !midierror);
                     if (key!=null) {

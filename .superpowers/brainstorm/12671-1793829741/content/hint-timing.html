@@ -1,0 +1,31 @@
+<h2>Falling hint bar — animation style</h2>
+<p class="subtitle">A hint bar falls onto the correct piano key to show which computer key to press (learning mode, note reading only). Choose the animation style.</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-body">
+      <h3>A. Fast fall from top of window</h3>
+      <p>Bar starts at the very top of the window and drops quickly onto the key, landing just before the note should be pressed. High urgency, clear gesture.</p>
+    </div>
+  </div>
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-body">
+      <h3>B. Gentle fall from above the staff</h3>
+      <p>Bar starts just above the musical staff and drifts down onto the piano key. Slower, more relaxed — suits a learning/practice pace.</p>
+    </div>
+  </div>
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-body">
+      <h3>C. Instant highlight (no fall)</h3>
+      <p>No animation — the correct piano key simply glows/lights up when the note appears. Simplest to implement, least distracting.</p>
+    </div>
+  </div>
+  <div class="card" data-choice="d" onclick="toggleSelect(this)">
+    <div class="card-body">
+      <h3>D. Falling bar that pulses on landing</h3>
+      <p>Bar falls from above the staff, lands on the key, then pulses (flash) until the user presses the matching computer key or the note changes.</p>
+    </div>
+  </div>
+</div>
+
+<p class="label">Which animation style feels right for a learning hint?</p>

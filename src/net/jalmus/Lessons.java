@@ -45,7 +45,7 @@ public class Lessons extends DefaultHandler{
 
    public Lessons() {
 
-     this.levelslist = new LinkedList<Level>();
+     this.levelslist = new LinkedList<>();
      this.currentlevel = 0;
    }
 
@@ -122,10 +122,7 @@ public boolean isNoteLevel(){
 }
 
 public boolean isRhythmLevel(){
-	if(this.levelslist.get(this.currentlevel).getClass().getSimpleName().equals("RhythmLevel"))
-		return true;
-	else
-		return false;
+       return this.levelslist.get(this.currentlevel).getClass().getSimpleName().equals("RhythmLevel");
 }
 
 public boolean isScoreLevel(){
@@ -145,7 +142,7 @@ public boolean isScoreLevel(){
 	   System.out.println(leveltype + " "+ qName);
 	   
      if (qName.equals("levels")) {
-       this.levelslist = new LinkedList<Level>();
+       this.levelslist = new LinkedList<>();
        inExercices = true;
      }
      else if (qName.equals("notereading")) {
@@ -155,7 +152,7 @@ public boolean isScoreLevel(){
          int id = Integer.parseInt(attributes.getValue("id"));
          nlevel.setId(id);
        }
-       catch (Exception e) {
+       catch (NumberFormatException e) {
          //erreur, le contenu de id n'est pas un entier
          throw new SAXException(e);
        }
@@ -169,7 +166,7 @@ public boolean isScoreLevel(){
            int id = Integer.parseInt(attributes.getValue("id"));
            rlevel.setId(id);
          }
-         catch (Exception e) {
+         catch (NumberFormatException e) {
            //erreur, le contenu de id n'est pas un entier
            throw new SAXException(e);
          }
@@ -183,7 +180,7 @@ public boolean isScoreLevel(){
            int id = Integer.parseInt(attributes.getValue("id"));
            slevel.setId(id);
          }
-         catch (Exception e) {
+         catch (NumberFormatException e) {
            //erreur, le contenu de id n'est pas un entier
            throw new SAXException(e);
          }
@@ -192,75 +189,67 @@ public boolean isScoreLevel(){
      
      else {
        buffer = new StringBuffer();
-       if (qName.equals("message")) {
-         inMessage = true;
-       }
-
-       else if (qName.equals("game")) {
-         inGametype = true;
-       }
-       else if (qName.equals("clef")) {
-         inClef = true;
-       }
-       else if (qName.equals("tonality")) {
-        inTonality= true;
-      }
-
-
-       else if (qName.equals("notes")) {
-         inNotestype = true;
-       }
-       
-       else if (qName.equals("time")) {
-           inTime = true;
-         }
-       
-       else if (qName.equals("rhythms")) {
-           inRhythms = true;
-         }
-       else if (qName.equals("rests")) {
-           inRests = true;
-         }
-       else if (qName.equals("tuplets")) {
-           inTuplets = true;
-         }
-       else if (qName.equals("pitches")) {
-           inPitches = true;
-         }
-       else if (qName.equals("nbnotes")) {
-         inNbnotes = true;
-       }
-       else if (qName.equals("intervals")) {
-         inIntervals = true;
-       }
-       else if (qName.equals("chords")) {
-         inChords = true;
-       }
-
-
-       else if (qName.equals("speed")) {
-         inSpeed = true;
-       }
-       else if (qName.equals("metronome")) {
-           inMetronome = true;
-         }
-       else if (qName.equals("learningduration")) {
-       inDuration = true;
-     }
-
-       else if (qName.equals("startingnote")) {
-         inStartingnote = true;
-       }
-
-
-       else {
-         //erreur, on peut lever une exception
-         throw new SAXException("Markup " + qName + " unknown.");
-       }
+               switch (qName) {
+                   case "message":
+                       inMessage = true;
+                       break;
+                   case "game":
+                       inGametype = true;
+                       break;
+                   case "clef":
+                       inClef = true;
+                       break;
+                   case "tonality":
+                       inTonality= true;
+                       break;
+                   case "notes":
+                       inNotestype = true;
+                       break;
+                   case "time":
+                       inTime = true;
+                       break;
+                   case "rhythms":
+                       inRhythms = true;
+                       break;
+                   case "rests":
+                       inRests = true;
+                       break;
+                   case "tuplets":
+                       inTuplets = true;
+                       break;
+                   case "pitches":
+                       inPitches = true;
+                       break;
+                   case "nbnotes":
+                       inNbnotes = true;
+                       break;
+                   case "intervals":
+                       inIntervals = true;
+                       break;
+                   case "chords":
+                       inChords = true;
+                       break;
+                   case "speed":
+                       inSpeed = true;
+                       break;
+                   case "metronome":
+                       inMetronome = true;
+                       break;
+                   case "learningduration":
+                       inDuration = true;
+                       break;
+                   case "startingnote":
+                       inStartingnote = true;
+                       break;
+                   default:
+                       //erreur, on peut lever une exception
+                       throw new SAXException("Markup " + qName + " unknown.");
+               }
      }
    }
 
    //détection fin de balise
+   @Override
    public void endElement(String uri, String localName, String qName) throws
        SAXException {
      if (qName.equals("levels")) {
@@ -458,7 +447,7 @@ public boolean isScoreLevel(){
   	           //System.out.println("Tokens"+st.countTokens());
   	           if (st.countTokens() != 2) throw new SAXException("In level " + rlevel.getId() + " time should be like n/m");
   	           else {
-  	        	 p = Integer.parseInt(st.nextToken());
+  	        	 p = Integer.valueOf(st.nextToken());
   	        	 	if (p == 2) rlevel.setTimeSignNumerator(2);
   	        	  else if (p == 3) rlevel.setTimeSignNumerator(3);
  	        	  else if (p == 4) rlevel.setTimeSignNumerator(4);
@@ -487,14 +476,14 @@ public boolean isScoreLevel(){
    	           //System.out.println("Tokens"+st.countTokens());
    	           if (sts.countTokens() != 2) throw new SAXException("In level " + slevel.getId() + " time should be like n/m");
    	           else {
-   	        	 ps = Integer.parseInt(sts.nextToken());
+   	        	 ps = Integer.valueOf(sts.nextToken());
    	        	 	if (ps == 2) slevel.setTimeSignNumerator(2);
    	        	  else if (ps == 3) slevel.setTimeSignNumerator(3);
   	        	  else if (ps == 4) slevel.setTimeSignNumerator(4);
   	        	  else if (ps == 6) slevel.setTimeSignNumerator(6);
   	        	  else throw new SAXException("In level " + slevel.getId() + " numerator should be  2, 3, 4, 6  ");
    	        
-   	        	 	p = Integer.parseInt(sts.nextToken());
+   	        	 	p = Integer.valueOf(sts.nextToken());
    	    
    	         	 	if (p == 4 & ((slevel.getTimeSignNumerator() == 2)|(slevel.getTimeSignNumerator() == 3)|(slevel.getTimeSignNumerator() == 4))) {
    	         	 		slevel.setTimeSignDenominator(4);
@@ -537,7 +526,7 @@ public boolean isScoreLevel(){
   	           
   	           rlevel.adjustLevel(false, false, false, false, false, false, false);
   	           while ( st.hasMoreTokens() ) {
-  	        	    p = Integer.parseInt(st.nextToken());
+  	        	    p = Integer.valueOf(st.nextToken());
   	        	  if (p == 1 && rlevel.getTimeSignNumerator()==4 && rlevel.getTimeSignDenominator()==4) rlevel.setWholeNote(true);
   	        	  else if (p == 2) rlevel.setHalfNote(true);
   	        	  else if (p == 3 && rlevel.getTimeSignNumerator()>=3 && rlevel.getTimeSignDenominator()==4) rlevel.setDottedHalfNote(true);
@@ -1013,11 +1002,6 @@ public boolean isScoreLevel(){
 	   buffer = null;
 
 }
-
-   
-
-     
-     
      
 else {
        //erreur, on peut lever une exception
@@ -1026,6 +1010,7 @@ else {
    }
 
    //détection de caractères
+   @Override
    public void characters(char[] ch, int start, int length) throws SAXException {
      String lecture = new String(ch, start, length);
      if (buffer != null)
@@ -1033,11 +1018,13 @@ else {
    }
 
    //début du parsing
+   @Override
    public void startDocument() throws SAXException {
      System.out.println("Start of parsing");
    }
 
    //fin du parsing
+   @Override
    public void endDocument() throws SAXException {
      System.out.println("End of parsing");
      System.out.println("Results of parsing");

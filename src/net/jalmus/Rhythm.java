@@ -4,15 +4,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.ResourceBundle;
-
-import javax.swing.JOptionPane;
 
 /**
  * <p>Title: Jalmus</p>

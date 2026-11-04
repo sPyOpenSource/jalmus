@@ -20,9 +20,9 @@ import java.awt.Polygon;
 
 public class Piano {
 
-  Vector<Key> blackKeys = new Vector<Key>();
-  Vector<Key> keys = new Vector<Key>();
-  Vector<Key> whiteKeys = new Vector<Key>();
+  Vector<Key> blackKeys = new Vector<>();
+  Vector<Key> keys = new Vector<>();
+  Vector<Key> whiteKeys = new Vector<>();
   Color jfcBlue = new Color(204, 204, 255);
   Color red = new Color(242, 179, 112);
   Color pink = new Color(255, 175, 175);
@@ -174,7 +174,7 @@ public class Piano {
   /**
      * To play or stop the midi sound of a note when key of piano is pressed
      *
-     * @param ChannelData where the note should be play,
+     * @param cc where the note should be play,
      *  boolean indicate if the midi channel work and if sound is activate,
      *  int represent pitch of the note,
      *  int onoff if the note is already play or not.
@@ -247,7 +247,6 @@ public class Piano {
    * @param  g Graphics to paint 
    * @param  basenotepitch1 pitch of the first note to train
    * @param  basenotepitch2 pitch of the last note to train
-   * @return      void
    * @see         Image
    */
 
