@@ -466,7 +466,7 @@ public boolean isMessageEmpty(){
 
       /********************************/
  public void printtest(){
-   	   System.out.println("Level n°"+this.Id);
+   	   System.out.println("Level n"+this.Id);
    	    System.out.println("Whole note : " + this.whole);
    	  System.out.println("Half note : " + this.half);
 	  System.out.println("DottedHalf note : " + this.dottedhalf);

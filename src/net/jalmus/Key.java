@@ -12,11 +12,9 @@ package net.jalmus;
 import java.awt.Rectangle;
 
 public class Key extends Rectangle {
-  /**
-	* 
-	*/
-	private static final long serialVersionUID = 1L;
-	final int ON = 0, OFF = 1;
+
+    private static final long serialVersionUID = 1L;
+    final int ON = 0, OFF = 1;
     int noteState = OFF;
     int kNum;
     int offx; // just for black keys since they have an irregular pattern
@@ -52,4 +50,5 @@ public class Key extends Rectangle {
     public void setNoteState(int state) {
       noteState = state;
     }
+    
 } // End class Key

@@ -105,16 +105,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+
 import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.lang.String;
-import java.net.URL;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -122,6 +118,7 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Properties;
+
 import javax.imageio.ImageIO;
 import javax.sound.midi.Instrument;
 import javax.sound.midi.InvalidMidiDataException;
@@ -165,8 +162,8 @@ import javax.swing.JTextArea;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
-//import javax.swing.WindowConstants;
 import javax.swing.plaf.ColorUIResource;
+
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -185,7 +182,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
     private String tcredits;
 
-    private String pasclavier="Pas de clavier MIDI             ";
+    private String pasclavier = "Pas de clavier MIDI";
     private String seconde;
     private String tierce;
     private String quarte;
@@ -204,11 +201,11 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private String LA;
     private String SI;
 
-    private String language="en";
+    private String language = "en";
 
     Font MusiSync; // font used to render scores 
     private ResourceBundle bundle;
-    private final Collection<Localizable> localizables=new ArrayList<Localizable>();
+    private final Collection<Localizable> localizables = new ArrayList<>();
 
     //----------------------------------------------------------------
     // Main variables
@@ -221,11 +218,11 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
     //----------------------------------------------------------------
     // Lesson variables
-    private Lessons currentlesson=new Lessons();
+    private Lessons currentlesson = new Lessons();
     private boolean isLessonMode;
-    private JMenu lessonsMenu=new JMenu();
-    private JMenu[] lessonsMenuDir=new JMenu[16];
-    private JMenuItem[][] lessonsMenuItem=new JMenuItem[16][26];
+    private JMenu lessonsMenu = new JMenu();
+    private JMenu[] lessonsMenuDir = new JMenu[16];
+    private JMenuItem[][] lessonsMenuItem = new JMenuItem[16][26];
     private String path;
     private String[] pathsubdir = new String[16];
 
@@ -238,7 +235,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private MidiDevice outputDevice = null;
     private Synthesizer syn;
     private Instrument[] instruments;
-    private int noteDuration=2000;
+    private int noteDuration = 2000;
     private ChannelData currentChannel; // current channel
     private boolean open;
 
@@ -247,13 +244,13 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
     // Animation Resources
 
-    private RenderingThread renderingThread=new RenderingThread();
-    private Anim panelanim=new Anim();
+    private RenderingThread renderingThread = new RenderingThread();
+    private Anim panelanim = new Anim();
     private Image jbackground;
 
-    private Note ncourante=new Note("", "", 0, 25, 0);
-    private Chord acourant=new Chord(ncourante, ncourante, ncourante, "", 0);
-    private Interval icourant=new Interval(ncourante, ncourante, "");
+    private Note ncourante = new Note("", "", 0, 25, 0);
+    private Chord acourant = new Chord(ncourante, ncourante, ncourante, "", 0);
+    private Interval icourant = new Interval(ncourante, ncourante, "");
 
 /*
  *  ************************************* SCORE LAYOUT ***************************************
@@ -276,7 +273,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private int alterationWidth = 0; // width of alterations symbols. None by default
     private int timeSignWidth = 30; // width of current score time signature symbol. This includes also the first note margin
 
-    private int scoreYpos=110; // Y coordinate of the first row of the score
+    private int scoreYpos = 110; // Y coordinate of the first row of the score
     private int rowsDistance = 100; // distance in pixel between staff rows
     private int numberOfMeasures = 2; // number of measures in a single row
     private int numberOfRows = 4; // number of score rows
@@ -284,16 +281,16 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private int noteDistance = 72; // distance in pixel between 1/4 notes
     
 
-    private int posnote=1; // current position of the note within a chor or an interval
+    private int posnote = 1; // current position of the note within a chor or an interval
 
     private boolean alterationok;
 
-    private int notemargin=220; // margin for note reading
+    private int notemargin = 220; // margin for note reading
     private int firstNoteXPos = windowMargin + keyWidth + alterationWidth + timeSignWidth + notesShift;
 
-    private Score currentScore=new Score();
+    private Score currentScore = new Score();
 
-    private NoteLevel noteLevel=new NoteLevel();
+    private NoteLevel noteLevel = new NoteLevel();
 
     // Learning Game
 
@@ -316,9 +313,9 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
     private RhythmLevel rhythmLevel=new RhythmLevel();
     
-    private ArrayList<Rhythm> rhythms = new ArrayList<Rhythm>(); 
+    private ArrayList<Rhythm> rhythms = new ArrayList<>(); 
     private int rhythmIndex=-1; // index of the current note in the list
-    private ArrayList<RhythmAnswer> answers = new ArrayList<RhythmAnswer>();
+    private ArrayList<RhythmAnswer> answers = new ArrayList<>();
     private int rhythmAnswerScoreYpos=100; //distance to paint answer
     private float rhythmCursorXpos = firstNoteXPos - noteDistance; // X position of the cursor on the score during rhythm game
     private int rhythmCursorXStartPos = firstNoteXPos - noteDistance;
@@ -493,10 +490,9 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private JCheckBox soundOnCheckBox;
     private JComboBox instrumentsComboBox;
     private JComboBox keyboardLengthComboBox; // for length-number of touchs of keyboard
-   //private JComboBox transpositionComboBox; // for transposition MIDI keyboard
-   private JSpinner transpositionSpinner; // for transposition MIDI keyboard
-   private SpinnerNumberModel m_numberSpinnerModel;
-   private JLabel transpositionLabel=new JLabel();
+    private JSpinner transpositionSpinner; // for transposition MIDI keyboard
+    private SpinnerNumberModel m_numberSpinnerModel;
+    private JLabel transpositionLabel=new JLabel();
 
     private JSlider latencySlider = new JSlider(JSlider.HORIZONTAL, 0, 250, 0);
 
@@ -1080,8 +1076,8 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
 
         addMouseListener(new MouseAdapter() {
-;
             
+            @Override
             public void mousePressed(MouseEvent e) {
                 requestFocus();
      
@@ -1120,6 +1116,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 }
             }
 
+            @Override
             public void mouseReleased(MouseEvent e) {
                 if (selectedGame==NOTEREADING) {
                     if (piano.Getprevkey()!=null) {
@@ -1129,6 +1126,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 }
             }
 
+            @Override
             public void mouseExited(MouseEvent e) {
                 if (selectedGame==NOTEREADING) {
                     if (piano.Getprevkey()!=null) {
