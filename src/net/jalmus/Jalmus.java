@@ -460,6 +460,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private JLabel    timeSignLabel;
     private JComboBox timeSignComboBox;
     private JCheckBox metronomeCheckBox;
+    private JCheckBox hintCheckBox; // falling key hint toggle, note-reading tab
     private JCheckBox metronomeShowCheckBox;
     
     private JComboBox scoreGameTypeComboBox; //type of games
@@ -1998,6 +1999,10 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
         localizables.add(new Localizable.NamedGroup(noteReadingNotesPanel, "_menuNotes"));
 
+        hintCheckBox=new JCheckBox("Show falling key hint", true);
+        hintCheckBox.addItemListener(this);
+        noteReadingNotesPanel.add(hintCheckBox);
+
         
 
       
@@ -3209,6 +3214,11 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         savePrefs[0]=noteGameTypeComboBox.getSelectedIndex();
         savePrefs[1]=noteGameSpeedComboBox.getSelectedIndex();
         savePrefs[2]=keyComboBox.getSelectedIndex();
+        if (hintCheckBox.isSelected()) {
+            savePrefs[3]=1;
+        } else {
+            savePrefs[3]=0;
+        }
         savePrefs[4]=keySignatureCheckBox.getSelectedIndex();
         savePrefs[5]=noteGameSpeedComboBox.getSelectedIndex();
         savePrefs[6]=noteGroupComboBox.getSelectedIndex();
@@ -3312,6 +3322,13 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         noteGameTypeComboBox.setSelectedIndex(savePrefs[0]);
         noteGameSpeedComboBox.setSelectedIndex(savePrefs[1]);
         keyComboBox.setSelectedIndex(savePrefs[2]);
+        if (savePrefs[3]==1) {
+            hintCheckBox.setSelected(true);
+            hintEnabled=true;
+        } else {
+            hintCheckBox.setSelected(false);
+            hintEnabled=false;
+        }
         keySignatureCheckBox.setSelectedIndex(savePrefs[4]);
         noteGameSpeedComboBox.setSelectedIndex(savePrefs[5]);
         noteGroupComboBox.setSelectedIndex(savePrefs[6]);
