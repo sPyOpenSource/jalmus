@@ -89,6 +89,7 @@ import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -242,8 +243,8 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private boolean open;
 
     // Keyboard-to-piano mapping (home row, language independent)
-    private static final Map<Character,String> NOTE_BY_KEY = new HashMap<Character,String>();
-    private static final Map<Character,Integer> PITCH_BY_KEY = new HashMap<Character,Integer>();
+    private Map<Character,String> NOTE_BY_KEY = new HashMap<Character,String>();
+    private Map<Character,Integer> PITCH_BY_KEY = new HashMap<Character,Integer>();
     private net.jalmus.Key keyboardSoundingKey = null;
 
     private void ensureKeyboardMaps() {
@@ -569,7 +570,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
    	      //if no language in command line then search in settings file
    	      if ("".equals(paramlanguage)) paramlanguage = settings.getProperty("language");
     	}
-    	catch (Exception e) {
+    	catch (IOException e) {
    	      System.out.println(e);
     	}
 
@@ -580,7 +581,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         try {
         	jbackground = ImageIO.read(getClass().getClassLoader().getResource("images/bg1.png"));
         }
-        catch(Exception e){
+        catch(IOException e){
             System.out.println("Cannot load background image");
             //System.exit(0);
           }
@@ -589,7 +590,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         	InputStream fInput = this.getClass().getResourceAsStream("/images/MusiSync.ttf");
         	MusiSync = Font.createFont (Font.PLAIN, fInput);
         }
-        catch(Exception e){
+        catch(FontFormatException | IOException e){
         	System.out.println("Cannot load MusiSync font !!");
         	System.exit(0);
         }
@@ -599,6 +600,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         localizables.add(new Localizable.Button(startButton, "_start"));
         startButton.setPreferredSize(new Dimension(150, 20));
         startButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 handleStartButtonClicked();
             }
@@ -1240,6 +1242,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         JMenuItem rhythmReadingMenuItem=new JMenuItem(new ImageIcon(getClass().getResource("/images/rythme.png")));
         localizables.add(new Localizable.Button(rhythmReadingMenuItem, "_menuRythmreading"));
         rhythmReadingMenuItem.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 handleRhythmReadingMenuItem();
             }
@@ -1248,6 +1251,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         JMenuItem scoreReadingMenuItem=new JMenuItem(new ImageIcon(getClass().getResource("/images/score.png")));
         localizables.add(new Localizable.Button(scoreReadingMenuItem, "_menuScorereading"));
         scoreReadingMenuItem.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 handleScoreReadingMenuItem();
             }
@@ -1257,6 +1261,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         JMenuItem exitMenuItem=new JMenuItem(new ImageIcon(getClass().getResource("/images/exit.png")));
         localizables.add(new Localizable.Button(exitMenuItem, "_menuExit"));
         exitMenuItem.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 handleExitMenuItem();
             }
@@ -4205,6 +4210,10 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         SOL=bundle.getString("_sol");
         LA=bundle.getString("_la");
         SI=bundle.getString("_si");
+
+        // Clear keyboard maps so they repopulate with new language on next key press
+        NOTE_BY_KEY.clear();
+        PITCH_BY_KEY.clear();
 
         bdo.setText(DO);
         bre.setText(RE);
