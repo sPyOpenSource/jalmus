@@ -4899,6 +4899,26 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             }
             		
             ncourante.setX(notemargin+98);
+
+            // Falling hint for learning mode (note reading)
+            if (selectedGame == NOTEREADING && noteLevel.isLearninggame() && hintEnabled) {
+                String nom = ncourante.getNom();
+                Integer pitch = null;
+                String letter = "";
+                for (java.util.Map.Entry<Character, String> e : NOTE_BY_KEY.entrySet()) {
+                    if (e.getValue().equals(nom)) {
+                        pitch = PITCH_BY_KEY.get(e.getKey());
+                        letter = String.valueOf(e.getKey()).toUpperCase();
+                        break;
+                    }
+                }
+                if (pitch != null) {
+                    hintPitch = pitch;
+                    hintLetter = letter;
+                    hintProgress = 0f;
+                    hintActive = true;
+                }
+            }
              System.out.println(ncourante.getNom());
             System.out.println(ncourante.getHeight());
 			System.out.println(ncourante.getPitch());
