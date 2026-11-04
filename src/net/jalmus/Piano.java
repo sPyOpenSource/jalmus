@@ -103,6 +103,26 @@ public class Piano {
     return this.prevKey;
   }
 
+  /**
+     * To return Key of the Piano matching a given MIDI pitch
+     * @return Key whose kNum equals pitch, or null if not found
+     * @param pitch MIDI pitch of the key
+   */
+  public net.jalmus.Key getKeyByPitch(int pitch) {
+    for (int i = 0; i < whiteKeys.size(); i++) {
+      net.jalmus.Key key = (net.jalmus.Key) whiteKeys.get(i);
+      if (key.kNum == pitch) {
+        return key;
+      }
+    }
+    for (int i = 0; i < blackKeys.size(); i++) {
+      net.jalmus.Key key = (net.jalmus.Key) blackKeys.get(i);
+      if (key.kNum == pitch) {
+        return key;
+      }
+    }
+    return null;
+  }
 
 
   /**
