@@ -248,6 +248,13 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private net.jalmus.Key keyboardSoundingKey = null;
     private char lastKeyboardKey = 0;
 
+    // Falling hint bar (learning mode, note reading)
+    private boolean hintActive = false;
+    private int hintPitch = 0;
+    private String hintLetter = "";
+    private float hintProgress = 0f;   // 0.0 (above staff) to 1.0 (landed on key)
+    private boolean hintEnabled = true; // preferences toggle, default on
+
     private void ensureKeyboardMaps() {
         if (!NOTE_BY_KEY.isEmpty()) return;
         NOTE_BY_KEY.put('a', DO);     PITCH_BY_KEY.put('a', 60);
@@ -2639,6 +2646,16 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             }
         }
     }  // end keyTyped()
+
+    /**
+     * Advance the falling hint bar one tick (~10ms, called from RenderingThread).
+     * Progress goes 0.0 -> 1.0 over ~100 ticks (~1 second).
+     */
+    private void updateHint() {
+        if (!hintActive) return;
+        hintProgress += 0.01f;
+        if (hintProgress > 1.0f) hintProgress = 1.0f;
+    }
 
     public void keyPressed(KeyEvent evt) {
 
