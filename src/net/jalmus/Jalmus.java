@@ -246,6 +246,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private Map<Character,String> NOTE_BY_KEY = new HashMap<Character,String>();
     private Map<Character,Integer> PITCH_BY_KEY = new HashMap<Character,Integer>();
     private net.jalmus.Key keyboardSoundingKey = null;
+    private char lastKeyboardKey = 0;
 
     private void ensureKeyboardMaps() {
         if (!NOTE_BY_KEY.isEmpty()) return;
@@ -2627,11 +2628,14 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                         if (panelanim != null) panelanim.repaint();
                     }
                 }
-                if (note.equals(ncourante.getNom())) {
-                    rightAnswer();
-                } else {
-                    wrongAnswer();
+                if (ch != lastKeyboardKey) {
+                    if (note.equals(ncourante.getNom())) {
+                        rightAnswer();
+                    } else {
+                        wrongAnswer();
+                    }
                 }
+                lastKeyboardKey = ch;
             }
         }
     }  // end keyTyped()
