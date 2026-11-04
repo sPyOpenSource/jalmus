@@ -2638,6 +2638,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 }
                 if (ch != lastKeyboardKey) {
                     if (note.equals(ncourante.getNom())) {
+                        hintActive = false;
                         rightAnswer();
                     } else {
                         wrongAnswer();
