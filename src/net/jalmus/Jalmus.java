@@ -4902,17 +4902,15 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
             // Falling hint for learning mode (note reading)
             if (selectedGame == NOTEREADING && noteLevel.isLearninggame() && hintEnabled) {
-                String nom = ncourante.getNom();
-                Integer pitch = null;
+                int pitch = ncourante.getPitch();
                 String letter = "";
-                for (java.util.Map.Entry<Character, String> e : NOTE_BY_KEY.entrySet()) {
-                    if (e.getValue().equals(nom)) {
-                        pitch = PITCH_BY_KEY.get(e.getKey());
+                for (Map.Entry<Character, Integer> e : PITCH_BY_KEY.entrySet()) {
+                    if (e.getValue().intValue() == pitch) {
                         letter = String.valueOf(e.getKey()).toUpperCase();
                         break;
                     }
                 }
-                if (pitch != null) {
+                if (!letter.isEmpty()) {
                     hintPitch = pitch;
                     hintLetter = letter;
                     hintProgress = 0f;
