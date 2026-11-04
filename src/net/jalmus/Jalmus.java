@@ -176,13 +176,9 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     //----------------------------------------------------------------
     // Translation variables
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private String tlicence;
-
+    private String tlicence;
     private String tcredits;
 
     private String pasclavier = "Pas de clavier MIDI";
@@ -5754,6 +5750,10 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                     }
 
                     panelanim.repaint();
+                    if (hintActive) {
+                        updateHint();
+                        panelanim.repaint();
+                    }
 
                     int tmpdiv = 1;	
                     //thread for rhythm game move the rhythm cursor according to tempo
@@ -5898,6 +5898,11 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                     piano.paint(g, d.width, !isLessonMode & !parti & (noteLevel.isNotesgame()|| noteLevel.isAccidentalsgame()),
                     		basenotet1.getPitch(), basenotet2.getPitch(),basenoteb1.getPitch(), basenoteb2.getPitch(),  0, 0, 0,
                     		noteLevel.isCustomNotesgame(), noteLevel.getPitcheslist());
+                }
+
+                if (hintActive && selectedGame == NOTEREADING && parti && !paused) {
+                    piano.setHint(hintPitch, hintProgress, hintLetter);
+                    piano.paintHint(g, d.width);
                 }
 
             } else if (selectedGame==FIRSTSCREEN) {
@@ -6097,7 +6102,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 } else {
                     output=("   MetaEvent");
                 }
-                  if (output != "") System.out.println(output);
+                  if (!"".equals(output)) System.out.println(output);
             }
         }
 
