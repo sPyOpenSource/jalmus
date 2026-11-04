@@ -2612,29 +2612,22 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
  
 
         if (selectedGame==NOTEREADING && parti && !paused && noteLevel.isNotesgame()) {
-
-            if (ch=='Q' || ch=='q' || ch=='A' || ch=='a' || ch=='S' || ch=='s' ||
-                ch=='D' || ch=='d' || ch=='F' || ch=='f' || ch=='G' || ch=='g' ||
-                ch=='H' || ch=='h' || ch=='J' || ch=='j' || ch=='K' || ch=='k') {
-
-                if (((language=="fr" && (ch=='Q' || ch=='q'))
-                    || ((language=="en" || language=="es" || language=="de") && (ch=='A' || ch=='a')))
-                    && ncourante.getNom()==DO)
-                {
-                    rightAnswer();
-                } else if ((ch=='S' || ch=='s') && ncourante.getNom().equals(RE)) {
-                    rightAnswer();
-                } else if ((ch=='D' || ch=='d') && ncourante.getNom().equals(MI)) {
-                    rightAnswer();
-                } else if ((ch=='F' || ch=='f') && ncourante.getNom().equals(FA)) {
-                    rightAnswer();
-                } else if ((ch=='G' || ch=='g') && ncourante.getNom().equals(SOL)) {
-                    rightAnswer();
-                } else if ((ch=='H' || ch=='h') && ncourante.getNom().equals(LA)) {
-                    rightAnswer();
-                } else if ((ch=='J' || ch=='j') && ncourante.getNom().equals(SI)) {
-                    rightAnswer();
-                } else if ((ch=='K' || ch=='k') && ncourante.getNom().equals(DO)) {
+            ensureKeyboardMaps();
+            String note = NOTE_BY_KEY.get(Character.valueOf(ch));
+            if (note != null) {
+                Integer pitch = PITCH_BY_KEY.get(Character.valueOf(ch));
+                if (pitch != null && piano != null && currentChannel != null) {
+                    net.jalmus.Key key = piano.getKeyByPitch(pitch);
+                    if (key != null) {
+                        if (keyboardSoundingKey != null) {
+                            keyboardSoundingKey.off(currentChannel, soundOnCheckBox.isSelected() && !midierror);
+                        }
+                        key.on(currentChannel, soundOnCheckBox.isSelected() && !midierror);
+                        keyboardSoundingKey = key;
+                        if (panelanim != null) panelanim.repaint();
+                    }
+                }
+                if (note.equals(ncourante.getNom())) {
                     rightAnswer();
                 } else {
                     wrongAnswer();
