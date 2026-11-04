@@ -2668,6 +2668,15 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
     public void keyReleased(KeyEvent evt) {
         // empty method, required by the KeyListener Interface
+        ensureKeyboardMaps();
+        char ch = evt.getKeyChar();
+        if (NOTE_BY_KEY.containsKey(Character.valueOf(ch))) {
+            if (keyboardSoundingKey != null && currentChannel != null) {
+                keyboardSoundingKey.off(currentChannel, soundOnCheckBox.isSelected() && !midierror);
+                keyboardSoundingKey = null;
+                if (panelanim != null) panelanim.repaint();
+            }
+        }
     }
 
     public void actionPerformed(ActionEvent e) {
