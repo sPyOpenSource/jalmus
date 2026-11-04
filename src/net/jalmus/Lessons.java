@@ -56,7 +56,7 @@ public void nextLevel(){
 }
 
 
-public String  getLessonPath(String language){
+public String getLessonPath(String language){
   	String path = "";
   	
   	  path=getClass().getSimpleName()+".class";
