@@ -5929,7 +5929,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 } 
                 else {
                     piano.paint(g, d.width, !isLessonMode & !parti & (noteLevel.isNotesgame()|| noteLevel.isAccidentalsgame()),
-                    		basenotet1.getPitch(), basenotet2.getPitch(),basenoteb1.getPitch(), basenoteb2.getPitch(),  0, 0, 0,
+                    		basenotet1.getPitch(), basenotet2.getPitch(),basenoteb1.getPitch(), basenoteb2.getPitch(),  ncourante.getPitch(), 0, 0,
                     		noteLevel.isCustomNotesgame(), noteLevel.getPitcheslist());
                 }
 
