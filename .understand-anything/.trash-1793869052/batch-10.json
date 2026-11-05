@@ -1,0 +1,187 @@
+{
+  "nodes": [
+    {
+      "id": "file:lessons/fr/01. Solfège/01. Tres lentement.xml",
+      "type": "document",
+      "name": "01. Tres lentement.xml",
+      "summary": "Documentation / content file `01. Tres lentement`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fr/01. Solfège/01. Tres lentement.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/fr/01. Solfège/01. Une octave en cle de Sol.xml",
+      "type": "document",
+      "name": "01. Une octave en cle de Sol.xml",
+      "summary": "Documentation / content file `01. Une octave en cle de Sol`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fr/01. Solfège/01. Une octave en cle de Sol.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/fr/01. Solfège/02. Toutes les notes en cle de Sol.xml",
+      "type": "document",
+      "name": "02. Toutes les notes en cle de Sol.xml",
+      "summary": "Documentation / content file `02. Toutes les notes en cle de Sol`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fr/01. Solfège/02. Toutes les notes en cle de Sol.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/fr/01. Solfège/03. Une octave en cle de Fa.xml",
+      "type": "document",
+      "name": "03. Une octave en cle de Fa.xml",
+      "summary": "Documentation / content file `03. Une octave en cle de Fa`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fr/01. Solfège/03. Une octave en cle de Fa.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/fr/01. Solfège/04. Toutes les notes en cle de Fa.xml",
+      "type": "document",
+      "name": "04. Toutes les notes en cle de Fa.xml",
+      "summary": "Documentation / content file `04. Toutes les notes en cle de Fa`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fr/01. Solfège/04. Toutes les notes en cle de Fa.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/fr/01. Solfège/05. Les notes sur une portee de piano.xml",
+      "type": "document",
+      "name": "05. Les notes sur une portee de piano.xml",
+      "summary": "Documentation / content file `05. Les notes sur une portee de piano`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fr/01. Solfège/05. Les notes sur une portee de piano.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/fr/01. Solfège/06. Notes graves en cle de Fa.xml",
+      "type": "document",
+      "name": "06. Notes graves en cle de Fa.xml",
+      "summary": "Documentation / content file `06. Notes graves en cle de Fa`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fr/01. Solfège/06. Notes graves en cle de Fa.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/fr/01. Solfège/07. Notes aigues en cle de Sol.xml",
+      "type": "document",
+      "name": "07. Notes aigues en cle de Sol.xml",
+      "summary": "Documentation / content file `07. Notes aigues en cle de Sol`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fr/01. Solfège/07. Notes aigues en cle de Sol.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/fr/01. Solfège/08. Intervalles - tierces et quintes.xml",
+      "type": "document",
+      "name": "08. Intervalles - tierces et quintes.xml",
+      "summary": "Documentation / content file `08. Intervalles - tierces et quintes`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fr/01. Solfège/08. Intervalles - tierces et quintes.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/fr/01. Solfège/09. Tonalites - La Majeur.xml",
+      "type": "document",
+      "name": "09. Tonalites - La Majeur.xml",
+      "summary": "Documentation / content file `09. Tonalites - La Majeur`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fr/01. Solfège/09. Tonalites - La Majeur.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/fr/01. Solfège/10. Tonalites - Mi Bemol Majeur.xml",
+      "type": "document",
+      "name": "10. Tonalites - Mi Bemol Majeur.xml",
+      "summary": "Documentation / content file `10. Tonalites - Mi Bemol Majeur`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fr/01. Solfège/10. Tonalites - Mi Bemol Majeur.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/fr/01. Solfège/11. Toutes les tonalites avec dieses.xml",
+      "type": "document",
+      "name": "11. Toutes les tonalites avec dieses.xml",
+      "summary": "Documentation / content file `11. Toutes les tonalites avec dieses`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fr/01. Solfège/11. Toutes les tonalites avec dieses.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/fr/01. Solfège/12. Toutes les tonalites avec bemols.xml",
+      "type": "document",
+      "name": "12. Toutes les tonalites avec bemols.xml",
+      "summary": "Documentation / content file `12. Toutes les tonalites avec bemols`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fr/01. Solfège/12. Toutes les tonalites avec bemols.xml",
+      "language": "xml"
+    }
+  ],
+  "edges": []
+}

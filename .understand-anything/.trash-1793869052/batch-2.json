@@ -1,0 +1,41 @@
+{
+  "nodes": [
+    {
+      "id": "file:docs/superpowers/specs/2026-11-04-falling-hint-bar-design.md",
+      "type": "document",
+      "name": "2026-11-04-falling-hint-bar-design.md",
+      "summary": "Documentation / content file `2026-11-04-falling-hint-bar-design`.",
+      "tags": [
+        "documentation"
+      ],
+      "complexity": "simple",
+      "filePath": "docs/superpowers/specs/2026-11-04-falling-hint-bar-design.md",
+      "language": "markdown"
+    },
+    {
+      "id": "file:docs/superpowers/specs/2026-11-04-keyboard-piano-mapping-design.md",
+      "type": "document",
+      "name": "2026-11-04-keyboard-piano-mapping-design.md",
+      "summary": "Documentation / content file `2026-11-04-keyboard-piano-mapping-design`.",
+      "tags": [
+        "documentation"
+      ],
+      "complexity": "simple",
+      "filePath": "docs/superpowers/specs/2026-11-04-keyboard-piano-mapping-design.md",
+      "language": "markdown"
+    },
+    {
+      "id": "file:docs/superpowers/specs/2026-11-05-happy-birthday-lessons-design.md",
+      "type": "document",
+      "name": "2026-11-05-happy-birthday-lessons-design.md",
+      "summary": "Documentation / content file `2026-11-05-happy-birthday-lessons-design`.",
+      "tags": [
+        "documentation"
+      ],
+      "complexity": "simple",
+      "filePath": "docs/superpowers/specs/2026-11-05-happy-birthday-lessons-design.md",
+      "language": "markdown"
+    }
+  ],
+  "edges": []
+}

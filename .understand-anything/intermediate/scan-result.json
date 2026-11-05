@@ -1,0 +1,2343 @@
+{
+  "projectName": "jalmus",
+  "projectDescription": "Jalmus is a music notation learning application that trains note reading, rhythm reading, and score reading. It helps users learn to read sheet music through interactive exercises. Version 2.3, internationalized into 13 languages. Built with Java and an Ant build script.",
+  "languages": [
+    "gm",
+    "html",
+    "java",
+    "markdown",
+    "mf",
+    "prefs",
+    "properties",
+    "shell",
+    "txt",
+    "xml"
+  ],
+  "frameworks": [],
+  "files": [
+    {
+      "path": ".classpath",
+      "language": "unknown",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".project",
+      "language": "unknown",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".settings/org.eclipse.ltk.core.refactoring.prefs",
+      "language": "prefs",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".superpowers/brainstorm/.last-port",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".superpowers/brainstorm/.last-token",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".superpowers/brainstorm/12671-1793829741/content/hint-timing.html",
+      "language": "html",
+      "sizeLines": 30,
+      "fileCategory": "markup"
+    },
+    {
+      "path": ".superpowers/brainstorm/12671-1793829741/content/waiting.html",
+      "language": "html",
+      "sizeLines": 2,
+      "fileCategory": "markup"
+    },
+    {
+      "path": ".superpowers/brainstorm/12671-1793829741/state/server-stopped",
+      "language": "unknown",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".understand-anything/.understandignore",
+      "language": "unknown",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "build.xml",
+      "language": "xml",
+      "sizeLines": 80,
+      "fileCategory": "config"
+    },
+    {
+      "path": "Changelog.txt",
+      "language": "txt",
+      "sizeLines": 97,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "compile_Izpack.sh",
+      "language": "shell",
+      "sizeLines": 2,
+      "fileCategory": "script"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-04-falling-hint-bar.md",
+      "language": "markdown",
+      "sizeLines": 428,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-04-keyboard-piano-mapping.md",
+      "language": "markdown",
+      "sizeLines": 360,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-11-04-falling-hint-bar-design.md",
+      "language": "markdown",
+      "sizeLines": 144,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-11-04-keyboard-piano-mapping-design.md",
+      "language": "markdown",
+      "sizeLines": 132,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-11-05-happy-birthday-lessons-design.md",
+      "language": "markdown",
+      "sizeLines": 105,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "install_files/licence.txt",
+      "language": "txt",
+      "sizeLines": 340,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "install_files/readme.txt",
+      "language": "txt",
+      "sizeLines": 5,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "install_files/shortcutSpec.xml",
+      "language": "xml",
+      "sizeLines": 43,
+      "fileCategory": "config"
+    },
+    {
+      "path": "install_files/soundbank-mid.gm",
+      "language": "gm",
+      "sizeLines": 4387,
+      "fileCategory": "code"
+    },
+    {
+      "path": "install_files/TargetPathWin.txt",
+      "language": "txt",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "install_files/Unix_shortcutSpec.xml",
+      "language": "xml",
+      "sizeLines": 54,
+      "fileCategory": "config"
+    },
+    {
+      "path": "installjalmus.xml",
+      "language": "xml",
+      "sizeLines": 105,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/da/01. Basic/01. An octave on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/da/01. Basic/02. All notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/da/01. Basic/03. An octave on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/da/01. Basic/04. All notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/da/01. Basic/05. All notes in piano staff.xml",
+      "language": "xml",
+      "sizeLines": 63,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/da/01. Basic/06. Bass notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/da/01. Basic/07. Treble notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/da/01. Basic/08. Intervals - third and fifth.xml",
+      "language": "xml",
+      "sizeLines": 70,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/da/01. Basic/09. Tonality - A Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/da/01. Basic/10. Tonality - E Flat Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/da/01. Basic/11. All tonality with sharps.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/da/01. Basic/12. All tonality with flats.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/da/02. Violin/01. Open strings.xml",
+      "language": "xml",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/da/02. Violin/02. First finger.xml",
+      "language": "xml",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/da/02. Violin/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/da/03. Sax/01. First notes.xml",
+      "language": "xml",
+      "sizeLines": 39,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/da/03. Sax/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/da/99. My lessons/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/de/01. Basic/01. An octave on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/de/01. Basic/02. All notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/de/01. Basic/03. An octave on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/de/01. Basic/04. All notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/de/01. Basic/05. All notes in piano staff.xml",
+      "language": "xml",
+      "sizeLines": 63,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/de/01. Basic/06. Bass notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/de/01. Basic/07. Treble notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/de/01. Basic/08. Intervals - third and fifth.xml",
+      "language": "xml",
+      "sizeLines": 70,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/de/01. Basic/09. Tonality - A Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/de/01. Basic/10. Tonality - E Flat Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/de/01. Basic/11. All tonality with sharps.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/de/01. Basic/12. All tonality with flats.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/de/02. Violin/01. Open strings.xml",
+      "language": "xml",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/de/02. Violin/02. First finger.xml",
+      "language": "xml",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/de/02. Violin/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/de/03. Sax/01. First notes.xml",
+      "language": "xml",
+      "sizeLines": 39,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/de/03. Sax/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/de/99. My lessons/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/en/01. Basic/01. An octave on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/01. Basic/02. All notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/01. Basic/03. An octave on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/01. Basic/04. All notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/01. Basic/05. All notes in piano staff.xml",
+      "language": "xml",
+      "sizeLines": 63,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/01. Basic/06. Bass notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/01. Basic/07. Treble notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/01. Basic/08. Intervals - third and fifth.xml",
+      "language": "xml",
+      "sizeLines": 70,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/01. Basic/09. Tonality - A Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/01. Basic/10. Tonality - E Flat Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/01. Basic/11. All tonality with sharps.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/01. Basic/12. All tonality with flats.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/01. Basic/13. Custom notes.xml",
+      "language": "xml",
+      "sizeLines": 20,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/01. Basic/14. Test rhythms.xml",
+      "language": "xml",
+      "sizeLines": 30,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/01. Basic/Happy Birthday (Bass).xml",
+      "language": "xml",
+      "sizeLines": 92,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/01. Basic/Happy Birthday (Treble).xml",
+      "language": "xml",
+      "sizeLines": 92,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/02. Violin/01. Open strings.xml",
+      "language": "xml",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/02. Violin/02. First finger.xml",
+      "language": "xml",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/02. Violin/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/en/03. Sax/01. First notes.xml",
+      "language": "xml",
+      "sizeLines": 39,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/en/03. Sax/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/en/99. My lessons/test.xml",
+      "language": "xml",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/eo/01. Basic/01. An octave on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/eo/01. Basic/02. All notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/eo/01. Basic/03. An octave on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/eo/01. Basic/04. All notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/eo/01. Basic/05. All notes in piano staff.xml",
+      "language": "xml",
+      "sizeLines": 63,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/eo/01. Basic/06. Bass notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/eo/01. Basic/07. Treble notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/eo/01. Basic/08. Intervals - third and fifth.xml",
+      "language": "xml",
+      "sizeLines": 70,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/eo/01. Basic/09. Tonality - A Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/eo/01. Basic/10. Tonality - E Flat Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/eo/01. Basic/11. All tonality with sharps.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/eo/01. Basic/12. All tonality with flats.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/eo/02. Violin/01. Open strings.xml",
+      "language": "xml",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/eo/02. Violin/02. First finger.xml",
+      "language": "xml",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/eo/02. Violin/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/eo/03. Sax/01. First notes.xml",
+      "language": "xml",
+      "sizeLines": 39,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/eo/03. Sax/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/eo/99. My lessons/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/es/01. Basic/01. An octave on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/es/01. Basic/02. All notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/es/01. Basic/03. An octave on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/es/01. Basic/04. All notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/es/01. Basic/05. All notes in piano staff.xml",
+      "language": "xml",
+      "sizeLines": 63,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/es/01. Basic/06. Bass notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/es/01. Basic/07. Treble notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/es/01. Basic/08. Intervals - third and fifth.xml",
+      "language": "xml",
+      "sizeLines": 70,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/es/01. Basic/09. Tonality - A Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/es/01. Basic/10. Tonality - E Flat Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/es/01. Basic/11. All tonality with sharps.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/es/01. Basic/12. All tonality with flats.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/es/02. Violin/01. Open strings.xml",
+      "language": "xml",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/es/02. Violin/02. First finger.xml",
+      "language": "xml",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/es/02. Violin/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/es/03. Sax/01. First notes.xml",
+      "language": "xml",
+      "sizeLines": 39,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/es/03. Sax/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/es/99. My lessons/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/fi/01. Basic/01. An octave on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fi/01. Basic/02. All notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fi/01. Basic/03. An octave on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fi/01. Basic/04. All notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fi/01. Basic/05. All notes in piano staff.xml",
+      "language": "xml",
+      "sizeLines": 63,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fi/01. Basic/06. Bass notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fi/01. Basic/07. Treble notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fi/01. Basic/08. Intervals - third and fifth.xml",
+      "language": "xml",
+      "sizeLines": 70,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fi/01. Basic/09. Tonality - A Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fi/01. Basic/10. Tonality - E Flat Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fi/01. Basic/11. All tonality with sharps.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fi/01. Basic/12. All tonality with flats.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fi/02. Violin/01. Open strings.xml",
+      "language": "xml",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fi/02. Violin/02. First finger.xml",
+      "language": "xml",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fi/02. Violin/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/fi/03. Sax/01. First notes.xml",
+      "language": "xml",
+      "sizeLines": 39,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fi/03. Sax/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/fi/99. My lessons/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/fr/01. Solfège/01. Tres lentement.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fr/01. Solfège/01. Une octave en cle de Sol.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fr/01. Solfège/02. Toutes les notes en cle de Sol.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fr/01. Solfège/03. Une octave en cle de Fa.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fr/01. Solfège/04. Toutes les notes en cle de Fa.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fr/01. Solfège/05. Les notes sur une portee de piano.xml",
+      "language": "xml",
+      "sizeLines": 63,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fr/01. Solfège/06. Notes graves en cle de Fa.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fr/01. Solfège/07. Notes aigues en cle de Sol.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fr/01. Solfège/08. Intervalles - tierces et quintes.xml",
+      "language": "xml",
+      "sizeLines": 70,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fr/01. Solfège/09. Tonalites - La Majeur.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fr/01. Solfège/10. Tonalites - Mi Bemol Majeur.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fr/01. Solfège/11. Toutes les tonalites avec dieses.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fr/01. Solfège/12. Toutes les tonalites avec bemols.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fr/02. Violon/01. Cordes à vide.xml",
+      "language": "xml",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fr/02. Violon/02. Premier doigt.xml",
+      "language": "xml",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fr/02. Violon/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/fr/03. Sax Alto/01. Premières notes.xml",
+      "language": "xml",
+      "sizeLines": 39,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/fr/03. Sax Alto/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/fr/99. Mes leçons/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/gr/01. Basic/01. An octave on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/gr/01. Basic/02. All notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/gr/01. Basic/03. An octave on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/gr/01. Basic/04. All notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/gr/01. Basic/05. All notes in piano staff.xml",
+      "language": "xml",
+      "sizeLines": 63,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/gr/01. Basic/06. Bass notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/gr/01. Basic/07. Treble notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/gr/01. Basic/08. Intervals - third and fifth.xml",
+      "language": "xml",
+      "sizeLines": 70,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/gr/01. Basic/09. Tonality - A Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/gr/01. Basic/10. Tonality - E Flat Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/gr/01. Basic/11. All tonality with sharps.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/gr/01. Basic/12. All tonality with flats.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/gr/01. Basic/13. Custom notes.xml",
+      "language": "xml",
+      "sizeLines": 20,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/gr/01. Basic/14. Test rhythms.xml",
+      "language": "xml",
+      "sizeLines": 30,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/gr/02. Violin/01. Open strings.xml",
+      "language": "xml",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/gr/02. Violin/02. First finger.xml",
+      "language": "xml",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/gr/02. Violin/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/gr/03. Sax/01. First notes.xml",
+      "language": "xml",
+      "sizeLines": 39,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/gr/03. Sax/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/gr/99. My lessons/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/gr/99. My lessons/test.xml",
+      "language": "xml",
+      "sizeLines": 15,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/it/01. Basic/01. Un'ottava in chiave di violino.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/it/01. Basic/02. Tutte le note in chiave di violino.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/it/01. Basic/03. Un'ottava in chiave di basso.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/it/01. Basic/04. Tutte le note in chiave di basso.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/it/01. Basic/05. Tutte le note del pentagramma.xml",
+      "language": "xml",
+      "sizeLines": 63,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/it/01. Basic/06. Note basse in chiave di basso.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/it/01. Basic/07. Note alte in chiave di violino.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/it/01. Basic/08. Intervalli - terza e quinta.xml",
+      "language": "xml",
+      "sizeLines": 70,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/it/01. Basic/09. Tonalità - LA Maggiore.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/it/01. Basic/10. Tonalità - MI Bemolle Maggiore.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/it/01. Basic/11. Tutte le tonalità con diesis.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/it/01. Basic/12. Tutte le tonalità con bemolle.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/it/02. Violin/01. Open strings.xml",
+      "language": "xml",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/it/02. Violin/02. First finger.xml",
+      "language": "xml",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/it/02. Violin/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/it/03. Sax/01. First notes.xml",
+      "language": "xml",
+      "sizeLines": 39,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/it/03. Sax/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/it/99. My lessons/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/iw/01. Basic/01. An octave on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/iw/01. Basic/02. All notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/iw/01. Basic/03. An octave on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/iw/01. Basic/04. All notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/iw/01. Basic/05. All notes in piano staff.xml",
+      "language": "xml",
+      "sizeLines": 63,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/iw/01. Basic/06. Bass notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/iw/01. Basic/07. Treble notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/iw/01. Basic/08. Intervals - third and fifth.xml",
+      "language": "xml",
+      "sizeLines": 70,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/iw/01. Basic/09. Tonality - A Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/iw/01. Basic/10. Tonality - E Flat Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/iw/01. Basic/11. All tonality with sharps.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/iw/01. Basic/12. All tonality with flats.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/iw/02. Violin/01. Open strings.xml",
+      "language": "xml",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/iw/02. Violin/02. First finger.xml",
+      "language": "xml",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/iw/02. Violin/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/iw/03. Sax/01. First notes.xml",
+      "language": "xml",
+      "sizeLines": 39,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/iw/03. Sax/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/iw/99. My lessons/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/ko/01. Basic/01. An octave on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ko/01. Basic/02. All notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ko/01. Basic/03. An octave on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ko/01. Basic/04. All notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ko/01. Basic/05. All notes in piano staff.xml",
+      "language": "xml",
+      "sizeLines": 63,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ko/01. Basic/06. Bass notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ko/01. Basic/07. Treble notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ko/01. Basic/08. Intervals - third and fifth.xml",
+      "language": "xml",
+      "sizeLines": 70,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ko/01. Basic/09. Tonality - A Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ko/01. Basic/10. Tonality - E Flat Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ko/01. Basic/11. All tonality with sharps.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ko/01. Basic/12. All tonality with flats.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ko/02. Violin/01. Open strings.xml",
+      "language": "xml",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ko/02. Violin/02. First finger.xml",
+      "language": "xml",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ko/02. Violin/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/ko/03. Sax/01. First notes.xml",
+      "language": "xml",
+      "sizeLines": 39,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ko/03. Sax/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/ko/99. My lessons/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/pl/01. Basic/01. An octave on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/pl/01. Basic/02. All notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/pl/01. Basic/03. An octave on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/pl/01. Basic/04. All notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/pl/01. Basic/05. All notes in piano staff.xml",
+      "language": "xml",
+      "sizeLines": 63,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/pl/01. Basic/06. Bass notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/pl/01. Basic/07. Treble notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/pl/01. Basic/08. Intervals - third and fifth.xml",
+      "language": "xml",
+      "sizeLines": 70,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/pl/01. Basic/09. Tonality - A Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/pl/01. Basic/10. Tonality - E Flat Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/pl/01. Basic/11. All tonality with sharps.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/pl/01. Basic/12. All tonality with flats.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/pl/02. Violin/01. Open strings.xml",
+      "language": "xml",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/pl/02. Violin/02. First finger.xml",
+      "language": "xml",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/pl/02. Violin/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/pl/03. Sax/01. First notes.xml",
+      "language": "xml",
+      "sizeLines": 39,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/pl/03. Sax/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/pl/99. My lessons/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/ru/01. Basic/01. An octave on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ru/01. Basic/02. All notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ru/01. Basic/03. An octave on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ru/01. Basic/04. All notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ru/01. Basic/05. All notes in piano staff.xml",
+      "language": "xml",
+      "sizeLines": 63,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ru/01. Basic/06. Bass notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ru/01. Basic/07. Treble notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ru/01. Basic/08. Intervals - third and fifth.xml",
+      "language": "xml",
+      "sizeLines": 70,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ru/01. Basic/09. Tonality - A Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ru/01. Basic/10. Tonality - E Flat Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ru/01. Basic/11. All tonality with sharps.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ru/01. Basic/12. All tonality with flats.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ru/02. Violin/01. Open strings.xml",
+      "language": "xml",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ru/02. Violin/02. First finger.xml",
+      "language": "xml",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ru/02. Violin/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/ru/03. Sax/01. First notes.xml",
+      "language": "xml",
+      "sizeLines": 39,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/ru/03. Sax/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/ru/99. My lessons/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/tr/01. Basic/01. An octave on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/tr/01. Basic/02. All notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/tr/01. Basic/03. An octave on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/tr/01. Basic/04. All notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 73,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/tr/01. Basic/05. All notes in piano staff.xml",
+      "language": "xml",
+      "sizeLines": 63,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/tr/01. Basic/06. Bass notes on bass clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/tr/01. Basic/07. Treble notes on treble clef.xml",
+      "language": "xml",
+      "sizeLines": 85,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/tr/01. Basic/08. Intervals - third and fifth.xml",
+      "language": "xml",
+      "sizeLines": 70,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/tr/01. Basic/09. Tonality - A Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/tr/01. Basic/10. Tonality - E Flat Major.xml",
+      "language": "xml",
+      "sizeLines": 79,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/tr/01. Basic/11. All tonality with sharps.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/tr/01. Basic/12. All tonality with flats.xml",
+      "language": "xml",
+      "sizeLines": 102,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/tr/02. Violin/01. Open strings.xml",
+      "language": "xml",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/tr/02. Violin/02. First finger.xml",
+      "language": "xml",
+      "sizeLines": 84,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/tr/02. Violin/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/tr/03. Sax/01. First notes.xml",
+      "language": "xml",
+      "sizeLines": 39,
+      "fileCategory": "config"
+    },
+    {
+      "path": "lessons/tr/03. Sax/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lessons/tr/99. My lessons/deleteme",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "manifest.mf",
+      "language": "mf",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "nbproject/build-impl.xml",
+      "language": "xml",
+      "sizeLines": 1771,
+      "fileCategory": "config"
+    },
+    {
+      "path": "nbproject/genfiles.properties",
+      "language": "properties",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "nbproject/project.properties",
+      "language": "properties",
+      "sizeLines": 100,
+      "fileCategory": "config"
+    },
+    {
+      "path": "nbproject/project.xml",
+      "language": "xml",
+      "sizeLines": 16,
+      "fileCategory": "config"
+    },
+    {
+      "path": "settings.properties",
+      "language": "properties",
+      "sizeLines": 11,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/language_Cp949.properties",
+      "language": "properties",
+      "sizeLines": 110,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/language_da.properties",
+      "language": "properties",
+      "sizeLines": 131,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/language_de.properties",
+      "language": "properties",
+      "sizeLines": 134,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/language_en.properties",
+      "language": "properties",
+      "sizeLines": 131,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/language_eo.properties",
+      "language": "properties",
+      "sizeLines": 130,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/language_eovierge.properties",
+      "language": "properties",
+      "sizeLines": 115,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/language_es.properties",
+      "language": "properties",
+      "sizeLines": 134,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/language_fi.properties",
+      "language": "properties",
+      "sizeLines": 131,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/language_fr.properties",
+      "language": "properties",
+      "sizeLines": 136,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/language_gr.properties",
+      "language": "properties",
+      "sizeLines": 147,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/language_he_iw_utf8.properties",
+      "language": "properties",
+      "sizeLines": 134,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/language_it.properties",
+      "language": "properties",
+      "sizeLines": 132,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/language_iw.properties",
+      "language": "properties",
+      "sizeLines": 136,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/language_ko.properties",
+      "language": "properties",
+      "sizeLines": 132,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/language_pl_Cp1250.properties",
+      "language": "properties",
+      "sizeLines": 123,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/language_pl.properties",
+      "language": "properties",
+      "sizeLines": 132,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/language_tr.properties",
+      "language": "properties",
+      "sizeLines": 132,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/net/jalmus/Alteration.java",
+      "language": "java",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/ChannelData.java",
+      "language": "java",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/ChooseNotePanel.java",
+      "language": "java",
+      "sizeLines": 419,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/Chord.java",
+      "language": "java",
+      "sizeLines": 205,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/FileTools.java",
+      "language": "java",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/Interval.java",
+      "language": "java",
+      "sizeLines": 102,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/Jalmus.java",
+      "language": "java",
+      "sizeLines": 6182,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/Key.java",
+      "language": "java",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/Lessons.java",
+      "language": "java",
+      "sizeLines": 1039,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/Level.java",
+      "language": "java",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/Localizable.java",
+      "language": "java",
+      "sizeLines": 81,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/MidiCommon.java",
+      "language": "java",
+      "sizeLines": 161,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/Note.java",
+      "language": "java",
+      "sizeLines": 560,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/NoteLevel.java",
+      "language": "java",
+      "sizeLines": 793,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/Piano.java",
+      "language": "java",
+      "sizeLines": 369,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/Rhythm.java",
+      "language": "java",
+      "sizeLines": 583,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/RhythmAnswer.java",
+      "language": "java",
+      "sizeLines": 91,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/RhythmLevel.java",
+      "language": "java",
+      "sizeLines": 359,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/Score.java",
+      "language": "java",
+      "sizeLines": 138,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/ScoreLevel.java",
+      "language": "java",
+      "sizeLines": 578,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/net/jalmus/Tonality.java",
+      "language": "java",
+      "sizeLines": 241,
+      "fileCategory": "code"
+    }
+  ],
+  "totalFiles": 328,
+  "filteredByIgnore": 0,
+  "estimatedComplexity": "large",
+  "importMap": {
+    ".classpath": [],
+    ".project": [],
+    ".settings/org.eclipse.ltk.core.refactoring.prefs": [],
+    ".superpowers/brainstorm/.last-port": [],
+    ".superpowers/brainstorm/.last-token": [],
+    ".superpowers/brainstorm/12671-1793829741/content/hint-timing.html": [],
+    ".superpowers/brainstorm/12671-1793829741/content/waiting.html": [],
+    ".superpowers/brainstorm/12671-1793829741/state/server-stopped": [],
+    ".understand-anything/.understandignore": [],
+    "build.xml": [],
+    "Changelog.txt": [],
+    "compile_Izpack.sh": [],
+    "docs/superpowers/plans/2026-11-04-falling-hint-bar.md": [],
+    "docs/superpowers/plans/2026-11-04-keyboard-piano-mapping.md": [],
+    "docs/superpowers/specs/2026-11-04-falling-hint-bar-design.md": [],
+    "docs/superpowers/specs/2026-11-04-keyboard-piano-mapping-design.md": [],
+    "docs/superpowers/specs/2026-11-05-happy-birthday-lessons-design.md": [],
+    "install_files/licence.txt": [],
+    "install_files/readme.txt": [],
+    "install_files/shortcutSpec.xml": [],
+    "install_files/soundbank-mid.gm": [],
+    "install_files/TargetPathWin.txt": [],
+    "install_files/Unix_shortcutSpec.xml": [],
+    "installjalmus.xml": [],
+    "lessons/da/01. Basic/01. An octave on treble clef.xml": [],
+    "lessons/da/01. Basic/02. All notes on treble clef.xml": [],
+    "lessons/da/01. Basic/03. An octave on bass clef.xml": [],
+    "lessons/da/01. Basic/04. All notes on bass clef.xml": [],
+    "lessons/da/01. Basic/05. All notes in piano staff.xml": [],
+    "lessons/da/01. Basic/06. Bass notes on bass clef.xml": [],
+    "lessons/da/01. Basic/07. Treble notes on treble clef.xml": [],
+    "lessons/da/01. Basic/08. Intervals - third and fifth.xml": [],
+    "lessons/da/01. Basic/09. Tonality - A Major.xml": [],
+    "lessons/da/01. Basic/10. Tonality - E Flat Major.xml": [],
+    "lessons/da/01. Basic/11. All tonality with sharps.xml": [],
+    "lessons/da/01. Basic/12. All tonality with flats.xml": [],
+    "lessons/da/02. Violin/01. Open strings.xml": [],
+    "lessons/da/02. Violin/02. First finger.xml": [],
+    "lessons/da/02. Violin/deleteme": [],
+    "lessons/da/03. Sax/01. First notes.xml": [],
+    "lessons/da/03. Sax/deleteme": [],
+    "lessons/da/99. My lessons/deleteme": [],
+    "lessons/de/01. Basic/01. An octave on treble clef.xml": [],
+    "lessons/de/01. Basic/02. All notes on treble clef.xml": [],
+    "lessons/de/01. Basic/03. An octave on bass clef.xml": [],
+    "lessons/de/01. Basic/04. All notes on bass clef.xml": [],
+    "lessons/de/01. Basic/05. All notes in piano staff.xml": [],
+    "lessons/de/01. Basic/06. Bass notes on bass clef.xml": [],
+    "lessons/de/01. Basic/07. Treble notes on treble clef.xml": [],
+    "lessons/de/01. Basic/08. Intervals - third and fifth.xml": [],
+    "lessons/de/01. Basic/09. Tonality - A Major.xml": [],
+    "lessons/de/01. Basic/10. Tonality - E Flat Major.xml": [],
+    "lessons/de/01. Basic/11. All tonality with sharps.xml": [],
+    "lessons/de/01. Basic/12. All tonality with flats.xml": [],
+    "lessons/de/02. Violin/01. Open strings.xml": [],
+    "lessons/de/02. Violin/02. First finger.xml": [],
+    "lessons/de/02. Violin/deleteme": [],
+    "lessons/de/03. Sax/01. First notes.xml": [],
+    "lessons/de/03. Sax/deleteme": [],
+    "lessons/de/99. My lessons/deleteme": [],
+    "lessons/en/01. Basic/01. An octave on treble clef.xml": [],
+    "lessons/en/01. Basic/02. All notes on treble clef.xml": [],
+    "lessons/en/01. Basic/03. An octave on bass clef.xml": [],
+    "lessons/en/01. Basic/04. All notes on bass clef.xml": [],
+    "lessons/en/01. Basic/05. All notes in piano staff.xml": [],
+    "lessons/en/01. Basic/06. Bass notes on bass clef.xml": [],
+    "lessons/en/01. Basic/07. Treble notes on treble clef.xml": [],
+    "lessons/en/01. Basic/08. Intervals - third and fifth.xml": [],
+    "lessons/en/01. Basic/09. Tonality - A Major.xml": [],
+    "lessons/en/01. Basic/10. Tonality - E Flat Major.xml": [],
+    "lessons/en/01. Basic/11. All tonality with sharps.xml": [],
+    "lessons/en/01. Basic/12. All tonality with flats.xml": [],
+    "lessons/en/01. Basic/13. Custom notes.xml": [],
+    "lessons/en/01. Basic/14. Test rhythms.xml": [],
+    "lessons/en/01. Basic/Happy Birthday (Bass).xml": [],
+    "lessons/en/01. Basic/Happy Birthday (Treble).xml": [],
+    "lessons/en/02. Violin/01. Open strings.xml": [],
+    "lessons/en/02. Violin/02. First finger.xml": [],
+    "lessons/en/02. Violin/deleteme": [],
+    "lessons/en/03. Sax/01. First notes.xml": [],
+    "lessons/en/03. Sax/deleteme": [],
+    "lessons/en/99. My lessons/test.xml": [],
+    "lessons/eo/01. Basic/01. An octave on treble clef.xml": [],
+    "lessons/eo/01. Basic/02. All notes on treble clef.xml": [],
+    "lessons/eo/01. Basic/03. An octave on bass clef.xml": [],
+    "lessons/eo/01. Basic/04. All notes on bass clef.xml": [],
+    "lessons/eo/01. Basic/05. All notes in piano staff.xml": [],
+    "lessons/eo/01. Basic/06. Bass notes on bass clef.xml": [],
+    "lessons/eo/01. Basic/07. Treble notes on treble clef.xml": [],
+    "lessons/eo/01. Basic/08. Intervals - third and fifth.xml": [],
+    "lessons/eo/01. Basic/09. Tonality - A Major.xml": [],
+    "lessons/eo/01. Basic/10. Tonality - E Flat Major.xml": [],
+    "lessons/eo/01. Basic/11. All tonality with sharps.xml": [],
+    "lessons/eo/01. Basic/12. All tonality with flats.xml": [],
+    "lessons/eo/02. Violin/01. Open strings.xml": [],
+    "lessons/eo/02. Violin/02. First finger.xml": [],
+    "lessons/eo/02. Violin/deleteme": [],
+    "lessons/eo/03. Sax/01. First notes.xml": [],
+    "lessons/eo/03. Sax/deleteme": [],
+    "lessons/eo/99. My lessons/deleteme": [],
+    "lessons/es/01. Basic/01. An octave on treble clef.xml": [],
+    "lessons/es/01. Basic/02. All notes on treble clef.xml": [],
+    "lessons/es/01. Basic/03. An octave on bass clef.xml": [],
+    "lessons/es/01. Basic/04. All notes on bass clef.xml": [],
+    "lessons/es/01. Basic/05. All notes in piano staff.xml": [],
+    "lessons/es/01. Basic/06. Bass notes on bass clef.xml": [],
+    "lessons/es/01. Basic/07. Treble notes on treble clef.xml": [],
+    "lessons/es/01. Basic/08. Intervals - third and fifth.xml": [],
+    "lessons/es/01. Basic/09. Tonality - A Major.xml": [],
+    "lessons/es/01. Basic/10. Tonality - E Flat Major.xml": [],
+    "lessons/es/01. Basic/11. All tonality with sharps.xml": [],
+    "lessons/es/01. Basic/12. All tonality with flats.xml": [],
+    "lessons/es/02. Violin/01. Open strings.xml": [],
+    "lessons/es/02. Violin/02. First finger.xml": [],
+    "lessons/es/02. Violin/deleteme": [],
+    "lessons/es/03. Sax/01. First notes.xml": [],
+    "lessons/es/03. Sax/deleteme": [],
+    "lessons/es/99. My lessons/deleteme": [],
+    "lessons/fi/01. Basic/01. An octave on treble clef.xml": [],
+    "lessons/fi/01. Basic/02. All notes on treble clef.xml": [],
+    "lessons/fi/01. Basic/03. An octave on bass clef.xml": [],
+    "lessons/fi/01. Basic/04. All notes on bass clef.xml": [],
+    "lessons/fi/01. Basic/05. All notes in piano staff.xml": [],
+    "lessons/fi/01. Basic/06. Bass notes on bass clef.xml": [],
+    "lessons/fi/01. Basic/07. Treble notes on treble clef.xml": [],
+    "lessons/fi/01. Basic/08. Intervals - third and fifth.xml": [],
+    "lessons/fi/01. Basic/09. Tonality - A Major.xml": [],
+    "lessons/fi/01. Basic/10. Tonality - E Flat Major.xml": [],
+    "lessons/fi/01. Basic/11. All tonality with sharps.xml": [],
+    "lessons/fi/01. Basic/12. All tonality with flats.xml": [],
+    "lessons/fi/02. Violin/01. Open strings.xml": [],
+    "lessons/fi/02. Violin/02. First finger.xml": [],
+    "lessons/fi/02. Violin/deleteme": [],
+    "lessons/fi/03. Sax/01. First notes.xml": [],
+    "lessons/fi/03. Sax/deleteme": [],
+    "lessons/fi/99. My lessons/deleteme": [],
+    "lessons/fr/01. Solfège/01. Tres lentement.xml": [],
+    "lessons/fr/01. Solfège/01. Une octave en cle de Sol.xml": [],
+    "lessons/fr/01. Solfège/02. Toutes les notes en cle de Sol.xml": [],
+    "lessons/fr/01. Solfège/03. Une octave en cle de Fa.xml": [],
+    "lessons/fr/01. Solfège/04. Toutes les notes en cle de Fa.xml": [],
+    "lessons/fr/01. Solfège/05. Les notes sur une portee de piano.xml": [],
+    "lessons/fr/01. Solfège/06. Notes graves en cle de Fa.xml": [],
+    "lessons/fr/01. Solfège/07. Notes aigues en cle de Sol.xml": [],
+    "lessons/fr/01. Solfège/08. Intervalles - tierces et quintes.xml": [],
+    "lessons/fr/01. Solfège/09. Tonalites - La Majeur.xml": [],
+    "lessons/fr/01. Solfège/10. Tonalites - Mi Bemol Majeur.xml": [],
+    "lessons/fr/01. Solfège/11. Toutes les tonalites avec dieses.xml": [],
+    "lessons/fr/01. Solfège/12. Toutes les tonalites avec bemols.xml": [],
+    "lessons/fr/02. Violon/01. Cordes à vide.xml": [],
+    "lessons/fr/02. Violon/02. Premier doigt.xml": [],
+    "lessons/fr/02. Violon/deleteme": [],
+    "lessons/fr/03. Sax Alto/01. Premières notes.xml": [],
+    "lessons/fr/03. Sax Alto/deleteme": [],
+    "lessons/fr/99. Mes leçons/deleteme": [],
+    "lessons/gr/01. Basic/01. An octave on treble clef.xml": [],
+    "lessons/gr/01. Basic/02. All notes on treble clef.xml": [],
+    "lessons/gr/01. Basic/03. An octave on bass clef.xml": [],
+    "lessons/gr/01. Basic/04. All notes on bass clef.xml": [],
+    "lessons/gr/01. Basic/05. All notes in piano staff.xml": [],
+    "lessons/gr/01. Basic/06. Bass notes on bass clef.xml": [],
+    "lessons/gr/01. Basic/07. Treble notes on treble clef.xml": [],
+    "lessons/gr/01. Basic/08. Intervals - third and fifth.xml": [],
+    "lessons/gr/01. Basic/09. Tonality - A Major.xml": [],
+    "lessons/gr/01. Basic/10. Tonality - E Flat Major.xml": [],
+    "lessons/gr/01. Basic/11. All tonality with sharps.xml": [],
+    "lessons/gr/01. Basic/12. All tonality with flats.xml": [],
+    "lessons/gr/01. Basic/13. Custom notes.xml": [],
+    "lessons/gr/01. Basic/14. Test rhythms.xml": [],
+    "lessons/gr/02. Violin/01. Open strings.xml": [],
+    "lessons/gr/02. Violin/02. First finger.xml": [],
+    "lessons/gr/02. Violin/deleteme": [],
+    "lessons/gr/03. Sax/01. First notes.xml": [],
+    "lessons/gr/03. Sax/deleteme": [],
+    "lessons/gr/99. My lessons/deleteme": [],
+    "lessons/gr/99. My lessons/test.xml": [],
+    "lessons/it/01. Basic/01. Un'ottava in chiave di violino.xml": [],
+    "lessons/it/01. Basic/02. Tutte le note in chiave di violino.xml": [],
+    "lessons/it/01. Basic/03. Un'ottava in chiave di basso.xml": [],
+    "lessons/it/01. Basic/04. Tutte le note in chiave di basso.xml": [],
+    "lessons/it/01. Basic/05. Tutte le note del pentagramma.xml": [],
+    "lessons/it/01. Basic/06. Note basse in chiave di basso.xml": [],
+    "lessons/it/01. Basic/07. Note alte in chiave di violino.xml": [],
+    "lessons/it/01. Basic/08. Intervalli - terza e quinta.xml": [],
+    "lessons/it/01. Basic/09. Tonalità - LA Maggiore.xml": [],
+    "lessons/it/01. Basic/10. Tonalità - MI Bemolle Maggiore.xml": [],
+    "lessons/it/01. Basic/11. Tutte le tonalità con diesis.xml": [],
+    "lessons/it/01. Basic/12. Tutte le tonalità con bemolle.xml": [],
+    "lessons/it/02. Violin/01. Open strings.xml": [],
+    "lessons/it/02. Violin/02. First finger.xml": [],
+    "lessons/it/02. Violin/deleteme": [],
+    "lessons/it/03. Sax/01. First notes.xml": [],
+    "lessons/it/03. Sax/deleteme": [],
+    "lessons/it/99. My lessons/deleteme": [],
+    "lessons/iw/01. Basic/01. An octave on treble clef.xml": [],
+    "lessons/iw/01. Basic/02. All notes on treble clef.xml": [],
+    "lessons/iw/01. Basic/03. An octave on bass clef.xml": [],
+    "lessons/iw/01. Basic/04. All notes on bass clef.xml": [],
+    "lessons/iw/01. Basic/05. All notes in piano staff.xml": [],
+    "lessons/iw/01. Basic/06. Bass notes on bass clef.xml": [],
+    "lessons/iw/01. Basic/07. Treble notes on treble clef.xml": [],
+    "lessons/iw/01. Basic/08. Intervals - third and fifth.xml": [],
+    "lessons/iw/01. Basic/09. Tonality - A Major.xml": [],
+    "lessons/iw/01. Basic/10. Tonality - E Flat Major.xml": [],
+    "lessons/iw/01. Basic/11. All tonality with sharps.xml": [],
+    "lessons/iw/01. Basic/12. All tonality with flats.xml": [],
+    "lessons/iw/02. Violin/01. Open strings.xml": [],
+    "lessons/iw/02. Violin/02. First finger.xml": [],
+    "lessons/iw/02. Violin/deleteme": [],
+    "lessons/iw/03. Sax/01. First notes.xml": [],
+    "lessons/iw/03. Sax/deleteme": [],
+    "lessons/iw/99. My lessons/deleteme": [],
+    "lessons/ko/01. Basic/01. An octave on treble clef.xml": [],
+    "lessons/ko/01. Basic/02. All notes on treble clef.xml": [],
+    "lessons/ko/01. Basic/03. An octave on bass clef.xml": [],
+    "lessons/ko/01. Basic/04. All notes on bass clef.xml": [],
+    "lessons/ko/01. Basic/05. All notes in piano staff.xml": [],
+    "lessons/ko/01. Basic/06. Bass notes on bass clef.xml": [],
+    "lessons/ko/01. Basic/07. Treble notes on treble clef.xml": [],
+    "lessons/ko/01. Basic/08. Intervals - third and fifth.xml": [],
+    "lessons/ko/01. Basic/09. Tonality - A Major.xml": [],
+    "lessons/ko/01. Basic/10. Tonality - E Flat Major.xml": [],
+    "lessons/ko/01. Basic/11. All tonality with sharps.xml": [],
+    "lessons/ko/01. Basic/12. All tonality with flats.xml": [],
+    "lessons/ko/02. Violin/01. Open strings.xml": [],
+    "lessons/ko/02. Violin/02. First finger.xml": [],
+    "lessons/ko/02. Violin/deleteme": [],
+    "lessons/ko/03. Sax/01. First notes.xml": [],
+    "lessons/ko/03. Sax/deleteme": [],
+    "lessons/ko/99. My lessons/deleteme": [],
+    "lessons/pl/01. Basic/01. An octave on treble clef.xml": [],
+    "lessons/pl/01. Basic/02. All notes on treble clef.xml": [],
+    "lessons/pl/01. Basic/03. An octave on bass clef.xml": [],
+    "lessons/pl/01. Basic/04. All notes on bass clef.xml": [],
+    "lessons/pl/01. Basic/05. All notes in piano staff.xml": [],
+    "lessons/pl/01. Basic/06. Bass notes on bass clef.xml": [],
+    "lessons/pl/01. Basic/07. Treble notes on treble clef.xml": [],
+    "lessons/pl/01. Basic/08. Intervals - third and fifth.xml": [],
+    "lessons/pl/01. Basic/09. Tonality - A Major.xml": [],
+    "lessons/pl/01. Basic/10. Tonality - E Flat Major.xml": [],
+    "lessons/pl/01. Basic/11. All tonality with sharps.xml": [],
+    "lessons/pl/01. Basic/12. All tonality with flats.xml": [],
+    "lessons/pl/02. Violin/01. Open strings.xml": [],
+    "lessons/pl/02. Violin/02. First finger.xml": [],
+    "lessons/pl/02. Violin/deleteme": [],
+    "lessons/pl/03. Sax/01. First notes.xml": [],
+    "lessons/pl/03. Sax/deleteme": [],
+    "lessons/pl/99. My lessons/deleteme": [],
+    "lessons/ru/01. Basic/01. An octave on treble clef.xml": [],
+    "lessons/ru/01. Basic/02. All notes on treble clef.xml": [],
+    "lessons/ru/01. Basic/03. An octave on bass clef.xml": [],
+    "lessons/ru/01. Basic/04. All notes on bass clef.xml": [],
+    "lessons/ru/01. Basic/05. All notes in piano staff.xml": [],
+    "lessons/ru/01. Basic/06. Bass notes on bass clef.xml": [],
+    "lessons/ru/01. Basic/07. Treble notes on treble clef.xml": [],
+    "lessons/ru/01. Basic/08. Intervals - third and fifth.xml": [],
+    "lessons/ru/01. Basic/09. Tonality - A Major.xml": [],
+    "lessons/ru/01. Basic/10. Tonality - E Flat Major.xml": [],
+    "lessons/ru/01. Basic/11. All tonality with sharps.xml": [],
+    "lessons/ru/01. Basic/12. All tonality with flats.xml": [],
+    "lessons/ru/02. Violin/01. Open strings.xml": [],
+    "lessons/ru/02. Violin/02. First finger.xml": [],
+    "lessons/ru/02. Violin/deleteme": [],
+    "lessons/ru/03. Sax/01. First notes.xml": [],
+    "lessons/ru/03. Sax/deleteme": [],
+    "lessons/ru/99. My lessons/deleteme": [],
+    "lessons/tr/01. Basic/01. An octave on treble clef.xml": [],
+    "lessons/tr/01. Basic/02. All notes on treble clef.xml": [],
+    "lessons/tr/01. Basic/03. An octave on bass clef.xml": [],
+    "lessons/tr/01. Basic/04. All notes on bass clef.xml": [],
+    "lessons/tr/01. Basic/05. All notes in piano staff.xml": [],
+    "lessons/tr/01. Basic/06. Bass notes on bass clef.xml": [],
+    "lessons/tr/01. Basic/07. Treble notes on treble clef.xml": [],
+    "lessons/tr/01. Basic/08. Intervals - third and fifth.xml": [],
+    "lessons/tr/01. Basic/09. Tonality - A Major.xml": [],
+    "lessons/tr/01. Basic/10. Tonality - E Flat Major.xml": [],
+    "lessons/tr/01. Basic/11. All tonality with sharps.xml": [],
+    "lessons/tr/01. Basic/12. All tonality with flats.xml": [],
+    "lessons/tr/02. Violin/01. Open strings.xml": [],
+    "lessons/tr/02. Violin/02. First finger.xml": [],
+    "lessons/tr/02. Violin/deleteme": [],
+    "lessons/tr/03. Sax/01. First notes.xml": [],
+    "lessons/tr/03. Sax/deleteme": [],
+    "lessons/tr/99. My lessons/deleteme": [],
+    "manifest.mf": [],
+    "nbproject/build-impl.xml": [],
+    "nbproject/genfiles.properties": [],
+    "nbproject/project.properties": [],
+    "nbproject/project.xml": [],
+    "settings.properties": [],
+    "src/language_Cp949.properties": [],
+    "src/language_da.properties": [],
+    "src/language_de.properties": [],
+    "src/language_en.properties": [],
+    "src/language_eo.properties": [],
+    "src/language_eovierge.properties": [],
+    "src/language_es.properties": [],
+    "src/language_fi.properties": [],
+    "src/language_fr.properties": [],
+    "src/language_gr.properties": [],
+    "src/language_he_iw_utf8.properties": [],
+    "src/language_it.properties": [],
+    "src/language_iw.properties": [],
+    "src/language_ko.properties": [],
+    "src/language_pl_Cp1250.properties": [],
+    "src/language_pl.properties": [],
+    "src/language_tr.properties": [],
+    "src/net/jalmus/Alteration.java": [],
+    "src/net/jalmus/ChannelData.java": [],
+    "src/net/jalmus/ChooseNotePanel.java": [],
+    "src/net/jalmus/Chord.java": [],
+    "src/net/jalmus/FileTools.java": [],
+    "src/net/jalmus/Interval.java": [],
+    "src/net/jalmus/Jalmus.java": [],
+    "src/net/jalmus/Key.java": [],
+    "src/net/jalmus/Lessons.java": [],
+    "src/net/jalmus/Level.java": [],
+    "src/net/jalmus/Localizable.java": [],
+    "src/net/jalmus/MidiCommon.java": [],
+    "src/net/jalmus/Note.java": [],
+    "src/net/jalmus/NoteLevel.java": [],
+    "src/net/jalmus/Piano.java": [],
+    "src/net/jalmus/Rhythm.java": [],
+    "src/net/jalmus/RhythmAnswer.java": [],
+    "src/net/jalmus/RhythmLevel.java": [],
+    "src/net/jalmus/Score.java": [],
+    "src/net/jalmus/ScoreLevel.java": [],
+    "src/net/jalmus/Tonality.java": []
+  },
+  "stats": {
+    "filesScanned": 328,
+    "byCategory": {
+      "code": 71,
+      "markup": 2,
+      "config": 245,
+      "docs": 9,
+      "script": 1
+    },
+    "byLanguage": {
+      "unknown": 47,
+      "prefs": 1,
+      "html": 2,
+      "xml": 225,
+      "txt": 4,
+      "shell": 1,
+      "markdown": 5,
+      "gm": 1,
+      "mf": 1,
+      "properties": 20,
+      "java": 21
+    }
+  }
+}

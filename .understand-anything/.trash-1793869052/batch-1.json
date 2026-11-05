@@ -1,0 +1,68 @@
+{
+  "nodes": [
+    {
+      "id": "file:Changelog.txt",
+      "type": "document",
+      "name": "Changelog.txt",
+      "summary": "Documentation / content file `Changelog`.",
+      "tags": [
+        "documentation"
+      ],
+      "complexity": "simple",
+      "filePath": "Changelog.txt",
+      "language": "txt"
+    },
+    {
+      "id": "file:build.xml",
+      "type": "config",
+      "name": "build.xml",
+      "summary": "Configuration file `build`.",
+      "tags": [
+        "xml",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "build.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:compile_Izpack.sh",
+      "type": "file",
+      "name": "compile_Izpack.sh",
+      "summary": "Source file `compile_Izpack`.",
+      "tags": [
+        "script"
+      ],
+      "complexity": "simple",
+      "filePath": "compile_Izpack.sh",
+      "language": "shell"
+    },
+    {
+      "id": "file:installjalmus.xml",
+      "type": "config",
+      "name": "installjalmus.xml",
+      "summary": "Configuration file `installjalmus`.",
+      "tags": [
+        "xml",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "installjalmus.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:settings.properties",
+      "type": "config",
+      "name": "settings.properties",
+      "summary": "Configuration file `settings`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "settings.properties",
+      "language": "properties"
+    }
+  ],
+  "edges": []
+}

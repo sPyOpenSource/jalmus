@@ -1,0 +1,533 @@
+{
+  "nodes": [
+    {
+      "id": "file:lessons/ko/02. Violin/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/ko/02. Violin/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/ko/03. Sax/01. First notes.xml",
+      "type": "document",
+      "name": "01. First notes.xml",
+      "summary": "Documentation / content file `01. First notes`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/ko/03. Sax/01. First notes.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/ko/03. Sax/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/ko/03. Sax/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/ko/99. My lessons/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/ko/99. My lessons/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/pl/02. Violin/01. Open strings.xml",
+      "type": "document",
+      "name": "01. Open strings.xml",
+      "summary": "Documentation / content file `01. Open strings`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/pl/02. Violin/01. Open strings.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/pl/02. Violin/02. First finger.xml",
+      "type": "document",
+      "name": "02. First finger.xml",
+      "summary": "Documentation / content file `02. First finger`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/pl/02. Violin/02. First finger.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/pl/02. Violin/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/pl/02. Violin/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/pl/03. Sax/01. First notes.xml",
+      "type": "document",
+      "name": "01. First notes.xml",
+      "summary": "Documentation / content file `01. First notes`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/pl/03. Sax/01. First notes.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/pl/03. Sax/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/pl/03. Sax/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/pl/99. My lessons/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/pl/99. My lessons/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/ru/02. Violin/01. Open strings.xml",
+      "type": "document",
+      "name": "01. Open strings.xml",
+      "summary": "Documentation / content file `01. Open strings`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/ru/02. Violin/01. Open strings.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/ru/02. Violin/02. First finger.xml",
+      "type": "document",
+      "name": "02. First finger.xml",
+      "summary": "Documentation / content file `02. First finger`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/ru/02. Violin/02. First finger.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/ru/02. Violin/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/ru/02. Violin/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/ru/03. Sax/01. First notes.xml",
+      "type": "document",
+      "name": "01. First notes.xml",
+      "summary": "Documentation / content file `01. First notes`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/ru/03. Sax/01. First notes.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/ru/03. Sax/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/ru/03. Sax/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/ru/99. My lessons/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/ru/99. My lessons/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/tr/02. Violin/01. Open strings.xml",
+      "type": "document",
+      "name": "01. Open strings.xml",
+      "summary": "Documentation / content file `01. Open strings`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/tr/02. Violin/01. Open strings.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/tr/02. Violin/02. First finger.xml",
+      "type": "document",
+      "name": "02. First finger.xml",
+      "summary": "Documentation / content file `02. First finger`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/tr/02. Violin/02. First finger.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/tr/02. Violin/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/tr/02. Violin/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/tr/03. Sax/01. First notes.xml",
+      "type": "document",
+      "name": "01. First notes.xml",
+      "summary": "Documentation / content file `01. First notes`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/tr/03. Sax/01. First notes.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/tr/03. Sax/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/tr/03. Sax/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/tr/99. My lessons/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/tr/99. My lessons/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:manifest.mf",
+      "type": "file",
+      "name": "manifest.mf",
+      "summary": "Source file `manifest`.",
+      "tags": [],
+      "complexity": "simple",
+      "filePath": "manifest.mf",
+      "language": "mf"
+    },
+    {
+      "id": "file:src/net/jalmus/Alteration.java",
+      "type": "file",
+      "name": "Alteration.java",
+      "summary": "Musical accidental (sharp, flat, natural) applied to a note.",
+      "tags": [
+        "java",
+        "source",
+        "net.jalmus"
+      ],
+      "complexity": "simple",
+      "filePath": "src/net/jalmus/Alteration.java",
+      "language": "java"
+    },
+    {
+      "id": "class:src/net/jalmus/Alteration.java:Alteration",
+      "type": "class",
+      "name": "Alteration",
+      "summary": "Musical accidental (sharp, flat, natural) applied to a note.",
+      "tags": [
+        "java",
+        "source",
+        "class",
+        "net.jalmus"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/net/jalmus/Alteration.java",
+      "language": "java"
+    },
+    {
+      "id": "function:src/net/jalmus/Alteration.java:Alteration",
+      "type": "function",
+      "name": "Alteration",
+      "summary": "Function `Alteration` in `Alteration.java`.",
+      "tags": [
+        "java",
+        "source",
+        "function",
+        "method",
+        "net.jalmus"
+      ],
+      "complexity": "simple",
+      "filePath": "src/net/jalmus/Alteration.java",
+      "language": "java"
+    },
+    {
+      "id": "file:src/net/jalmus/ChannelData.java",
+      "type": "file",
+      "name": "ChannelData.java",
+      "summary": "MIDI channel data (instrument, volume, pan) for playback.",
+      "tags": [
+        "java",
+        "source",
+        "net.jalmus"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/net/jalmus/ChannelData.java",
+      "language": "java"
+    },
+    {
+      "id": "class:src/net/jalmus/ChannelData.java:ChannelData",
+      "type": "class",
+      "name": "ChannelData",
+      "summary": "MIDI channel data (instrument, volume, pan) for playback.",
+      "tags": [
+        "java",
+        "source",
+        "class",
+        "net.jalmus"
+      ],
+      "complexity": "moderate",
+      "filePath": "src/net/jalmus/ChannelData.java",
+      "language": "java"
+    },
+    {
+      "id": "function:src/net/jalmus/ChannelData.java:ChannelData",
+      "type": "function",
+      "name": "ChannelData",
+      "summary": "Function `ChannelData` in `ChannelData.java`.",
+      "tags": [
+        "java",
+        "source",
+        "function",
+        "method",
+        "net.jalmus"
+      ],
+      "complexity": "simple",
+      "filePath": "src/net/jalmus/ChannelData.java",
+      "language": "java"
+    },
+    {
+      "id": "function:src/net/jalmus/ChannelData.java:getchannel",
+      "type": "function",
+      "name": "getchannel",
+      "summary": "Function `getchannel` in `ChannelData.java`.",
+      "tags": [
+        "java",
+        "source",
+        "function",
+        "method",
+        "net.jalmus"
+      ],
+      "complexity": "simple",
+      "filePath": "src/net/jalmus/ChannelData.java",
+      "language": "java"
+    },
+    {
+      "id": "function:src/net/jalmus/ChannelData.java:playNote",
+      "type": "function",
+      "name": "playNote",
+      "summary": "Function `playNote` in `ChannelData.java`.",
+      "tags": [
+        "java",
+        "source",
+        "function",
+        "method",
+        "net.jalmus"
+      ],
+      "complexity": "simple",
+      "filePath": "src/net/jalmus/ChannelData.java",
+      "language": "java"
+    },
+    {
+      "id": "function:src/net/jalmus/ChannelData.java:playNote",
+      "type": "function",
+      "name": "playNote",
+      "summary": "Function `playNote` in `ChannelData.java`.",
+      "tags": [
+        "java",
+        "source",
+        "function",
+        "method",
+        "net.jalmus"
+      ],
+      "complexity": "simple",
+      "filePath": "src/net/jalmus/ChannelData.java",
+      "language": "java"
+    },
+    {
+      "id": "function:src/net/jalmus/ChannelData.java:stopnote",
+      "type": "function",
+      "name": "stopnote",
+      "summary": "Function `stopnote` in `ChannelData.java`.",
+      "tags": [
+        "java",
+        "source",
+        "function",
+        "method",
+        "net.jalmus"
+      ],
+      "complexity": "simple",
+      "filePath": "src/net/jalmus/ChannelData.java",
+      "language": "java"
+    },
+    {
+      "id": "function:src/net/jalmus/ChannelData.java:stopnotes",
+      "type": "function",
+      "name": "stopnotes",
+      "summary": "Function `stopnotes` in `ChannelData.java`.",
+      "tags": [
+        "java",
+        "source",
+        "function",
+        "method",
+        "net.jalmus"
+      ],
+      "complexity": "simple",
+      "filePath": "src/net/jalmus/ChannelData.java",
+      "language": "java"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/net/jalmus/Alteration.java",
+      "target": "class:src/net/jalmus/Alteration.java:Alteration",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/net/jalmus/Alteration.java",
+      "target": "function:src/net/jalmus/Alteration.java:Alteration",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/net/jalmus/ChannelData.java",
+      "target": "class:src/net/jalmus/ChannelData.java:ChannelData",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/net/jalmus/ChannelData.java",
+      "target": "function:src/net/jalmus/ChannelData.java:ChannelData",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/net/jalmus/ChannelData.java",
+      "target": "function:src/net/jalmus/ChannelData.java:getchannel",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/net/jalmus/ChannelData.java",
+      "target": "function:src/net/jalmus/ChannelData.java:playNote",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/net/jalmus/ChannelData.java",
+      "target": "function:src/net/jalmus/ChannelData.java:playNote",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/net/jalmus/ChannelData.java",
+      "target": "function:src/net/jalmus/ChannelData.java:stopnote",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/net/jalmus/ChannelData.java",
+      "target": "function:src/net/jalmus/ChannelData.java:stopnotes",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    }
+  ]
+}

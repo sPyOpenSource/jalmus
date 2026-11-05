@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "file:nbproject/build-impl.xml",
+      "type": "config",
+      "name": "build-impl.xml",
+      "summary": "Configuration file `build-impl`.",
+      "tags": [
+        "xml",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "nbproject/build-impl.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:nbproject/genfiles.properties",
+      "type": "config",
+      "name": "genfiles.properties",
+      "summary": "Configuration file `genfiles`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "nbproject/genfiles.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:nbproject/project.properties",
+      "type": "config",
+      "name": "project.properties",
+      "summary": "Configuration file `project`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "nbproject/project.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:nbproject/project.xml",
+      "type": "config",
+      "name": "project.xml",
+      "summary": "Configuration file `project`.",
+      "tags": [
+        "xml",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "nbproject/project.xml",
+      "language": "xml"
+    }
+  ],
+  "edges": []
+}

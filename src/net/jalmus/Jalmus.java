@@ -77,8 +77,6 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307, Etats-Unis.
 /* Web : http://jalmus.netr
 E-mail : cvrichard@infonie.fr */
 
-/* NEED JDK 1.4.2 */
-
 package net.jalmus;
 
 import org.xml.sax.SAXException;
@@ -181,7 +179,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private String tlicence;
     private String tcredits;
 
-    private String pasclavier = "Pas de clavier MIDI";
+    private final String pasclavier = "Pas de clavier MIDI";
     private String seconde;
     private String tierce;
     private String quarte;
@@ -210,20 +208,20 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     // Main variables
 
     private int selectedGame; // FIRSTSCREEN, NOTEREADING, RHYTHMREADING, SCOREREADING
-    private static int FIRSTSCREEN = 0;
-    private static int NOTEREADING = 1;
-    private static int RHYTHMREADING = 2;
-    private static int SCOREREADING = 3;
+    private static final int FIRSTSCREEN = 0;
+    private static final int NOTEREADING = 1;
+    private static final int RHYTHMREADING = 2;
+    private static final int SCOREREADING = 3;
 
     //----------------------------------------------------------------
     // Lesson variables
     private Lessons currentlesson = new Lessons();
     private boolean isLessonMode;
-    private JMenu lessonsMenu = new JMenu();
-    private JMenu[] lessonsMenuDir = new JMenu[16];
-    private JMenuItem[][] lessonsMenuItem = new JMenuItem[16][26];
+    private final JMenu lessonsMenu = new JMenu();
+    private final JMenu[] lessonsMenuDir = new JMenu[16];
+    private final JMenuItem[][] lessonsMenuItem = new JMenuItem[16][26];
     private String path;
-    private String[] pathsubdir = new String[16];
+    private final String[] pathsubdir = new String[16];
 
     //----------------------------------------------------------------
     // Note reading variables
@@ -234,13 +232,13 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private MidiDevice outputDevice = null;
     private Synthesizer syn;
     private Instrument[] instruments;
-    private int noteDuration = 2000;
+    private final int noteDuration = 2000;
     private ChannelData currentChannel; // current channel
     private boolean open;
 
     // Keyboard-to-piano mapping (home row, language independent)
-    private Map<Character,String> NOTE_BY_KEY = new HashMap<Character,String>();
-    private Map<Character,Integer> PITCH_BY_KEY = new HashMap<Character,Integer>();
+    private final Map<Character,String> NOTE_BY_KEY = new HashMap<>();
+    private final Map<Character,Integer> PITCH_BY_KEY = new HashMap<>();
     private net.jalmus.Key keyboardSoundingKey = null;
     private char lastKeyboardKey = 0;
 
@@ -273,8 +271,8 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
     // Animation Resources
 
-    private RenderingThread renderingThread = new RenderingThread();
-    private Anim panelanim = new Anim();
+    private final RenderingThread renderingThread = new RenderingThread();
+    private final Anim panelanim = new Anim();
     private Image jbackground;
 
     private Note ncourante = new Note("", "", 0, 25, 0);
@@ -297,38 +295,36 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
  *	
 */
     
-    private int windowMargin = 50; // margin from the window border
-    private int keyWidth = 30; // width of score keys
+    private final int windowMargin = 50; // margin from the window border
+    private final int keyWidth = 30; // width of score keys
     private int alterationWidth = 0; // width of alterations symbols. None by default
-    private int timeSignWidth = 30; // width of current score time signature symbol. This includes also the first note margin
+    private final int timeSignWidth = 30; // width of current score time signature symbol. This includes also the first note margin
 
     private int scoreYpos = 110; // Y coordinate of the first row of the score
     private int rowsDistance = 100; // distance in pixel between staff rows
     private int numberOfMeasures = 2; // number of measures in a single row
     private int numberOfRows = 4; // number of score rows
-    private int notesShift = 10; // space in pixel to align notes to the score layout
-    private int noteDistance = 72; // distance in pixel between 1/4 notes
+    private final int notesShift = 10; // space in pixel to align notes to the score layout
+    private final int noteDistance = 72; // distance in pixel between 1/4 notes
     
 
     private int posnote = 1; // current position of the note within a chor or an interval
-
     private boolean alterationok;
 
     private int notemargin = 220; // margin for note reading
     private int firstNoteXPos = windowMargin + keyWidth + alterationWidth + timeSignWidth + notesShift;
 
-    private Score currentScore = new Score();
-
-    private NoteLevel noteLevel = new NoteLevel();
+    private final Score currentScore = new Score();
+    private final NoteLevel noteLevel = new NoteLevel();
 
     // Learning Game
 
     private int notecounter=1;
 
     // Line Game
-    private Note[] ligne=new Note[40]; // array of notes
-    private Chord[] ligneacc=new Chord[40]; // array of chords
-    private Interval[] ligneint=new Interval[40];
+    private final Note[] ligne = new Note[40]; // array of notes
+    private final Chord[] ligneacc = new Chord[40]; // array of chords
+    private final Interval[] ligneint = new Interval[40];
     private int position; // position of the current note in the list
     private int precedente; // position of the previous note to avoid repetitions
 
@@ -340,16 +336,16 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     //----------------------------------------------------------------
     // Rhythm reading variables
 
-    private RhythmLevel rhythmLevel=new RhythmLevel();
+    private final RhythmLevel rhythmLevel=new RhythmLevel();
     
-    private ArrayList<Rhythm> rhythms = new ArrayList<>(); 
-    private int rhythmIndex=-1; // index of the current note in the list
-    private ArrayList<RhythmAnswer> answers = new ArrayList<>();
+    private final ArrayList<Rhythm> rhythms = new ArrayList<>(); 
+    private int rhythmIndex = -1; // index of the current note in the list
+    private final ArrayList<RhythmAnswer> answers = new ArrayList<>();
     private int rhythmAnswerScoreYpos=100; //distance to paint answer
     private float rhythmCursorXpos = firstNoteXPos - noteDistance; // X position of the cursor on the score during rhythm game
     private int rhythmCursorXStartPos = firstNoteXPos - noteDistance;
     private int rhythmCursorXlimit = firstNoteXPos + (4 * numberOfMeasures * noteDistance);
-    private int precision = 10; //precision on control between note and answer
+    private final int precision = 10; //precision on control between note and answer
     private boolean samerhythms = true;
     private boolean muterhythms = false;
     private boolean paintrhythms = false;
@@ -359,28 +355,28 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     
     private int rhythmgame = 0;
     
-    private int tempo=40; // sequencer time - rhythmGameSpeedComboBox button
+    private int tempo = 40; // sequencer time - rhythmGameSpeedComboBox button
     //private double nbtemps=4; // nombre de temps par mesure
     //private int nbmesures=8;
-    private int metronomeCount=0;
-    private int metronomeYPos=100;
+    private int metronomeCount = 0;
+    private int metronomeYPos = 100;
 
     private Track track;
     private Track mutetrack;
     private Track metronome;
-    private static final int ppq=1000;
+    private static final int ppq = 1000;
     private Sequence sequence;
     private Sequencer sm_sequencer;
 
 
 
-    private ScoreLevel scoreLevel=new ScoreLevel();
+    private final ScoreLevel scoreLevel = new ScoreLevel();
 
     //----------------------------------------------------------------
     // Menu
 
     // Mise en place du menu
-    private JMenuBar maBarre=new JMenuBar();
+    private final JMenuBar maBarre = new JMenuBar();
 
     private JMenu menuParameters=new JMenu();
     private JMenuItem menuPrefs=new JMenuItem(new ImageIcon(getClass().getResource("/images/prefs.png")));
@@ -408,7 +404,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
     //----------------------------------------------------------------
     // GAME BUTTONS - NOTES/GO
-    private JPanel pgamebutton=new JPanel();
+    private final JPanel pgamebutton = new JPanel();
 
     private JButton bdo;
     private JButton bre;
@@ -422,7 +418,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private JButton bdiese;
     private JButton bbemol2;
     private JButton bdiese2;
-    private JPanel pnotes=new JPanel();
+    private final JPanel pnotes = new JPanel();
 
     private JButton startButton;    // button to start or stop game
     private JButton listenButton;    // button for listen exercise in rhythm game
@@ -437,12 +433,12 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private static final int RHYTM_READING_TAB=1;
     private static final int SCORE_READING_TAB=2;
 
-    private JTabbedPane preferencesTabbedPane=new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT); // panel pour les parametres
+    private final JTabbedPane preferencesTabbedPane = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT); // panel pour les parametres
     private JComboBox noteGameTypeComboBox; //Game type
     private JComboBox noteGameSpeedComboBox; // button to choose speed
     private JComboBox keyComboBox; //  drop down combo to select the key
     private JComboBox keySignatureCheckBox; // button to choose tonality
-    private JPanel noteReadingNotesPanel=new JPanel(); // panel for choose type on fontes on first exercice
+    private final JPanel noteReadingNotesPanel = new JPanel(); // panel for choose type on fontes on first exercice
     private JComboBox noteGroupComboBox; // to choose notes, intervals or chords
     private JComboBox noteCountComboBox; //  to choose number of notes
     private JComboBox intervalComboBox; //  to choose intervals type
@@ -481,22 +477,18 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private JCheckBox scoreMetronomeCheckBox;
     private JCheckBox scoreMetronomeShowCheckBox;
 
-    private int[] savePrefs=new int[30]; // for cancle button
+    private final int[] savePrefs =new int[30]; // for cancle button
 
-    
-    
     //----SAVE DIALOG
 
-    private JDialog saveDialog=new JDialog();
+    private JDialog saveDialog = new JDialog();
     private JPanel labelPanel = new JPanel(new GridLayout(2, 1));
     private JPanel fieldPanel = new JPanel(new GridLayout(2, 1));
 
-    private JPanel savePanel=new JPanel();
+    private JPanel savePanel = new JPanel();
     private JTextField Lessonname = new JTextField(20);
     private JTextField Lessonmessage = new JTextField(20);
     private JButton oksaveButton=new JButton();
-    
-
     
     //----
 
@@ -531,18 +523,18 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private JComboBox midiInComboBox;
     private JComboBox midiOutComboBox;
  
-    private DefaultComboBoxModel midiOutComboBoxModel=new DefaultComboBoxModel();    
-    private DefaultComboBoxModel midiInComboBoxModel=new DefaultComboBoxModel();
+    private DefaultComboBoxModel midiOutComboBoxModel = new DefaultComboBoxModel();    
+    private DefaultComboBoxModel midiInComboBoxModel = new DefaultComboBoxModel();
 
     private boolean selectmidi_forlang; // is true when combobox selection occures during language initialization
 
-    private int[] sauvmidi=new int[16]; // for save midi options when cancel
+    private int[] sauvmidi = new int[16]; // for save midi options when cancel
 
     //----
 
     private JDialog aboutDialog;
-    private JPanel papropos=new JPanel();
-    private JPanel paproposboutons=new JPanel(); // panel for buttons
+    private JPanel papropos = new JPanel();
+    private JPanel paproposboutons = new JPanel(); // panel for buttons
     private JTextArea texteapropos;
 
     private JButton bcredits;
@@ -559,7 +551,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     ChooseNotePanel ScoreChooseNoteP;
     //----
     
-    private JPanel principal=new JPanel(); // panel principal
+    private JPanel principal = new JPanel(); // panel principal
     
     Properties settings = new Properties();
 
@@ -567,7 +559,6 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     // Initialization methods
 
     private void init(String paramlanguage) {
-    	
     	try{
    	      settings.load(new FileInputStream("settings.properties"));
    	    //  System.out.println("language = " + settings.getProperty("language"));
@@ -616,6 +607,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         localizables.add(new Localizable.Button(listenButton, "_listen"));
         listenButton.setPreferredSize(new Dimension(150, 20));
         listenButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 handleListenButtonClicked();
             }
@@ -626,6 +618,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         localizables.add(new Localizable.Button(newButton, "_new"));
         newButton.setPreferredSize(new Dimension(150, 20));
         newButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 handleNewButtonClicked();
             }
@@ -648,8 +641,9 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     	ChooseNoteP = new  ChooseNotePanel(noteLevel.getKey(),NOTEREADING,  bundle);
         ChooseNoteP.setOpaque(true); //content panes must be opaque 
         ChooseNoteP.setVisible(true);
-       ChooseNoteP.okButton.addActionListener(new ActionListener() {
+        ChooseNoteP.okButton.addActionListener(new ActionListener() {
     	   
+           @Override
            public void actionPerformed(ActionEvent e)
            {
                //Execute when button is pressed
@@ -665,8 +659,8 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
    	ScoreChooseNoteP = new  ChooseNotePanel(scoreLevel.getKey(), SCOREREADING, bundle);
     ScoreChooseNoteP.setOpaque(true); //content panes must be opaque 
     ScoreChooseNoteP.setVisible(true);
-   ScoreChooseNoteP.okButton.addActionListener(new ActionListener() {
-	   
+    ScoreChooseNoteP.okButton.addActionListener(new ActionListener() {
+       @Override
        public void actionPerformed(ActionEvent e)
        {
            //Execute when button is pressed
@@ -677,7 +671,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     		 }
           
        }
-   });    
+    });    
        
         bdo=new JButton();
         bdo.addActionListener(this);
@@ -757,7 +751,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         //aboutDialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         aboutDialog.setResizable(false);
 
-          notesDialog=new JDialog(this, true);
+        notesDialog=new JDialog(this, true);
         //    notesDialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         notesDialog.setResizable(false);   
         
@@ -862,50 +856,66 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         group.add(rblanguagegr);
         languages.add(rblanguagegr);
 
-        if ("es".equals(paramlanguage)) {
-            rblanguagees.setSelected(true);
-            language="es";
-        } else if ("it".equals(paramlanguage)) {
-            rblanguageit.setSelected(true);
-            language="it";
-        } else if ("de".equals(paramlanguage)) {
-            rblanguagede.setSelected(true);
-            language="de";
-        } else if ("fr".equals(paramlanguage)) {
-            rblanguagefr.setSelected(true);
-            language="fr";
-        } else if ("da".equals(paramlanguage)) {
-            rblanguageda.setSelected(true);
-            language="da";
-        } else if ("tr".equals(paramlanguage)) {
-            rblanguagetr.setSelected(true);
-            language="tr";
-        } else if ("fi".equals(paramlanguage)) {
-            rblanguagefi.setSelected(true);
-            language="fi";
-        } else if ("ko".equals(paramlanguage)) {
-            rblanguageko.setSelected(true);
-            language="ko";
-        } else if ("eo".equals(paramlanguage)) {
-            rblanguageeo.setSelected(true);
-            language="eo";
-        } else if ("pl".equals(paramlanguage)) {
-        	rblanguagepl.setSelected(true);
-        	language="pl"; 
-    	} else if ("iw".equals(paramlanguage)) {
-    		rblanguageiw.setSelected(true);
-    		language="iw";
-    	}  else if ("gr".equals(paramlanguage)) {
-    		rblanguagegr.setSelected(true);
-    		language="gr";
-    	}else {
+        if (null == paramlanguage) {
             // must be "en"
             rblanguageen.setSelected(true);
             language="en";
+        } else switch (paramlanguage) {
+            case "es":
+                rblanguagees.setSelected(true);
+                language="es";
+                break;
+            case "it":
+                rblanguageit.setSelected(true);
+                language="it";
+                break;
+            case "de":
+                rblanguagede.setSelected(true);
+                language="de";
+                break;
+            case "fr":
+                rblanguagefr.setSelected(true);
+                language="fr";
+                break;
+            case "da":
+                rblanguageda.setSelected(true);
+                language="da";
+                break;
+            case "tr":
+                rblanguagetr.setSelected(true);
+                language="tr";
+                break;
+            case "fi":
+                rblanguagefi.setSelected(true);
+                language="fi";
+                break;
+            case "ko":
+                rblanguageko.setSelected(true);
+                language="ko";
+                break;
+            case "eo":
+                rblanguageeo.setSelected(true);
+                language="eo";
+                break;
+            case "pl":
+                rblanguagepl.setSelected(true);
+                language="pl";
+                break;
+            case "iw":
+                rblanguageiw.setSelected(true);
+                language="iw";
+                break;
+            case "gr":
+                rblanguagegr.setSelected(true);
+                language="gr";
+                break;
+            default:
+                // must be "en"
+                rblanguageen.setSelected(true);
+                language="en";
+                break;
         }
        
-       
-
         languages.setIcon(new ImageIcon(getClass().getResource("/images/language.png")));
 
         languages.addActionListener(this);
@@ -983,13 +993,12 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
         /*******************************************************************/
 
-       
-
         plevelMessage.setVisible(true);
         plevelMessage.setLayout(new GridLayout(2, 1));
 
         oklevelMessage=new JButton();
         oklevelMessage.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 handleLevelOkClicked();
             }
@@ -1030,16 +1039,17 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         fieldPanel.add(Lessonmessage);
         
         savePanel.add(labelPanel, BorderLayout.WEST);
-	   savePanel.add(fieldPanel, BorderLayout.CENTER);
+	savePanel.add(fieldPanel, BorderLayout.CENTER);
 
-       oksaveButton=new JButton();
-       oksaveButton.addActionListener(new ActionListener() {
+        oksaveButton=new JButton();
+        oksaveButton.addActionListener(new ActionListener() {
+           @Override
            public void actionPerformed(ActionEvent e) {
                handleOKSave();
            }
-       });
-       oksaveButton.setIcon(new ImageIcon(getClass().getResource("/images/ok.png")));
-       oksaveButton.setText(bundle.getString("_buttonok"));
+        });
+        oksaveButton.setIcon(new ImageIcon(getClass().getResource("/images/ok.png")));
+        oksaveButton.setText(bundle.getString("_buttonok"));
         savePanel.add(oksaveButton);
         saveDialog.setContentPane(savePanel);
         saveDialog.setVisible(false);
@@ -1060,22 +1070,22 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         panelanim.setVisible(true);
         panelanim.setBackground(Color.white);
 
-        piano=new Piano(73, 40); //initialisation of keyboard 61 keys
+        piano = new Piano(73, 40); //initialisation of keyboard 61 keys
 
         Image icone;
         
         try {
-        	icone = ImageIO.read(getClass().getClassLoader().getResource("images/icon.png"));
+            icone = ImageIO.read(getClass().getClassLoader().getResource("images/icon.png"));
             setIconImage(icone);
         }
-        catch(Exception e){
+        catch(IOException e){
             System.out.println("Cannot load Jalmus icon");
         }
 
         addKeyListener(this);
         addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
             public void mouseMoved(MouseEvent e) {
-
                 if (selectedGame==NOTEREADING) {
 
                     Key key=piano.getKey(e.getPoint());
@@ -1113,12 +1123,12 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             public void mousePressed(MouseEvent e) {
                 requestFocus();
      
-                Dimension d=getSize();
+                Dimension d = getSize();
                 
                 if (selectedGame==NOTEREADING) {
                 	
-                	if (piano.rightbuttonpressed(e.getPoint(),d.width))  noteLevel.basenotetoRight(piano);
-                	if (piano.leftbuttonpressed(e.getPoint(),d.width))  noteLevel.basenotetoLeft(piano);
+                	//if (piano.rightbuttonpressed(e.getPoint(), d.width))  noteLevel.basenotetoRight(piano);
+                	if (piano.leftbuttonpressed(e.getPoint(), d.width))  noteLevel.basenotetoLeft(piano);
                     
                 	repaint();
                 	
@@ -1229,7 +1239,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     	      }
     	      
       	}
-    	    catch (Exception e) {
+    	    catch (IOException | NumberFormatException e) {
     	      System.out.println(e);
     	      }
 
@@ -1240,6 +1250,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         JMenuItem noteReadingMenuItem=new JMenuItem(new ImageIcon(getClass().getResource("/images/note.png")));
         localizables.add(new Localizable.Button(noteReadingMenuItem, "_menuNotereading"));
         noteReadingMenuItem.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 handleNoteReadingMenuItem();
             }
@@ -1284,16 +1295,11 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         exercisesMenu.add(exitMenuItem);
         return exercisesMenu;
         
-      
     }
 
- 
-    
     private void buildLessonsMenu() {
-    	
-
-    localizables.add(new Localizable.Button(lessonsMenu, "_menuLessons"));
-    lessonsMenu.setMnemonic(KeyEvent.VK_L);
+        localizables.add(new Localizable.Button(lessonsMenu, "_menuLessons"));
+        lessonsMenu.setMnemonic(KeyEvent.VK_L);
     
     	path = currentlesson.getLessonPath(language);
     	
@@ -1348,16 +1354,12 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
    	        // whether the API is supported by this particular
    	        // virtual machine (VM) on this particular host.
    	 
-
-
-   	        
-   	    
    	         lessonsMenu.addSeparator();
-   	
-   	   	     
+   	  	     
    	         JMenuItem manageMenuItem=new JMenuItem(new ImageIcon(getClass().getResource("/images/folder.png")));
      	       localizables.add(new Localizable.Button(manageMenuItem, "_menuBrowse"));
      	        manageMenuItem.addActionListener(new ActionListener() {
+                         @Override
      	            public void actionPerformed(ActionEvent e) {
      	            	  File sousrepertoire=new File(path);
      	            	 OpenDirectory(sousrepertoire);
@@ -5838,7 +5840,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private class Anim extends JPanel {
 	private static final long serialVersionUID = 1L;
 		
-        int width = 680, height = 480;
+        int width = 1060, height = 520;
 
         public Anim() {
             setPreferredSize(new Dimension(width, height));
@@ -6149,7 +6151,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     public static void main(String[] arg) {
         // Event pour la gestion des Evenements et principalement le message EXIT
         // Constructions de la frame
-    	Dimension dim = new Dimension(790, 590);
+    	Dimension dim = new Dimension(1000, 700);
 
         Jalmus jalmus = new Jalmus();
         // Initialization
@@ -6160,7 +6162,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         }
 
         // Force the window size
-        jalmus.setSize(800, 600);
+        jalmus.setSize(1120, 760);
         jalmus.setMinimumSize(dim);
 
         // Draw

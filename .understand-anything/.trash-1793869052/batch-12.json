@@ -1,0 +1,173 @@
+{
+  "nodes": [
+    {
+      "id": "file:lessons/it/01. Basic/01. Un'ottava in chiave di violino.xml",
+      "type": "document",
+      "name": "01. Un'ottava in chiave di violino.xml",
+      "summary": "Documentation / content file `01. Un'ottava in chiave di violino`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/it/01. Basic/01. Un'ottava in chiave di violino.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/it/01. Basic/02. Tutte le note in chiave di violino.xml",
+      "type": "document",
+      "name": "02. Tutte le note in chiave di violino.xml",
+      "summary": "Documentation / content file `02. Tutte le note in chiave di violino`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/it/01. Basic/02. Tutte le note in chiave di violino.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/it/01. Basic/03. Un'ottava in chiave di basso.xml",
+      "type": "document",
+      "name": "03. Un'ottava in chiave di basso.xml",
+      "summary": "Documentation / content file `03. Un'ottava in chiave di basso`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/it/01. Basic/03. Un'ottava in chiave di basso.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/it/01. Basic/04. Tutte le note in chiave di basso.xml",
+      "type": "document",
+      "name": "04. Tutte le note in chiave di basso.xml",
+      "summary": "Documentation / content file `04. Tutte le note in chiave di basso`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/it/01. Basic/04. Tutte le note in chiave di basso.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/it/01. Basic/05. Tutte le note del pentagramma.xml",
+      "type": "document",
+      "name": "05. Tutte le note del pentagramma.xml",
+      "summary": "Documentation / content file `05. Tutte le note del pentagramma`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/it/01. Basic/05. Tutte le note del pentagramma.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/it/01. Basic/06. Note basse in chiave di basso.xml",
+      "type": "document",
+      "name": "06. Note basse in chiave di basso.xml",
+      "summary": "Documentation / content file `06. Note basse in chiave di basso`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/it/01. Basic/06. Note basse in chiave di basso.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/it/01. Basic/07. Note alte in chiave di violino.xml",
+      "type": "document",
+      "name": "07. Note alte in chiave di violino.xml",
+      "summary": "Documentation / content file `07. Note alte in chiave di violino`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/it/01. Basic/07. Note alte in chiave di violino.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/it/01. Basic/08. Intervalli - terza e quinta.xml",
+      "type": "document",
+      "name": "08. Intervalli - terza e quinta.xml",
+      "summary": "Documentation / content file `08. Intervalli - terza e quinta`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/it/01. Basic/08. Intervalli - terza e quinta.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/it/01. Basic/09. Tonalità - LA Maggiore.xml",
+      "type": "document",
+      "name": "09. Tonalità - LA Maggiore.xml",
+      "summary": "Documentation / content file `09. Tonalità - LA Maggiore`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/it/01. Basic/09. Tonalità - LA Maggiore.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/it/01. Basic/10. Tonalità - MI Bemolle Maggiore.xml",
+      "type": "document",
+      "name": "10. Tonalità - MI Bemolle Maggiore.xml",
+      "summary": "Documentation / content file `10. Tonalità - MI Bemolle Maggiore`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/it/01. Basic/10. Tonalità - MI Bemolle Maggiore.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/it/01. Basic/11. Tutte le tonalità con diesis.xml",
+      "type": "document",
+      "name": "11. Tutte le tonalità con diesis.xml",
+      "summary": "Documentation / content file `11. Tutte le tonalità con diesis`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/it/01. Basic/11. Tutte le tonalità con diesis.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/it/01. Basic/12. Tutte le tonalità con bemolle.xml",
+      "type": "document",
+      "name": "12. Tutte le tonalità con bemolle.xml",
+      "summary": "Documentation / content file `12. Tutte le tonalità con bemolle`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/it/01. Basic/12. Tutte le tonalità con bemolle.xml",
+      "language": "xml"
+    }
+  ],
+  "edges": []
+}

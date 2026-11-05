@@ -29,25 +29,23 @@ import java.util.StringTokenizer;
 enum TLevel {NOTELEVEL, RHYTHMLEVEL, SCORELEVEL};
 
 public class Lessons extends DefaultHandler{
-   LinkedList<Level> levelslist;
-   int currentlevel;
-   NoteLevel nlevel;
-   RhythmLevel rlevel;
-   ScoreLevel slevel;  
+    LinkedList<Level> levelslist;
+    int currentlevel;
+    NoteLevel nlevel;
+    RhythmLevel rlevel;
+    ScoreLevel slevel;  
               //flags nous indiquant la position du parseur
-   boolean inExercices, inNLevel, inRLevel, inSLevel, inGametype, inNotestype, inNbnotes, inMessage, inSpeed, inStartingnote, inClef, inTonality,
-   inIntervals, inChords, inDuration, inPitches,  inRhythms, inTime, inRests, inTuplets, inMetronome;
+    boolean inExercices, inNLevel, inRLevel, inSLevel, inGametype, inNotestype, inNbnotes, inMessage, inSpeed, inStartingnote, inClef, inTonality,
+     inIntervals, inChords, inDuration, inPitches,  inRhythms, inTime, inRests, inTuplets, inMetronome;
    
-  TLevel leveltype; 
+    TLevel leveltype; 
               //buffer nous permettant de récupérer les données
-  private StringBuffer buffer;
+    private StringBuffer buffer;
 
-
-   public Lessons() {
-
+    public Lessons() {
      this.levelslist = new LinkedList<>();
      this.currentlevel = 0;
-   }
+    }
 
 
 public void nextLevel(){
@@ -106,35 +104,36 @@ public String getLessonPath(String language){
 
 
 public Level getLevel(){
-	if(this.levelslist.get(this.currentlevel).getClass().getSimpleName().equals("NoteLevel"))
-		return (NoteLevel) this.levelslist.get(this.currentlevel);
-	else if(this.levelslist.get(this.currentlevel).getClass().getSimpleName().equals("RhythmLevel"))
-		return (RhythmLevel) this.levelslist.get(this.currentlevel);
-	else //Scorelevel
-		return (ScoreLevel) this.levelslist.get(this.currentlevel);
+       switch (this.levelslist.get(this.currentlevel).getClass().getSimpleName()) {
+           case "NoteLevel":
+               return (NoteLevel) this.levelslist.get(this.currentlevel);
+           case "RhythmLevel":
+               return (RhythmLevel) this.levelslist.get(this.currentlevel);
+           default:
+               //Scorelevel
+               return (ScoreLevel) this.levelslist.get(this.currentlevel);
+       }
 }
 
-public boolean isNoteLevel(){
-	if(this.levelslist.get(this.currentlevel).getClass().getSimpleName().equals("NoteLevel"))
-		return true;
-	else
-		return false;
-}
+    public boolean isNoteLevel(){
+       return this.levelslist.get(this.currentlevel).getClass().getSimpleName().equals("NoteLevel");
+    }
 
-public boolean isRhythmLevel(){
+    public boolean isRhythmLevel(){
        return this.levelslist.get(this.currentlevel).getClass().getSimpleName().equals("RhythmLevel");
-}
+    }
 
-public boolean isScoreLevel(){
+    public boolean isScoreLevel(){
 	if(this.levelslist.get(this.currentlevel).getClass().getSimpleName().equals("ScoreLevel")){
 		System.out.println("Score level");
 		return true;
 	}
 	else
 		return false;
-}
+    }
 
    //détection d'ouverture de balise
+   @Override
    public void startElement(String uri, String localName,
                             String qName, Attributes attributes) throws
        SAXException {
@@ -245,8 +244,8 @@ public boolean isScoreLevel(){
                        //erreur, on peut lever une exception
                        throw new SAXException("Markup " + qName + " unknown.");
                }
-     }
-   }
+        }
+    }
 
    //détection fin de balise
    @Override
@@ -536,9 +535,7 @@ public boolean isScoreLevel(){
   	        	    
   	        	}
   	           
-  	  	
-  	           
-  	  	         break;
+  	  	        break;
   	  	         
   	  	         
   	       case SCORELEVEL :
@@ -547,7 +544,7 @@ public boolean isScoreLevel(){
   	           
   	           slevel.adjustLevel(false, false, false, false, false, false);
   	           while ( sts.hasMoreTokens() ) {
-  	        	    ps = Integer.parseInt(sts.nextToken());
+  	        	    ps = Integer.valueOf(sts.nextToken());
   	        	  if (ps == 1 && slevel.getTimeSignNumerator()==4 && slevel.getTimeSignDenominator()==4) slevel.setWholeNote(true);  	        	  
   	        	  else if (ps == 2) slevel.setHalfNote(true);
   	        	  else if (ps == 3 && slevel.getTimeSignNumerator()>=3 && slevel.getTimeSignDenominator()==4) slevel.setDottedHalfNote(true);	        	  
@@ -639,7 +636,7 @@ public boolean isScoreLevel(){
         	           
         	
         	           while ( st.hasMoreTokens() ) {
-        	        	    p = Integer.parseInt(st.nextToken());
+        	        	    p = Integer.valueOf(st.nextToken());
 
         	        	  if (p == 3) rlevel.setTriplet(true);
       
@@ -654,7 +651,7 @@ public boolean isScoreLevel(){
         	           
       
         	           while ( sts.hasMoreTokens() ) {
-        	        	    ps = Integer.parseInt(sts.nextToken());
+        	        	    ps = Integer.valueOf(sts.nextToken());
 
         	        	  if (ps == 3) rlevel.setTriplet(true);
       
@@ -757,7 +754,7 @@ public boolean isScoreLevel(){
 		
 		     
 		       }
-		       catch (Exception e) {
+		       catch (NumberFormatException | SAXException e) {
 		         //erreur, le contenu de id n'est pas un entier
 		         throw new SAXException(e);
 		       }
@@ -777,7 +774,7 @@ public boolean isScoreLevel(){
  		
  		     
  		       }
- 		       catch (Exception e) {
+ 		       catch (NumberFormatException | SAXException e) {
  		         //erreur, le contenu de id n'est pas un entier
  		         throw new SAXException(e);
  		       }
@@ -877,11 +874,6 @@ public boolean isScoreLevel(){
     	   inIntervals = false;
        }
     	 
-
-
-
-
-
      else if (qName.equals("speed")) {
     	 
     	   switch (leveltype)

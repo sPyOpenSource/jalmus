@@ -1,0 +1,303 @@
+{
+  "nodes": [
+    {
+      "id": "file:.classpath",
+      "type": "file",
+      "name": ".classpath",
+      "summary": "Source file `.classpath`.",
+      "tags": [],
+      "complexity": "simple",
+      "filePath": ".classpath",
+      "language": "unknown"
+    },
+    {
+      "id": "file:.project",
+      "type": "file",
+      "name": ".project",
+      "summary": "Source file `.project`.",
+      "tags": [],
+      "complexity": "simple",
+      "filePath": ".project",
+      "language": "unknown"
+    },
+    {
+      "id": "file:.settings/org.eclipse.ltk.core.refactoring.prefs",
+      "type": "file",
+      "name": "org.eclipse.ltk.core.refactoring.prefs",
+      "summary": "Source file `org.eclipse.ltk.core.refactoring`.",
+      "tags": [],
+      "complexity": "simple",
+      "filePath": ".settings/org.eclipse.ltk.core.refactoring.prefs",
+      "language": "prefs"
+    },
+    {
+      "id": "file:.superpowers/brainstorm/.last-port",
+      "type": "file",
+      "name": ".last-port",
+      "summary": "Source file `.last-port`.",
+      "tags": [],
+      "complexity": "simple",
+      "filePath": ".superpowers/brainstorm/.last-port",
+      "language": "unknown"
+    },
+    {
+      "id": "file:.superpowers/brainstorm/.last-token",
+      "type": "file",
+      "name": ".last-token",
+      "summary": "Source file `.last-token`.",
+      "tags": [],
+      "complexity": "simple",
+      "filePath": ".superpowers/brainstorm/.last-token",
+      "language": "unknown"
+    },
+    {
+      "id": "file:.superpowers/brainstorm/12671-1793829741/content/hint-timing.html",
+      "type": "document",
+      "name": "hint-timing.html",
+      "summary": "Documentation / content file `hint-timing`.",
+      "tags": [
+        "documentation"
+      ],
+      "complexity": "simple",
+      "filePath": ".superpowers/brainstorm/12671-1793829741/content/hint-timing.html",
+      "language": "html"
+    },
+    {
+      "id": "file:.superpowers/brainstorm/12671-1793829741/content/waiting.html",
+      "type": "document",
+      "name": "waiting.html",
+      "summary": "Documentation / content file `waiting`.",
+      "tags": [
+        "documentation"
+      ],
+      "complexity": "simple",
+      "filePath": ".superpowers/brainstorm/12671-1793829741/content/waiting.html",
+      "language": "html"
+    },
+    {
+      "id": "file:.superpowers/brainstorm/12671-1793829741/state/server-stopped",
+      "type": "file",
+      "name": "server-stopped",
+      "summary": "Source file `server-stopped`.",
+      "tags": [],
+      "complexity": "simple",
+      "filePath": ".superpowers/brainstorm/12671-1793829741/state/server-stopped",
+      "language": "unknown"
+    },
+    {
+      "id": "file:.understand-anything/.understandignore",
+      "type": "file",
+      "name": ".understandignore",
+      "summary": "Source file `.understandignore`.",
+      "tags": [],
+      "complexity": "simple",
+      "filePath": ".understand-anything/.understandignore",
+      "language": "unknown"
+    },
+    {
+      "id": "file:docs/superpowers/plans/2026-11-04-falling-hint-bar.md",
+      "type": "document",
+      "name": "2026-11-04-falling-hint-bar.md",
+      "summary": "Documentation / content file `2026-11-04-falling-hint-bar`.",
+      "tags": [
+        "documentation"
+      ],
+      "complexity": "simple",
+      "filePath": "docs/superpowers/plans/2026-11-04-falling-hint-bar.md",
+      "language": "markdown"
+    },
+    {
+      "id": "file:docs/superpowers/plans/2026-11-04-keyboard-piano-mapping.md",
+      "type": "document",
+      "name": "2026-11-04-keyboard-piano-mapping.md",
+      "summary": "Documentation / content file `2026-11-04-keyboard-piano-mapping`.",
+      "tags": [
+        "documentation"
+      ],
+      "complexity": "simple",
+      "filePath": "docs/superpowers/plans/2026-11-04-keyboard-piano-mapping.md",
+      "language": "markdown"
+    },
+    {
+      "id": "file:install_files/soundbank-mid.gm",
+      "type": "file",
+      "name": "soundbank-mid.gm",
+      "summary": "Source file `soundbank-mid`.",
+      "tags": [],
+      "complexity": "simple",
+      "filePath": "install_files/soundbank-mid.gm",
+      "language": "gm"
+    },
+    {
+      "id": "file:lessons/da/02. Violin/01. Open strings.xml",
+      "type": "document",
+      "name": "01. Open strings.xml",
+      "summary": "Documentation / content file `01. Open strings`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/da/02. Violin/01. Open strings.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/da/02. Violin/02. First finger.xml",
+      "type": "document",
+      "name": "02. First finger.xml",
+      "summary": "Documentation / content file `02. First finger`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/da/02. Violin/02. First finger.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/da/02. Violin/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/da/02. Violin/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/da/03. Sax/01. First notes.xml",
+      "type": "document",
+      "name": "01. First notes.xml",
+      "summary": "Documentation / content file `01. First notes`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/da/03. Sax/01. First notes.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/da/03. Sax/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/da/03. Sax/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/da/99. My lessons/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/da/99. My lessons/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/de/02. Violin/01. Open strings.xml",
+      "type": "document",
+      "name": "01. Open strings.xml",
+      "summary": "Documentation / content file `01. Open strings`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/de/02. Violin/01. Open strings.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/de/02. Violin/02. First finger.xml",
+      "type": "document",
+      "name": "02. First finger.xml",
+      "summary": "Documentation / content file `02. First finger`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/de/02. Violin/02. First finger.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/de/02. Violin/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/de/02. Violin/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/de/03. Sax/01. First notes.xml",
+      "type": "document",
+      "name": "01. First notes.xml",
+      "summary": "Documentation / content file `01. First notes`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/de/03. Sax/01. First notes.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/de/03. Sax/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/de/03. Sax/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/de/99. My lessons/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/de/99. My lessons/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/en/02. Violin/01. Open strings.xml",
+      "type": "document",
+      "name": "01. Open strings.xml",
+      "summary": "Documentation / content file `01. Open strings`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/02. Violin/01. Open strings.xml",
+      "language": "xml"
+    }
+  ],
+  "edges": []
+}

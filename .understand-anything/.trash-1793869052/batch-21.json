@@ -1,0 +1,333 @@
+{
+  "nodes": [
+    {
+      "id": "file:lessons/en/02. Violin/02. First finger.xml",
+      "type": "document",
+      "name": "02. First finger.xml",
+      "summary": "Documentation / content file `02. First finger`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/02. Violin/02. First finger.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/en/02. Violin/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/02. Violin/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/en/03. Sax/01. First notes.xml",
+      "type": "document",
+      "name": "01. First notes.xml",
+      "summary": "Documentation / content file `01. First notes`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/03. Sax/01. First notes.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/en/03. Sax/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/03. Sax/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/en/99. My lessons/test.xml",
+      "type": "document",
+      "name": "test.xml",
+      "summary": "Documentation / content file `test`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/99. My lessons/test.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/eo/02. Violin/01. Open strings.xml",
+      "type": "document",
+      "name": "01. Open strings.xml",
+      "summary": "Documentation / content file `01. Open strings`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/eo/02. Violin/01. Open strings.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/eo/02. Violin/02. First finger.xml",
+      "type": "document",
+      "name": "02. First finger.xml",
+      "summary": "Documentation / content file `02. First finger`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/eo/02. Violin/02. First finger.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/eo/02. Violin/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/eo/02. Violin/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/eo/03. Sax/01. First notes.xml",
+      "type": "document",
+      "name": "01. First notes.xml",
+      "summary": "Documentation / content file `01. First notes`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/eo/03. Sax/01. First notes.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/eo/03. Sax/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/eo/03. Sax/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/eo/99. My lessons/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/eo/99. My lessons/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/es/02. Violin/01. Open strings.xml",
+      "type": "document",
+      "name": "01. Open strings.xml",
+      "summary": "Documentation / content file `01. Open strings`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/es/02. Violin/01. Open strings.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/es/02. Violin/02. First finger.xml",
+      "type": "document",
+      "name": "02. First finger.xml",
+      "summary": "Documentation / content file `02. First finger`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/es/02. Violin/02. First finger.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/es/02. Violin/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/es/02. Violin/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/es/03. Sax/01. First notes.xml",
+      "type": "document",
+      "name": "01. First notes.xml",
+      "summary": "Documentation / content file `01. First notes`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/es/03. Sax/01. First notes.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/es/03. Sax/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/es/03. Sax/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/es/99. My lessons/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/es/99. My lessons/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/fi/02. Violin/01. Open strings.xml",
+      "type": "document",
+      "name": "01. Open strings.xml",
+      "summary": "Documentation / content file `01. Open strings`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fi/02. Violin/01. Open strings.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/fi/02. Violin/02. First finger.xml",
+      "type": "document",
+      "name": "02. First finger.xml",
+      "summary": "Documentation / content file `02. First finger`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fi/02. Violin/02. First finger.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/fi/02. Violin/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fi/02. Violin/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/fi/03. Sax/01. First notes.xml",
+      "type": "document",
+      "name": "01. First notes.xml",
+      "summary": "Documentation / content file `01. First notes`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fi/03. Sax/01. First notes.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/fi/03. Sax/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fi/03. Sax/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/fi/99. My lessons/deleteme",
+      "type": "file",
+      "name": "deleteme",
+      "summary": "Source file `deleteme`.",
+      "tags": [
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fi/99. My lessons/deleteme",
+      "language": "unknown"
+    },
+    {
+      "id": "file:lessons/fr/02. Violon/01. Cordes à vide.xml",
+      "type": "document",
+      "name": "01. Cordes à vide.xml",
+      "summary": "Documentation / content file `01. Cordes à vide`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fr/02. Violon/01. Cordes à vide.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/fr/02. Violon/02. Premier doigt.xml",
+      "type": "document",
+      "name": "02. Premier doigt.xml",
+      "summary": "Documentation / content file `02. Premier doigt`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/fr/02. Violon/02. Premier doigt.xml",
+      "language": "xml"
+    }
+  ],
+  "edges": []
+}

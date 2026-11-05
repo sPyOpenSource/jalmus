@@ -1,0 +1,226 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/language_Cp949.properties",
+      "type": "config",
+      "name": "language_Cp949.properties",
+      "summary": "Configuration file `language_Cp949`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "src/language_Cp949.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:src/language_da.properties",
+      "type": "config",
+      "name": "language_da.properties",
+      "summary": "Configuration file `language_da`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "src/language_da.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:src/language_de.properties",
+      "type": "config",
+      "name": "language_de.properties",
+      "summary": "Configuration file `language_de`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "src/language_de.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:src/language_en.properties",
+      "type": "config",
+      "name": "language_en.properties",
+      "summary": "Configuration file `language_en`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "src/language_en.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:src/language_eo.properties",
+      "type": "config",
+      "name": "language_eo.properties",
+      "summary": "Configuration file `language_eo`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "src/language_eo.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:src/language_eovierge.properties",
+      "type": "config",
+      "name": "language_eovierge.properties",
+      "summary": "Configuration file `language_eovierge`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "src/language_eovierge.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:src/language_es.properties",
+      "type": "config",
+      "name": "language_es.properties",
+      "summary": "Configuration file `language_es`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "src/language_es.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:src/language_fi.properties",
+      "type": "config",
+      "name": "language_fi.properties",
+      "summary": "Configuration file `language_fi`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "src/language_fi.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:src/language_fr.properties",
+      "type": "config",
+      "name": "language_fr.properties",
+      "summary": "Configuration file `language_fr`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "src/language_fr.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:src/language_gr.properties",
+      "type": "config",
+      "name": "language_gr.properties",
+      "summary": "Configuration file `language_gr`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "src/language_gr.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:src/language_he_iw_utf8.properties",
+      "type": "config",
+      "name": "language_he_iw_utf8.properties",
+      "summary": "Configuration file `language_he_iw_utf8`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "src/language_he_iw_utf8.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:src/language_it.properties",
+      "type": "config",
+      "name": "language_it.properties",
+      "summary": "Configuration file `language_it`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "src/language_it.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:src/language_iw.properties",
+      "type": "config",
+      "name": "language_iw.properties",
+      "summary": "Configuration file `language_iw`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "src/language_iw.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:src/language_ko.properties",
+      "type": "config",
+      "name": "language_ko.properties",
+      "summary": "Configuration file `language_ko`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "src/language_ko.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:src/language_pl.properties",
+      "type": "config",
+      "name": "language_pl.properties",
+      "summary": "Configuration file `language_pl`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "src/language_pl.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:src/language_pl_Cp1250.properties",
+      "type": "config",
+      "name": "language_pl_Cp1250.properties",
+      "summary": "Configuration file `language_pl_Cp1250`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "src/language_pl_Cp1250.properties",
+      "language": "properties"
+    },
+    {
+      "id": "file:src/language_tr.properties",
+      "type": "config",
+      "name": "language_tr.properties",
+      "summary": "Configuration file `language_tr`.",
+      "tags": [
+        "properties",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "src/language_tr.properties",
+      "language": "properties"
+    }
+  ],
+  "edges": []
+}

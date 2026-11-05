@@ -1,0 +1,78 @@
+[
+  {
+    "order": 1,
+    "title": "Project Overview",
+    "description": "Start with the changelog and readme to understand what Jalmus is (a music notation trainer), its version history, and supported languages.",
+    "nodeIds": ["file:Changelog.txt"]
+  },
+  {
+    "order": 2,
+    "title": "Application Entry Point",
+    "description": "Jalmus.java is the Main-Class entry point: it builds the main window, menus, preferences, MIDI setup and starts the note/rhythm/score reading games.",
+    "nodeIds": ["file:src/net/jalmus/Jalmus.java"]
+  },
+  {
+    "order": 3,
+    "title": "Core Data Model",
+    "description": "The musical building blocks: Note, Score, Chord, Interval and Tonality used throughout the exercises.",
+    "nodeIds": [
+      "file:src/net/jalmus/Note.java",
+      "file:src/net/jalmus/Score.java",
+      "file:src/net/jalmus/Chord.java",
+      "file:src/net/jalmus/Interval.java",
+      "file:src/net/jalmus/Tonality.java"
+    ]
+  },
+  {
+    "order": 4,
+    "title": "Lesson Loading",
+    "description": "Lessons.java parses the bundled lesson XML files (SAX) and exposes them to the exercise levels.",
+    "nodeIds": ["file:src/net/jalmus/Lessons.java"]
+  },
+  {
+    "order": 5,
+    "title": "Exercise Levels",
+    "description": "The Level interface and its implementations: NoteLevel, ScoreLevel and RhythmLevel drive each exercise type.",
+    "nodeIds": [
+      "file:src/net/jalmus/Level.java",
+      "file:src/net/jalmus/NoteLevel.java",
+      "file:src/net/jalmus/ScoreLevel.java",
+      "file:src/net/jalmus/RhythmLevel.java"
+    ]
+  },
+  {
+    "order": 6,
+    "title": "User Interface",
+    "description": "Piano provides the on-screen keyboard and ChooseNotePanel lets users pick notes during exercises.",
+    "nodeIds": [
+      "file:src/net/jalmus/Piano.java",
+      "file:src/net/jalmus/ChooseNotePanel.java"
+    ]
+  },
+  {
+    "order": 7,
+    "title": "MIDI and Audio",
+    "description": "MidiCommon handles MIDI devices/sequencing and FileTools handles reading/writing lessons, preferences and resources.",
+    "nodeIds": [
+      "file:src/net/jalmus/MidiCommon.java",
+      "file:src/net/jalmus/FileTools.java"
+    ]
+  },
+  {
+    "order": 8,
+    "title": "Configuration and Localization",
+    "description": "build.xml, settings.properties and the language_*.properties files internationalize the app into 13 languages.",
+    "nodeIds": [
+      "file:build.xml",
+      "file:settings.properties",
+      "file:src/language_en.properties",
+      "file:src/language_fr.properties"
+    ]
+  },
+  {
+    "order": 9,
+    "title": "Lesson Content",
+    "description": "Bundled lesson XML files (260 lessons in 13 languages) define the note, rhythm and score exercises, e.g. the English 'An octave on treble clef' lesson.",
+    "nodeIds": ["file:lessons/en/01. Basic/01. An octave on treble clef.xml"]
+  }
+]

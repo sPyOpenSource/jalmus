@@ -1,0 +1,229 @@
+{
+  "nodes": [
+    {
+      "id": "file:lessons/en/01. Basic/01. An octave on treble clef.xml",
+      "type": "document",
+      "name": "01. An octave on treble clef.xml",
+      "summary": "Documentation / content file `01. An octave on treble clef`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/01. Basic/01. An octave on treble clef.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/en/01. Basic/02. All notes on treble clef.xml",
+      "type": "document",
+      "name": "02. All notes on treble clef.xml",
+      "summary": "Documentation / content file `02. All notes on treble clef`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/01. Basic/02. All notes on treble clef.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/en/01. Basic/03. An octave on bass clef.xml",
+      "type": "document",
+      "name": "03. An octave on bass clef.xml",
+      "summary": "Documentation / content file `03. An octave on bass clef`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/01. Basic/03. An octave on bass clef.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/en/01. Basic/04. All notes on bass clef.xml",
+      "type": "document",
+      "name": "04. All notes on bass clef.xml",
+      "summary": "Documentation / content file `04. All notes on bass clef`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/01. Basic/04. All notes on bass clef.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/en/01. Basic/05. All notes in piano staff.xml",
+      "type": "document",
+      "name": "05. All notes in piano staff.xml",
+      "summary": "Documentation / content file `05. All notes in piano staff`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/01. Basic/05. All notes in piano staff.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/en/01. Basic/06. Bass notes on bass clef.xml",
+      "type": "document",
+      "name": "06. Bass notes on bass clef.xml",
+      "summary": "Documentation / content file `06. Bass notes on bass clef`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/01. Basic/06. Bass notes on bass clef.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/en/01. Basic/07. Treble notes on treble clef.xml",
+      "type": "document",
+      "name": "07. Treble notes on treble clef.xml",
+      "summary": "Documentation / content file `07. Treble notes on treble clef`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/01. Basic/07. Treble notes on treble clef.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/en/01. Basic/08. Intervals - third and fifth.xml",
+      "type": "document",
+      "name": "08. Intervals - third and fifth.xml",
+      "summary": "Documentation / content file `08. Intervals - third and fifth`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/01. Basic/08. Intervals - third and fifth.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/en/01. Basic/09. Tonality - A Major.xml",
+      "type": "document",
+      "name": "09. Tonality - A Major.xml",
+      "summary": "Documentation / content file `09. Tonality - A Major`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/01. Basic/09. Tonality - A Major.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/en/01. Basic/10. Tonality - E Flat Major.xml",
+      "type": "document",
+      "name": "10. Tonality - E Flat Major.xml",
+      "summary": "Documentation / content file `10. Tonality - E Flat Major`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/01. Basic/10. Tonality - E Flat Major.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/en/01. Basic/11. All tonality with sharps.xml",
+      "type": "document",
+      "name": "11. All tonality with sharps.xml",
+      "summary": "Documentation / content file `11. All tonality with sharps`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/01. Basic/11. All tonality with sharps.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/en/01. Basic/12. All tonality with flats.xml",
+      "type": "document",
+      "name": "12. All tonality with flats.xml",
+      "summary": "Documentation / content file `12. All tonality with flats`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/01. Basic/12. All tonality with flats.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/en/01. Basic/13. Custom notes.xml",
+      "type": "document",
+      "name": "13. Custom notes.xml",
+      "summary": "Documentation / content file `13. Custom notes`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/01. Basic/13. Custom notes.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/en/01. Basic/14. Test rhythms.xml",
+      "type": "document",
+      "name": "14. Test rhythms.xml",
+      "summary": "Documentation / content file `14. Test rhythms`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/01. Basic/14. Test rhythms.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/en/01. Basic/Happy Birthday (Bass).xml",
+      "type": "document",
+      "name": "Happy Birthday (Bass).xml",
+      "summary": "Documentation / content file `Happy Birthday (Bass)`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/01. Basic/Happy Birthday (Bass).xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:lessons/en/01. Basic/Happy Birthday (Treble).xml",
+      "type": "document",
+      "name": "Happy Birthday (Treble).xml",
+      "summary": "Documentation / content file `Happy Birthday (Treble)`.",
+      "tags": [
+        "xml",
+        "documentation",
+        "lesson"
+      ],
+      "complexity": "simple",
+      "filePath": "lessons/en/01. Basic/Happy Birthday (Treble).xml",
+      "language": "xml"
+    }
+  ],
+  "edges": []
+}

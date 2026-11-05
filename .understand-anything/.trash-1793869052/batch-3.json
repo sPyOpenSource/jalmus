@@ -1,0 +1,67 @@
+{
+  "nodes": [
+    {
+      "id": "file:install_files/TargetPathWin.txt",
+      "type": "document",
+      "name": "TargetPathWin.txt",
+      "summary": "Documentation / content file `TargetPathWin`.",
+      "tags": [
+        "documentation"
+      ],
+      "complexity": "simple",
+      "filePath": "install_files/TargetPathWin.txt",
+      "language": "txt"
+    },
+    {
+      "id": "file:install_files/Unix_shortcutSpec.xml",
+      "type": "config",
+      "name": "Unix_shortcutSpec.xml",
+      "summary": "Configuration file `Unix_shortcutSpec`.",
+      "tags": [
+        "xml",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "install_files/Unix_shortcutSpec.xml",
+      "language": "xml"
+    },
+    {
+      "id": "file:install_files/licence.txt",
+      "type": "document",
+      "name": "licence.txt",
+      "summary": "Documentation / content file `licence`.",
+      "tags": [
+        "documentation"
+      ],
+      "complexity": "simple",
+      "filePath": "install_files/licence.txt",
+      "language": "txt"
+    },
+    {
+      "id": "file:install_files/readme.txt",
+      "type": "document",
+      "name": "readme.txt",
+      "summary": "Documentation / content file `readme`.",
+      "tags": [
+        "documentation"
+      ],
+      "complexity": "simple",
+      "filePath": "install_files/readme.txt",
+      "language": "txt"
+    },
+    {
+      "id": "file:install_files/shortcutSpec.xml",
+      "type": "config",
+      "name": "shortcutSpec.xml",
+      "summary": "Configuration file `shortcutSpec`.",
+      "tags": [
+        "xml",
+        "config"
+      ],
+      "complexity": "simple",
+      "filePath": "install_files/shortcutSpec.xml",
+      "language": "xml"
+    }
+  ],
+  "edges": []
+}

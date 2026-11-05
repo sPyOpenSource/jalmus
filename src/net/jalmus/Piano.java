@@ -31,13 +31,12 @@ public class Piano {
   net.jalmus.Key hintKey;
   float hintProgress;
   String hintLetter;
-  final int kw = 16, kh = 80;
+  final int kw = 20, kh = 100;
   final int ypos = 315;
   int marge = 43;
   int length = 73;
 
   public Piano(int l, int m) {
-
     int octavanumber;
     int transpose;
     int offset = 0;
@@ -96,8 +95,6 @@ public class Piano {
     return this.length == 61;
   }
 
-
-
   public void Setprevkey(net.jalmus.Key k) {
     this.prevKey = k;
   }
@@ -141,7 +138,7 @@ public class Piano {
   /**
      * To return Key of the Piano where the mouse aim
      * @return Key of the piano where the mouse aim
-     * @param Point of the mouse pointer
+     * @param point of the mouse pointer
    */
   public net.jalmus.Key getKey(Point point) {
     Point p = new Point();
@@ -156,20 +153,19 @@ public class Piano {
     return null;
   }
   
-  public boolean rightbuttonpressed(Point point, int width){
-	    int offx = (width/2) - 390;
+    public boolean rightbuttonpressed(Point point, int width){
+	int offx = (width/2) - 390;
 	    
-	  Rectangle rec = new Rectangle(740+ offx, 440, 30 ,30); 
+	Rectangle rec = new Rectangle(740 + offx, 440, 30 ,30); 
   	return (rec.contains(point));  
-  }
+    }
   
-  public boolean leftbuttonpressed(Point point, int width){
-	    int offx = (width/2) - 390;
+    public boolean leftbuttonpressed(Point point, int width){
+	int offx = (width/2) - 390;
 	    
-	  Rectangle rec = new Rectangle(5+ offx, 440, 30 ,30); 
+	Rectangle rec = new Rectangle(5 + offx, 440, 30 ,30); 
   	return (rec.contains(point));  
-  }
-
+    }
 
   /**
      * To play or stop the midi sound of a note when key of piano is pressed
@@ -257,15 +253,15 @@ public class Piano {
     
     Color c = new Color(255, 235, 235);
     Color cg = new Color(152, 251, 152);
-    int offx = (width/2) - 390;
+    int offx = (width/2) - 490;
 
     if (paintbutton){
 	    //paint bouton to move notes to train
 	    g2.setColor(cg);
-	    g2.fill3DRect(740 + offx, 340, 30,30, true) ;
+	    //g2.fill3DRect(740 + offx, 340, 30,30, true) ;
 	    g2.fill3DRect(5 + offx, 340, 30,30, true) ;
 	    g2.setColor(Color.black);
-	    g2.fillRect(745 + offx, 351, 12, 8);
+	    //g2.fillRect(745 + offx, 351, 12, 8);
 	    g2.fillRect(15 + offx, 351, 12, 8);
 	
 	    int[]x = new int[3];
@@ -274,15 +270,13 @@ public class Piano {
 	    x[0]=756 + offx; x[1]=766 + offx; x[2]=756 + offx;
 	    y[0]=345; y[1]=355; y[2]=365;
 	    Polygon myTri = new Polygon(x, y, 3); 
-	    g2.fillPolygon(myTri);
+	    //g2.fillPolygon(myTri);
 	    x[0]=18 + offx; x[1]=8 + offx; x[2]=18 + offx;
 	    y[0]=345; y[1]=355; y[2]=365;
 	    myTri = new Polygon(x, y, 3); 
 	    g2.fillPolygon(myTri);
     }
  
-
-
     //System.out.println (basenotepitch1);
     //System.out.println (basenotepitch2);
     g2.setColor(Color.black);
