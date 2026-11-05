@@ -4844,10 +4844,10 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     }
 
     private void drawChord(Chord a, Graphics g, boolean accordcourant) {
-        Dimension d=getSize();
+        Dimension d = getSize();
 
-        if (a.getNote(posnote).getX()<d.width-notemargin &&
-            a.getNote(posnote).getX()>=notemargin+98 && parti) {
+        if (a.getNote(posnote).getX() < d.width - notemargin &&
+            a.getNote(posnote).getX() >= notemargin + 98 && parti) {
             // NOTE DANS LIMITES
             a.paint(posnote, noteLevel, g, MusiSync, accordcourant, this,
                 scoreYpos, bundle);
@@ -4917,7 +4917,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             	  precedente=ncourante.getHeight();
             }
             		
-            ncourante.setX(notemargin+98);
+            ncourante.setX(getSize().width-notemargin);
 
             // Falling hint for learning mode (note reading)
             if (selectedGame == NOTEREADING && noteLevel.isLearninggame() && hintEnabled) {
@@ -4975,7 +4975,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         Dimension size=getSize();
 
         g.setColor(couleur);
-        if (note.getX()<size.width-notemargin && note.getX()>=notemargin+98 && parti) { // NOTE DANS LIMITES
+        if (note.getX()<=size.width-notemargin && note.getX()>=notemargin+98 && parti) { // NOTE DANS LIMITES
             if (noteLevel.isAccidentalsgame()|| noteLevel.isCustomNotesgame()) {
                 note.paint(noteLevel, g, f, 9, 0, scoreYpos, this, couleur, bundle);
             } else {
@@ -5733,6 +5733,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         /**
          *  This thread calls Jalmus window refresh every 10ms
          */
+        @Override
         public void run() {
         	
             while (true) {
@@ -5757,7 +5758,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                     if (parti && !paused) {
                         if ((noteLevel.isNormalgame() || noteLevel.isLearninggame()) &&
                             (noteLevel.isNotesgame() || noteLevel.isAccidentalsgame() || noteLevel.isCustomNotesgame())) {
-                            ncourante.setX(ncourante.getX()+1);
+                            ncourante.setX(ncourante.getX()-1);
                         } else
                         if ((noteLevel.isNormalgame() || noteLevel.isLearninggame()) &&
                             noteLevel.isChordsgame()) {
@@ -5768,20 +5769,18 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                             icourant.move(1);
                         } else if (noteLevel.isInlinegame() &&
                             (noteLevel.isNotesgame() || noteLevel.isAccidentalsgame() || noteLevel.isCustomNotesgame())) {
-                            for (int i=0; i<ligne.length; i++) {
-
-                                ligne[i].setX(ligne[i].getX()-1);
+                            for (Note ligne1 : ligne) {
+                                ligne1.setX(ligne1.getX() - 1);
                             }
                         } else
                         if (noteLevel.isInlinegame() && noteLevel.isChordsgame()) {
-                            for (int i=0; i<ligneacc.length; i++) {
-                                ligneacc[i].move(-1);
+                            for (Chord ligneacc1 : ligneacc) {
+                                ligneacc1.move(-1);
                             }
                         } else
                         if (noteLevel.isInlinegame() && noteLevel.isIntervalsgame()) {
-                            for (int i=0; i<ligneint.length; i++) {
-                                ligneint[i].move(-1);
-
+                            for (Interval ligneint1 : ligneint) {
+                                ligneint1.move(-1);
                             }
                         }
                     }
@@ -5837,13 +5836,9 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     }
 
     private class Anim extends JPanel {
-
-        /**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 		
-        int width=680, height=480;
+        int width = 680, height = 480;
 
         public Anim() {
             setPreferredSize(new Dimension(width, height));
@@ -5851,12 +5846,13 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
         }
 
+        @Override
         public void paintComponent(Graphics g) {
         	((Graphics2D) g).setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
         	        RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-            Dimension d=getSize();
+            Dimension d = getSize();
             
-            if (selectedGame==NOTEREADING) {
+            if (selectedGame == NOTEREADING) {
 
                 super.paintComponent(g);
 
@@ -5951,7 +5947,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 g.setFont(new Font("Arial", Font.BOLD, 60));
                 g.drawString("Jalmus", (d.width/2) - 95, (d.height / 2) - 35);
                 g.setFont(new Font("Arial", Font.BOLD, 30));
-                g.drawString("Java Lecture Musicale", (d.width/2) - 155, (d.height / 2) + 15);
+                g.drawString("Lecture Musicale", (d.width/2) - 120, (d.height / 2) + 15);
                 g.setFont(new Font("Arial", Font.BOLD, 15));
                 g.drawString("Copyright (C) 2003-2011 RICHARD Christophe", 10, d.height - 40);
                 
@@ -5996,6 +5992,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
         }
 
+        @Override
         public void send(MidiMessage event, long time) {
 
             String output="";
@@ -6154,9 +6151,9 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         // Constructions de la frame
     	Dimension dim = new Dimension(790, 590);
 
-        Jalmus jalmus=new Jalmus();
+        Jalmus jalmus = new Jalmus();
         // Initialization
-        if (arg.length==0) {
+        if (arg.length == 0) {
             jalmus.init("");
         } else {
             jalmus.init(arg[0]);

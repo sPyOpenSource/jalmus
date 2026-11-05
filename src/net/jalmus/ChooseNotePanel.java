@@ -1,24 +1,18 @@
 package net.jalmus;
 
 
-
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -29,7 +23,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
-
 
 
 public class ChooseNotePanel extends JPanel {
@@ -44,11 +37,11 @@ public class ChooseNotePanel extends JPanel {
     public ChooseNotePanel(String key, int leveltype , ResourceBundle bundle) {
     	System.out.println(key+leveltype);
     	
-    	if (leveltype == NOTEREADING && key == "treble")     	 table = new JTable(new TableKeyTrebble());
-    	else if (leveltype == NOTEREADING && key == "bass")     	 table = new JTable(new TableKeyBass());
-     	else if (leveltype == NOTEREADING && key == "both")     	table = new JTable(new NotesTableModel());
-    	else if (leveltype == SCOREREADING && key == "treble")     	 table = new JTable(new TableKeyScoreTrebble());
-    	else if (leveltype == SCOREREADING && key == "bass")     	 table = new JTable(new TableKeyScoreBass());
+    	if (leveltype == NOTEREADING && "treble".equals(key))     	 table = new JTable(new TableKeyTrebble());
+    	else if (leveltype == NOTEREADING && "bass".equals(key))     	 table = new JTable(new TableKeyBass());
+     	else if (leveltype == NOTEREADING && "both".equals(key))     	table = new JTable(new NotesTableModel());
+    	else if (leveltype == SCOREREADING && "treble".equals(key))     	 table = new JTable(new TableKeyScoreTrebble());
+    	else if (leveltype == SCOREREADING && "bass".equals(key))     	 table = new JTable(new TableKeyScoreBass());
     	else table = new JTable(new NotesTableModel());
     	 
         table.setPreferredScrollableViewportSize(new Dimension(610, 115));
@@ -96,10 +89,6 @@ public class ChooseNotePanel extends JPanel {
         add(okButton);
         add(clearButton);
     }
- 
-
-
-        
 
         
     public  JTable gettable(){
@@ -111,7 +100,7 @@ public class ChooseNotePanel extends JPanel {
     }
     
     public ArrayList<Integer> getPitches(){
-        ArrayList<Integer> pitchselected = new ArrayList<Integer>(); 
+        ArrayList<Integer> pitchselected = new ArrayList<>(); 
         
         int numRows = table.getRowCount();
         int numCols = table.getColumnCount();
@@ -245,21 +234,23 @@ public class ChooseNotePanel extends JPanel {
     class NotesTableModel extends AbstractTableModel {
 
 
-        private String[] columnNames = {"Octava", "C", "C#/Db", "D", "D#/Eb", "E", "F", "F#/Gb", "G", "G#/Ab", "A", "A#/Bb", "B"};
-        private Object[][] data = {
-        		{"Octava-3",new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false), new Boolean(false), new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false)},
-        		{"Octava-2",new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false), new Boolean(false), new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false)},
-        		{"Octava-1",new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false), new Boolean(false), new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false)},
-        		{"Octava 0",new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false), new Boolean(false), new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false)},
-        		{"Octava 1",new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false), new Boolean(false), new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false)},
-        		{"Octava 2",new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false), new Boolean(false), new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false)},
-        		{"Octava 3",new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false), new Boolean(false), new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false),new Boolean(false)}    		
+        private final String[] columnNames = {"Octava", "C", "C#/Db", "D", "D#/Eb", "E", "F", "F#/Gb", "G", "G#/Ab", "A", "A#/Bb", "B"};
+        private final Object[][] data = {
+        		{"Octava-3", false, false, false, false, false, false, false, false, false, false, false, false},
+        		{"Octava-2", false, false, false, false, false, false, false, false, false, false, false, false},
+        		{"Octava-1", false, false, false, false, false, false, false, false, false, false, false, false},
+        		{"Octava 0", false, false, false, false, false, false, false, false, false, false, false, false},
+        		{"Octava 1", false, false, false, false, false, false, false, false, false, false, false, false},
+        		{"Octava 2", false, false, false, false, false, false, false, false, false, false, false, false},
+        		{"Octava 3", false, false, false, false, false, false, false, false, false, false, false, false}    		
         };
  
+        @Override
         public int getColumnCount() {
             return columnNames.length;
         }
  
+        @Override
         public int getRowCount() {
             return data.length;
         }
@@ -290,16 +281,8 @@ public class ChooseNotePanel extends JPanel {
         	
             int numCols = getColumnCount();
             
-            if (
-            	(row == 0 & col < 3 )
-               || (row == 6 & col >  1)
-            ) 
-            {
-                return false;
-            }          
-            else {
-                return true;
-            }
+            return !((row == 0 & col < 3 )
+                    || (row == 6 & col >  1));
         }
 
         public void setValueAt(Object value, int row, int col) {

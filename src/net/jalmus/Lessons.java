@@ -454,7 +454,7 @@ public boolean isScoreLevel(){
  	        	  else if (p == 6) rlevel.setTimeSignNumerator(6);
  	        	  else throw new SAXException("In level " + rlevel.getId() + " numerator should be  2, 3, 4, 6  ");
   	        
-  	        	 	p = Integer.parseInt(st.nextToken());
+  	        	 	p = Integer.valueOf(st.nextToken());
   	    
   	         	 	if (p == 4 & ((rlevel.getTimeSignNumerator() == 2)|(rlevel.getTimeSignNumerator() == 3)|(rlevel.getTimeSignNumerator() == 4))) {
   	         	 		rlevel.setTimeSignDenominator(4);
@@ -585,7 +585,7 @@ public boolean isScoreLevel(){
        	           
        	           while ( st.hasMoreTokens() ) {
        	        	   // System.out.println(p);
-       	        	    p = Integer.parseInt(st.nextToken());
+       	        	    p = Integer.valueOf(st.nextToken());
        	        	  if (p == 1) rlevel.setSilence(true);
        	        	  else if (p == 2) rlevel.setSilence(true);
        	        	  else if (p == 3) rlevel.setSilence(true);
@@ -602,7 +602,7 @@ public boolean isScoreLevel(){
        	           
        	           while ( sts.hasMoreTokens() ) {
        	        	   // System.out.println(p);
-       	        	    ps = Integer.parseInt(sts.nextToken());
+       	        	    ps = Integer.valueOf(sts.nextToken());
        	        	  if (ps == 1) slevel.setSilence(true);
        	        	  else if (ps == 2) slevel.setSilence(true);
        	        	  else if (ps == 3) slevel.setSilence(true);
@@ -793,8 +793,8 @@ public boolean isScoreLevel(){
      else if (qName.equals("pitches")) {
          
            String temp = buffer.toString();
-           StringTokenizer st=new StringTokenizer(temp,",;");
-           ArrayList<Integer> pitcheslist =  new ArrayList<Integer>(); 
+           StringTokenizer st = new StringTokenizer(temp, ",;");
+           ArrayList<Integer> pitcheslist =  new ArrayList<>(); 
            Integer p;
            
            switch (leveltype)
@@ -803,7 +803,7 @@ public boolean isScoreLevel(){
            
 	           while ( st.hasMoreTokens() ) {
 	        	   // System.out.println(p);
-	        	    p = Integer.parseInt(st.nextToken());
+	        	    p = Integer.valueOf(st.nextToken());
 	        	  System.out.println(p);
 	        	    if ( nlevel.isCurrentKeyTreble()) {
 	        	    	if (p >= 47 & p <= 96)	    pitcheslist.add(p);
@@ -830,7 +830,7 @@ public boolean isScoreLevel(){
 	    case SCORELEVEL: //to do
 	    	 while ( st.hasMoreTokens() ) {
 	        	   // System.out.println(p);
-	        	    p = Integer.parseInt(st.nextToken());
+	        	    p = Integer.valueOf(st.nextToken());
 	        	  System.out.println(p);
 	        	    if ( slevel.isCurrentKeyTreble()) {
 	        	    	if (p >= 55 & p <= 84)	    pitcheslist.add(p); //SOL DO
@@ -895,7 +895,7 @@ public boolean isScoreLevel(){
     	    	            throw new SAXException("In level " + nlevel.getId() + " speed should be an integer between 0 and 40");
     	    	       
     	    	        }
-    	    	        catch (Exception e) {
+    	    	        catch (NumberFormatException | SAXException e) {
     	    	          //erreur, le contenu de id n'est pas un entier
     	    	          throw new SAXException(e);
     	    	        }
@@ -912,7 +912,7 @@ public boolean isScoreLevel(){
     	    	            throw new SAXException("In level " + rlevel.getId() + " speed should be an integer between 0 and 200");
 	         
     	    	        }
-    	    	        catch (Exception e) {
+    	    	        catch (NumberFormatException | SAXException e) {
     	    	          //erreur, le contenu de id n'est pas un entier
     	    	          throw new SAXException(e);
     	    	        }
@@ -927,7 +927,7 @@ public boolean isScoreLevel(){
  	    	            throw new SAXException("In level " + slevel.getId() + " speed should be an integer between 0 and 200");
  	    	
  	    	        }
- 	    	        catch (Exception e) {
+ 	    	        catch (NumberFormatException | SAXException e) {
  	    	          //erreur, le contenu de id n'est pas un entier
  	    	          throw new SAXException(e);
  	    	        }
@@ -954,7 +954,7 @@ public boolean isScoreLevel(){
  	             buffer = null;
  	             inDuration = false;
  	           }
- 	           catch (Exception e) {
+ 	           catch (NumberFormatException | SAXException e) {
  	             //erreur, le contenu de id n'est pas un entier
  	             throw new SAXException(e);
  	           }
@@ -986,7 +986,7 @@ public boolean isScoreLevel(){
     	          buffer = null;
     	          inStartingnote = false;
     	     }
-    	     catch (Exception e) {
+    	     catch (NumberFormatException | SAXException e) {
     	        //erreur, le contenu de id n'est pas un entier
     	        throw new SAXException(e);
     	      }
@@ -1033,6 +1033,6 @@ else {
 
 
    public boolean lastexercice(){
-     return this.levelslist.size()-1 == this.currentlevel;
+     return this.levelslist.size() - 1 == this.currentlevel;
    }
  }

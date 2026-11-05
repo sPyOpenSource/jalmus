@@ -130,11 +130,11 @@ public class Chord {
 
           public void paint( int position, NoteLevel nrlevel,Graphics g, Font f, boolean accordcourant,
                             Component j, int dportee,  ResourceBundle bundle){
-              Color c = new Color(147,22,22);
+              Color c = new Color(147, 22, 22);
 
             //if (type == "NORMAL")
 
-            for (int i=0;i<3;i=i+1){
+            for (int i = 0; i < 3; i = i + 1){
 
              if (!(i== this.realposition(position)& accordcourant))
                tabnotes[i].paint(nrlevel, g, f, this.getNoteposition(i,nrlevel.getCurrentTonality(), bundle),0, dportee, j, Color.black,bundle);
@@ -152,8 +152,7 @@ public class Chord {
 
 
             public void move(int nb){
-
-              for (int i=0;i<3;i=i+1)
+              for (int i = 0; i < 3; i = i + 1)
                 this.tabnotes[i].setX(this.tabnotes[i].getX()+nb);
             }
 
