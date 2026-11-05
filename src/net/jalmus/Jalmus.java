@@ -812,7 +812,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         rblanguageda.setMnemonic(KeyEvent.VK_A);
         rblanguageda.addActionListener(this);
         group.add(rblanguageda);
-        languages.add(rblanguageda);
+        //languages.add(rblanguageda);
 
         rblanguagetr=new JRadioButtonMenuItem("Turkish");
         rblanguagetr.setMnemonic(KeyEvent.VK_T);
@@ -824,19 +824,19 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         rblanguagefi.setMnemonic(KeyEvent.VK_F);
         rblanguagefi.addActionListener(this);
         group.add(rblanguagefi);
-        languages.add(rblanguagefi);
+        //languages.add(rblanguagefi);
         
         rblanguagepl=new JRadioButtonMenuItem("Polish");
         rblanguagepl.setMnemonic(KeyEvent.VK_O);
         rblanguagepl.addActionListener(this);
         group.add(rblanguagepl);
-        languages.add(rblanguagepl);
+        //languages.add(rblanguagepl);
         
         rblanguageiw=new JRadioButtonMenuItem("Hebrew");
         rblanguageiw.setMnemonic(KeyEvent.VK_H);
         rblanguageiw.addActionListener(this);
         group.add(rblanguageiw);
-        languages.add(rblanguageiw);
+        //languages.add(rblanguageiw);
         
         rblanguageko=new JRadioButtonMenuItem("Korean");
         rblanguageko.setMnemonic(KeyEvent.VK_K);
@@ -848,13 +848,13 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         rblanguageeo.setMnemonic(KeyEvent.VK_N);
         rblanguageeo.addActionListener(this);
         group.add(rblanguageeo);
-        languages.add(rblanguageeo);
+        //languages.add(rblanguageeo);
         
         rblanguagegr=new JRadioButtonMenuItem("Greek");
         rblanguagegr.setMnemonic(KeyEvent.VK_G);
         rblanguagegr.addActionListener(this);
         group.add(rblanguagegr);
-        languages.add(rblanguagegr);
+        //languages.add(rblanguagegr);
 
         if (null == paramlanguage) {
             // must be "en"

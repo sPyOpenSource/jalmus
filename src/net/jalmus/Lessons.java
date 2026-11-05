@@ -35,29 +35,27 @@ public class Lessons extends DefaultHandler{
     RhythmLevel rlevel;
     ScoreLevel slevel;  
               //flags nous indiquant la position du parseur
-    boolean inExercices, inNLevel, inRLevel, inSLevel, inGametype, inNotestype, inNbnotes, inMessage, inSpeed, inStartingnote, inClef, inTonality,
-     inIntervals, inChords, inDuration, inPitches,  inRhythms, inTime, inRests, inTuplets, inMetronome;
+    boolean inExercices, inNLevel, inRLevel, inSLevel, inGametype, inNotestype, inNbnotes, inMessage, inSpeed, inStartingnote, inClef, inTonality;
+    boolean inIntervals, inChords, inDuration, inPitches,  inRhythms, inTime, inRests, inTuplets, inMetronome;
    
     TLevel leveltype; 
               //buffer nous permettant de récupérer les données
     private StringBuffer buffer;
 
     public Lessons() {
-     this.levelslist = new LinkedList<>();
-     this.currentlevel = 0;
+        this.levelslist = new LinkedList<>();
+        this.currentlevel = 0;
     }
 
+    public void nextLevel(){
+        if (this.currentlevel + 1 < this.levelslist.size() )
+        this.currentlevel ++;
+    }
 
-public void nextLevel(){
-  if (this.currentlevel+1 < this.levelslist.size() )
-  this.currentlevel ++;
-}
-
-
-public String getLessonPath(String language){
+    public String getLessonPath(String language){
   	String path = "";
   	
-  	  path=getClass().getSimpleName()+".class";
+  	path=getClass().getSimpleName()+".class";
   	    URL url=getClass().getResource(path);
   	    try {
   	        path=URLDecoder.decode(url.toString(), "UTF-8");
@@ -103,17 +101,17 @@ public String getLessonPath(String language){
   }
 
 
-public Level getLevel(){
-       switch (this.levelslist.get(this.currentlevel).getClass().getSimpleName()) {
-           case "NoteLevel":
-               return (NoteLevel) this.levelslist.get(this.currentlevel);
-           case "RhythmLevel":
-               return (RhythmLevel) this.levelslist.get(this.currentlevel);
-           default:
-               //Scorelevel
-               return (ScoreLevel) this.levelslist.get(this.currentlevel);
-       }
-}
+    public Level getLevel(){
+        switch (this.levelslist.get(this.currentlevel).getClass().getSimpleName()) {
+            case "NoteLevel":
+                return (NoteLevel) this.levelslist.get(this.currentlevel);
+            case "RhythmLevel":
+                return (RhythmLevel) this.levelslist.get(this.currentlevel);
+            default:
+                //Scorelevel
+                return (ScoreLevel) this.levelslist.get(this.currentlevel);
+        }
+    }
 
     public boolean isNoteLevel(){
        return this.levelslist.get(this.currentlevel).getClass().getSimpleName().equals("NoteLevel");
@@ -138,7 +136,7 @@ public Level getLevel(){
                             String qName, Attributes attributes) throws
        SAXException {
 	   
-	   System.out.println(leveltype + " "+ qName);
+	System.out.println(leveltype + " "+ qName);
 	   
      if (qName.equals("levels")) {
        this.levelslist = new LinkedList<>();
@@ -359,7 +357,7 @@ public Level getLevel(){
 	                 throw new SAXException("In level " + nlevel.getId() + " tonality should be n# or nb with n int between 0 and 7");
 
 	             }
-	             catch (Exception e) {
+	             catch (NumberFormatException | SAXException e) {
 	             //erreur, le contenu de id n'est pas un entier
 	             throw new SAXException("In level " + nlevel.getId() + e);
 	           }
@@ -381,7 +379,7 @@ public Level getLevel(){
 	                 throw new SAXException("In level " + slevel.getId() + " tonality should be n# or nb with n int between 0 and 7");
 
 	             }
-	             catch (Exception e) {
+	             catch (NumberFormatException | SAXException e) {
 	             //erreur, le contenu de id n'est pas un entier
 	             throw new SAXException("In level " + nlevel.getId() + e);
 	           }
