@@ -33,7 +33,7 @@ public class ScoreLevel implements Level {
 	boolean metronome;
 	boolean beats;
 	//int[] pitchtab = new int [8];
-	ArrayList<Integer> pitcheslist = new ArrayList<Integer>(); 
+	ArrayList<Integer> pitcheslist = new ArrayList<>(); 
 
   /*                          C3  D3  E3  F3  G3  A3  B3  */
   /*                         ---------------------------- */
@@ -71,7 +71,7 @@ public class ScoreLevel implements Level {
     this.currentKey = "treble";
     this.randomtonality = false;
     this.currenttonality = new Tonality(0, "");
-    this.pitcheslist = new ArrayList<Integer>(); 
+    this.pitcheslist = new ArrayList<>(); 
     this.notetype = "notes";
 	this.nbnotes = 9;
     this.timeSignNumerator = 4;
@@ -95,17 +95,15 @@ public class ScoreLevel implements Level {
   
   /*****************************************/
   public void setNotetype(String s) {
- this.notetype = s;
-}
+    this.notetype = s;
+  }
   public boolean isNotes() {
    return this.notetype.equals("notes");
- }
+  }
 
  public boolean isCustomNotes() {
 	return this.notetype.equals("custom");
-}
- 
-
+ }
  
   /*******************************************/
   public void setMessage(String s) {
@@ -207,15 +205,15 @@ public boolean isMessageEmpty(){
    /********************************/  
    
    
-   public void setPitcheslist(ArrayList<Integer> l){		
-	 	this.pitcheslist =  new ArrayList<Integer>(); 
-		 this.pitcheslist.addAll(l);
-	}
+    public void setPitcheslist(ArrayList<Integer> l){		
+	 	this.pitcheslist =  new ArrayList<>(); 
+		this.pitcheslist.addAll(l);
+    }
    
    
-   public ArrayList<Integer> getPitcheslist(){		
-	  return	this.pitcheslist;
-	}
+    public ArrayList<Integer> getPitcheslist(){		
+	return	this.pitcheslist;
+    }
    
   public void initPitcheslist(int notesNum) {
 
@@ -464,24 +462,24 @@ public boolean isMessageEmpty(){
         return this.beats;
     }
 
-      /********************************/
- public void printtest(){
-   	   System.out.println("Level n"+this.Id);
+    /********************************/
+        public void printtest(){
+   	    System.out.println("Level n"+this.Id);
    	    System.out.println("Whole note : " + this.whole);
-   	  System.out.println("Half note : " + this.half);
-	  System.out.println("DottedHalf note : " + this.dottedhalf);
+   	    System.out.println("Half note : " + this.half);
+	    System.out.println("DottedHalf note : " + this.dottedhalf);
    	    System.out.println("Quarter note : " + this.quarter);
-   	  System.out.println("Eighth note : " + this.eighth);
-   	  System.out.println("Rests : " + this.silence);
-   	  System.out.println("Triplets : " + this.triplet);
-   	  System.out.println("time signature : " + this.timeSignNumerator + "/" + this.timeSignDenominator + "div " + this.timeDivision);
-   	  System.out.println("Speed : " + this.speed);
-   	  System.out.println("Metronome sound : " + this.metronome+ " visual beats : " + this.beats);
-   	  System.out.println("Key : " + this.currentKey);
-   	  System.out.println("Piches liste : " + this.pitcheslist);
+   	    System.out.println("Eighth note : " + this.eighth);
+   	    System.out.println("Rests : " + this.silence);
+   	    System.out.println("Triplets : " + this.triplet);
+   	    System.out.println("time signature : " + this.timeSignNumerator + "/" + this.timeSignDenominator + "div " + this.timeDivision);
+   	    System.out.println("Speed : " + this.speed);
+   	    System.out.println("Metronome sound : " + this.metronome+ " visual beats : " + this.beats);
+   	    System.out.println("Key : " + this.currentKey);
+   	    System.out.println("Piches liste : " + this.pitcheslist);
 
-   	  System.out.println("Tonality : " + this.currenttonality);
-	  System.out.println("Nb notes "+this.nbnotes);
+   	    System.out.println("Tonality : " + this.currenttonality);
+	    System.out.println("Nb notes "+this.nbnotes);
    	}
 
       
@@ -489,32 +487,27 @@ public boolean isMessageEmpty(){
   public void save(Lessons l, String fileName, String message, String language) 
 	throws IOException {
 	
-	File destDir = new File("");;
-final String newline = "\r\n";
-String path = "";
-StringBuffer fileContent = new StringBuffer();
-boolean dirmylessonok = false;
+    File destDir = new File("");;
+    final String newline = "\r\n";
+    String path = "";
+    StringBuffer fileContent = new StringBuffer();
+    boolean dirmylessonok = false;
 
-path = l.getLessonPath(language);
+    path = l.getLessonPath(language);
 
-File sousrepertoire=new File(path);
+    File sousrepertoire=new File(path);
 
-// find the personnal lessons directory 99. in the name
-if (sousrepertoire.isDirectory()) {
+    // find the personnal lessons directory 99. in the name
+    if (sousrepertoire.isDirectory()) {
     File[] listsp=sousrepertoire.listFiles();
     Arrays.sort(listsp);
-    if (listsp!=null) { 
-
-     for   (int i=0; i<listsp.length; i++) {
-    	 		if (listsp[i].getName().indexOf("99.") != -1)  {
-
-            	
-            	path = path+File.separator+listsp[i].getName();
-    	 	    dirmylessonok = true;
-    	 		}
-    	 		
-                
-     }
+    if (listsp!=null) {
+        for (File listsp1 : listsp) {
+            if (listsp1.getName().contains("99.")) {
+                path = path+File.separator + listsp1.getName();
+                dirmylessonok = true;
+            }    
+        }
     }
 }
 

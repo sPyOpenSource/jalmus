@@ -26,7 +26,7 @@ public class Score {
   public Score() {
     this.nbtrue = 0;
     this.nbfalse  = 0;
-    this.points = 100;
+    this.points = 500;
     win = 0;
   }
 
@@ -78,13 +78,11 @@ public boolean isUnknown() {
   return this.win == 0;
 }
 
-
   public void initScore(){
     this.nbtrue = 0;
     this.nbfalse = 0;
-    this.points = 100;
+    this.points = 500;
     win = 0;
-
   }
 
   /**
@@ -113,17 +111,12 @@ public boolean isUnknown() {
        else {
          this.points = 0;
          this.setLost();
-
        }
      }
-
-
   }
 
-
   public void paint(Graphics g, int width) {
-
-	int xpos = (width - 251) / 2;
+    int xpos = (width - 251) / 2;
     g.setColor(Color.black);
     g.draw3DRect( xpos, 420, 251, 20, true);
     for (int tmp = 0; tmp < this.points; tmp = tmp + 10) {
@@ -133,6 +126,5 @@ public boolean isUnknown() {
         g.setColor(new Color(110, 26 + (tmp - 90) / 2, 26));
       g.fillRect(xpos + 1 + tmp / 2, 421, 5, 19);
     }
-
   }
-  }
+}

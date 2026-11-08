@@ -163,6 +163,7 @@ import javax.swing.JTextArea;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.Timer;
 import javax.swing.plaf.ColorUIResource;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -457,6 +458,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private JComboBox timeSignComboBox;
     private JCheckBox metronomeCheckBox;
     private JCheckBox hintCheckBox; // falling key hint toggle, note-reading tab
+    private JCheckBox sequenceCheckBox; // play chord/interval notes in sequence
     private JCheckBox metronomeShowCheckBox;
     
     private JComboBox scoreGameTypeComboBox; //type of games
@@ -1256,7 +1258,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             }
         });
 
-        JMenuItem rhythmReadingMenuItem=new JMenuItem(new ImageIcon(getClass().getResource("/images/rythme.png")));
+        JMenuItem rhythmReadingMenuItem = new JMenuItem(new ImageIcon(getClass().getResource("/images/rythme.png")));
         localizables.add(new Localizable.Button(rhythmReadingMenuItem, "_menuRythmreading"));
         rhythmReadingMenuItem.addActionListener(new ActionListener() {
             @Override
@@ -1288,7 +1290,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         localizables.add(new Localizable.Button(exercisesMenu, "_menuExercises"));
         exercisesMenu.setMnemonic(KeyEvent.VK_E);
         exercisesMenu.add(noteReadingMenuItem);
-        exercisesMenu.add(rhythmReadingMenuItem);  
+        //exercisesMenu.add(rhythmReadingMenuItem);  
         exercisesMenu.add(scoreReadingMenuItem);
       //  exercisesMenu.add(lessonsMenuItem);
         exercisesMenu.addSeparator();
@@ -2005,6 +2007,10 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         hintCheckBox=new JCheckBox("Show falling key hint", true);
         hintCheckBox.addItemListener(this);
         noteReadingNotesPanel.add(hintCheckBox);
+
+        sequenceCheckBox=new JCheckBox("Play notes in sequence", false);
+        sequenceCheckBox.addItemListener(this);
+        noteReadingNotesPanel.add(sequenceCheckBox);
 
         
 
@@ -3223,6 +3229,11 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         } else {
             savePrefs[3]=0;
         }
+        if (sequenceCheckBox.isSelected()) {
+            savePrefs[29]=1;
+        } else {
+            savePrefs[29]=0;
+        }
         savePrefs[4]=keySignatureCheckBox.getSelectedIndex();
         savePrefs[5]=noteGameSpeedComboBox.getSelectedIndex();
         savePrefs[6]=noteGroupComboBox.getSelectedIndex();
@@ -3332,6 +3343,11 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         } else {
             hintCheckBox.setSelected(false);
             hintEnabled=false;
+        }
+        if (savePrefs[29]==1) {
+            sequenceCheckBox.setSelected(true);
+        } else {
+            sequenceCheckBox.setSelected(false);
         }
         keySignatureCheckBox.setSelectedIndex(savePrefs[4]);
         noteGameSpeedComboBox.setSelectedIndex(savePrefs[5]);
@@ -4890,6 +4906,37 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
     }
 
+    /** Play one or more pitches together, or one after another when the
+     *  "Play notes in sequence" preference is switched on. */
+    private void playNotes(int[] pitches) {
+        if (!soundOnCheckBox.isSelected()) return;
+        if (pitches == null || pitches.length == 0) return;
+        if (sequenceCheckBox != null && sequenceCheckBox.isSelected() && pitches.length > 1) {
+            playSequence(pitches);
+        } else {
+            for (int i = 0; i < pitches.length; i++) {
+                currentChannel.playNote(!midierror, pitches[i]);
+            }
+        }
+    }
+
+    /** Play the given pitches one after another with a short delay between them. */
+    private void playSequence(final int[] pitches) {
+        final int delay = 350; // milliseconds between each note
+        final int[] idx = { 0 };
+        Timer timer = new Timer(delay, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                currentChannel.playNote(!midierror, pitches[idx[0]]);
+                idx[0]++;
+                if (idx[0] >= pitches.length) {
+                    ((Timer) e.getSource()).stop();
+                }
+            }
+        });
+        timer.setRepeats(true);
+        timer.start();
+    }
+
     private void newnote() {
 
         if ((noteLevel.isNormalgame() || noteLevel.isLearninggame()) & parti) {
@@ -5489,7 +5536,12 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             // acourant.convertir(clecourante,typeaccord);
             ncourante=acourant.getNote(acourant.realposition(posnote));
             if (soundOnCheckBox.isSelected()) {
-                synthNote(ncourante.getPitch(), 80, noteDuration);
+                int[] pitches = new int[] {
+                    acourant.getNote(0).getPitch(),
+                    acourant.getNote(1).getPitch(),
+                    acourant.getNote(2).getPitch()
+                };
+                playNotes(pitches);
             }
         } else if (noteLevel.isIntervalsgame()) {
             // voir pour precedant
@@ -5507,7 +5559,11 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             icourant.copy(ligneint[position]);
             ncourante=icourant.getNote(posnote); //0
             if (soundOnCheckBox.isSelected()) {
-                synthNote(ncourante.getPitch(), 80, noteDuration);
+                int[] pitches = new int[] {
+                    icourant.getNote(0).getPitch(),
+                    icourant.getNote(1).getPitch()
+                };
+                playNotes(pitches);
             }
 
         }

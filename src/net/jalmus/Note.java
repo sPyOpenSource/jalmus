@@ -22,7 +22,6 @@ import java.util.ResourceBundle;
         int X; // x position for animation
         int Pitch; // midi pitch
 
-
         public Note(String alt, String nom, int h, int x, int p){
           this.Alteration = alt;
           this.Nom = nom;
@@ -64,23 +63,20 @@ import java.util.ResourceBundle;
         }
 
         public int getX(){
-                  return this.X;
-                }
+            return this.X;
+        }
 
         public void setX(int i){
           this.X = i;
         }
 
         public int getHeight(){
-                  return this.Height;
-                }
+            return this.Height;
+        }
 
         public void setHeight(int h){
           this.Height = h;
         }
-
-
-
 
 
         public void paint(NoteLevel nrlevel, Graphics g, Font f, int decalagea, int decalagen, int dportee, Component j, Color couleur, ResourceBundle b){
@@ -170,13 +166,9 @@ import java.util.ResourceBundle;
              }
            }
 
-
-
            public boolean samenoteHeight(int base){
            int x;
             boolean b = false;
-
-
 
             for (x=0;x<=3;x++){ //28 = 8 notes entre 2 notes identiques * 4 entre chaque note
               if ((this.Height+x*35==base) | (this.Height-x*35==base))  b = true;                                                   }
@@ -347,10 +339,6 @@ import java.util.ResourceBundle;
 
 
                 }
-
-
-
-
 
           public void updateNote(NoteLevel nrlevel, int dportee, ResourceBundle bundle){
 
@@ -543,18 +531,7 @@ import java.util.ResourceBundle;
                     
                     else   if (this.samenotePitch(11)) { this.Nom = SI; this.Height = (71-this.Pitch)*35/12 + dportee-45+heigth2staff;  
       				if (accidentalInTonality(nrlevel.getCurrentTonality(), bundle)) this.Alteration = "n"; else this.Alteration = ""; }
-                              
-                    	
-            	
+                                      	
            }
-
-
-            }
-
-          
-      }
-
-
-
-
-
+    }
+}

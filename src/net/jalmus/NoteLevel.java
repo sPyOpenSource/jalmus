@@ -4,18 +4,12 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URL;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Random;
 
-import javax.swing.JButton;
-import javax.swing.JMenu;
 import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
 
 /**
  * <p>Title: Jalmus</p>
@@ -59,8 +53,6 @@ public class NoteLevel implements Level{
   /* For interval game only*/
   String intervaltype;
 
-
-
   public NoteLevel() {
     this.Id = 0;
     this.message = "";
@@ -81,7 +73,7 @@ public class NoteLevel implements Level{
 
     this.chordtype = "root";
     this.intervaltype = "third";
-    this.pitcheslist = new ArrayList<Integer>();
+    this.pitcheslist = new ArrayList<>();
 
 
   }
@@ -107,7 +99,7 @@ public class NoteLevel implements Level{
     this.chordtype = "root";
     this.intervaltype = "third";
     
-    this.pitcheslist =  new ArrayList<Integer>(); 
+    this.pitcheslist =  new ArrayList<>(); 
 
   }
 
@@ -224,18 +216,17 @@ public class NoteLevel implements Level{
 	 }
 
  public void setPitcheslist(ArrayList<Integer> l){		
-	 	this.pitcheslist =  new ArrayList<Integer>(); 
-		 this.pitcheslist.addAll(l);
+	 	this.pitcheslist =  new ArrayList<>(); 
+		this.pitcheslist.addAll(l);
 	}
 
  public void resetPitcheslist(){		
-	 	this.pitcheslist =  new ArrayList<Integer>(); 
+	 	this.pitcheslist =  new ArrayList<>(); 
 	}
 
 
 
- public  Integer getRandomPitch(){
-			     
+ public  Integer getRandomPitch(){     
 		Random generator = new Random();
 		int index = generator.nextInt ( this.pitcheslist.size() );
 		if( index >-1 )  return (this.pitcheslist.get( index ));  	
@@ -363,27 +354,24 @@ public int getNbnotesunder(){
 
 
 public void copy(NoteLevel nl){
-  this.message = nl.message;
-  this.currentKey = nl.currentKey;
- this.notetype = nl.notetype;
- this.gametype = nl.gametype;
- this.currenttonality.copy(nl.currenttonality);
- this.speed = nl.speed; //  moderato
+    this.message = nl.message;
+    this.currentKey = nl.currentKey;
+    this.notetype = nl.notetype;
+    this.gametype = nl.gametype;
+    this.currenttonality.copy(nl.currenttonality);
+    this.speed = nl.speed; //  moderato
 
- this.nbnotes = nl.nbnotes;
- this.basetreble = nl.basetreble; // G3
- this.basebass = nl.basebass; // F2
- this.nbnotesunder = nl.nbnotesunder;  // three notes game
- this.nbnotesupper = nl.nbnotesupper;
+    this.nbnotes = nl.nbnotes;
+    this.basetreble = nl.basetreble; // G3
+    this.basebass = nl.basebass; // F2
+    this.nbnotesunder = nl.nbnotesunder;  // three notes game
+    this.nbnotesupper = nl.nbnotesupper;
 
- this.chordtype = nl.chordtype;
- this.intervaltype = nl.intervaltype;
- 
-this.pitcheslist =  new ArrayList<Integer>(); 
-this.pitcheslist.addAll(nl.getPitcheslist());
+    this.chordtype = nl.chordtype;
+    this.intervaltype = nl.intervaltype;
 
-
-
+    this.pitcheslist =  new ArrayList<>(); 
+    this.pitcheslist.addAll(nl.getPitcheslist());
 }
 
 private static void writeFile(File destFile, String content)
@@ -612,7 +600,7 @@ public void basenotetoRight(Piano piano){
 
 
 /** Move starting note by n keys  for the lessons (the keyboard length is not known)
- @param Range to indicate the number of keys to move
+ @param range to indicate the number of keys to move
  @return Return true if the modification of base note is possible
  */
 
@@ -787,7 +775,4 @@ public void inibasenote(){
       }
     }
   }
-
-
 }
-
