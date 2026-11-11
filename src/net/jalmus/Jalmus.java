@@ -369,8 +369,6 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private Sequence sequence;
     private Sequencer sm_sequencer;
 
-
-
     private final ScoreLevel scoreLevel = new ScoreLevel();
 
     //----------------------------------------------------------------
@@ -379,10 +377,10 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     // Mise en place du menu
     private final JMenuBar maBarre = new JMenuBar();
 
-    private JMenu menuParameters=new JMenu();
-    private JMenuItem menuPrefs=new JMenuItem(new ImageIcon(getClass().getResource("/images/prefs.png")));
-    private JMenuItem menuMidi=new JMenuItem(new ImageIcon(getClass().getResource("/images/midi.png")));
-    private JMenu languages=new JMenu();
+    private final JMenu menuParameters = new JMenu();
+    private final JMenuItem menuPrefs = new JMenuItem(new ImageIcon(getClass().getResource("/images/prefs.png")));
+    private final JMenuItem menuMidi = new JMenuItem(new ImageIcon(getClass().getResource("/images/midi.png")));
+    private final JMenu languages = new JMenu();
     private JRadioButtonMenuItem rblanguagefr=new JRadioButtonMenuItem();
     private JRadioButtonMenuItem rblanguagede=new JRadioButtonMenuItem();
     private JRadioButtonMenuItem rblanguagees=new JRadioButtonMenuItem();
@@ -398,10 +396,10 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private JRadioButtonMenuItem rblanguagegr=new JRadioButtonMenuItem();
 
 
-    private JMenu aide=new JMenu();
-    private JMenuItem aidesommaire=new JMenuItem(new ImageIcon(getClass().getResource("/images/aide.png")));
-    private JMenuItem siteinternet=new JMenuItem(new ImageIcon(getClass().getResource("/images/internet.png")));
-    private JMenuItem propos=new JMenuItem(new ImageIcon(getClass().getResource("/images/about.png")));
+    private final JMenu aide = new JMenu();
+    private final JMenuItem aidesommaire = new JMenuItem(new ImageIcon(getClass().getResource("/images/aide.png")));
+    private final JMenuItem siteinternet = new JMenuItem(new ImageIcon(getClass().getResource("/images/internet.png")));
+    private final JMenuItem propos = new JMenuItem(new ImageIcon(getClass().getResource("/images/about.png")));
 
     //----------------------------------------------------------------
     // GAME BUTTONS - NOTES/GO
@@ -553,7 +551,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     ChooseNotePanel ScoreChooseNoteP;
     //----
     
-    private JPanel principal = new JPanel(); // panel principal
+    private final JPanel principal = new JPanel(); // panel principal
     
     Properties settings = new Properties();
 

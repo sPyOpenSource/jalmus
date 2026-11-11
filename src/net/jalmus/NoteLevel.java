@@ -147,7 +147,7 @@ public class NoteLevel implements Level{
   
   public String getKey() {
 	    return this.currentKey;
-	  }
+	}
 
   public boolean isCurrentKeyTreble() {
     return this.currentKey.equals("treble");
@@ -375,12 +375,11 @@ public void copy(NoteLevel nl){
 }
 
 private static void writeFile(File destFile, String content)
-throws IOException {
-BufferedWriter writer = new BufferedWriter(new FileWriter(destFile));
-writer.write(content);
-writer.flush();
-writer.close();
-writer = null;
+    throws IOException {
+      try (BufferedWriter writer = new BufferedWriter(new FileWriter(destFile))) {
+          writer.write(content);
+          writer.flush();
+      }
 }
 
 public void save(Lessons l, String fileName, String message, String language) 
@@ -389,7 +388,7 @@ public void save(Lessons l, String fileName, String message, String language)
 	File destDir = new File("");;
     final String newline = "\r\n";
     String path = "";
-    StringBuffer fileContent = new StringBuffer();
+    StringBuilder fileContent = new StringBuilder();
     boolean dirmylessonok = false;
     
     path = l.getLessonPath(language);
@@ -402,16 +401,12 @@ public void save(Lessons l, String fileName, String message, String language)
         Arrays.sort(listsp);
         if (listsp!=null) { 
 
-         for   (int i=0; i<listsp.length; i++) {
-        	 		if (listsp[i].getName().indexOf("99.") != -1)  {
-
-                	
-                	path = path+File.separator+listsp[i].getName();
-        	 	    dirmylessonok = true;
-        	 		}
-        	 		
-                    
-         }
+            for (File listsp1 : listsp) {
+                if (listsp1.getName().contains("99.")) {
+                    path = path+File.separator + listsp1.getName();
+                    dirmylessonok = true;
+                }
+            }
         }
     }
     
@@ -460,22 +455,19 @@ public void save(Lessons l, String fileName, String message, String language)
     }
     else JOptionPane.showMessageDialog(null, "The personnal lessons directory begin with 99. is missing", "Warning", JOptionPane.ERROR_MESSAGE); 
     
-
-
 }
 
-	
 public void printtest(){
-   System.out.println("Level n°"+this.Id);
+    System.out.println("Level n°"+this.Id);
     System.out.println(this.currentKey);
-  System.out.println(this.gametype);
-  System.out.println(this.notetype);
+    System.out.println(this.gametype);
+    System.out.println(this.notetype);
     System.out.println(this.currenttonality);
     System.out.println("Nb notes "+this.nbnotes);
-  System.out.println("Base note treble "+this.basetreble);
-  System.out.println("Base note bass "+this.basebass);
-  System.out.println("nbnotes upper "+this.nbnotesupper);
-  System.out.println("nbnotes under "+this.nbnotesunder);
+    System.out.println("Base note treble "+this.basetreble);
+    System.out.println("Base note bass "+this.basebass);
+    System.out.println("nbnotes upper "+this.nbnotesupper);
+    System.out.println("nbnotes under "+this.nbnotesunder);
 }
 
 
@@ -493,7 +485,7 @@ public void basenotetoLeft(Piano piano){  //base note is move when user pres key
     }
 
   }
-  //jusqu'� do
+  //jusqu' do
   else if (this.isCurrentKeyBass()) {
     if (piano.is73keys() &
         ( (this.nbnotesupper == 7 & basebass < 50)
@@ -504,7 +496,6 @@ public void basenotetoLeft(Piano piano){  //base note is move when user pres key
       basebass = basebass + 5; //fa = 17kw
 
     }
-    ;
 
     if (piano.is61keys() &
         ( (this.nbnotesupper == 7 & basebass < 15)
@@ -515,7 +506,6 @@ public void basenotetoLeft(Piano piano){  //base note is move when user pres key
       basebass = basebass + 5; //fa = 17kw
 
     }
-    ;
 
   }
 
@@ -546,12 +536,9 @@ public void basenotetoLeft(Piano piano){  //base note is move when user pres key
 }
 
 /** Move starting note by n keys to right  when user press key Right or for lesson
- @param
- @return no return
+ * @param piano
  */
-
 public void basenotetoRight(Piano piano){
-
 
   if (this.isCurrentKeyTreble()) {
     if ( (this.nbnotesupper == 7 & this.basetreble > -20) //15notes

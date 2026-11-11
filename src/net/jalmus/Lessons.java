@@ -55,50 +55,50 @@ public class Lessons extends DefaultHandler{
     public String getLessonPath(String language){
   	String path = "";
   	
-  	path=getClass().getSimpleName()+".class";
-  	    URL url=getClass().getResource(path);
-  	    try {
-  	        path=URLDecoder.decode(url.toString(), "UTF-8");
-  	    }
-  	    catch (UnsupportedEncodingException ex) {
-  	    }
+  	path = getClass().getSimpleName() + ".class";
+        URL url = getClass().getResource(path);
+        try {
+            path = URLDecoder.decode(url.toString(), "UTF-8");
+        }
+        catch (UnsupportedEncodingException ex) {
+        }
 
-  	    // suppression de  la classe ou du jar du path de l'url
-  	    int index=path.lastIndexOf('/');
-  	    path=path.substring(0, index);
+        // suppression de  la classe ou du jar du path de l'url
+        int index = path.lastIndexOf('/');
+        path = path.substring(0, index);
 
-  	    if (path.startsWith("jar:file:")) {
-  	        // suppression de jar:file: de l'url d'un jar
-  	        // ainsi que du path de la classe dans le jar
-  	        index=path.indexOf('!');
-  	        path=path.substring(9, index);
-  	    } else {
-  	        // suppresion du file: de l'url si c'est une classe en dehors d'un jar
-  	        // et suppression du path du package si il est prÃ©sent.
-  	        path=path.substring(5, path.length());
-  	        Package pack=getClass().getPackage();
-  	        if (null!=pack) {
-  	            String packPath=pack.toString().replace('.', '/');
-  	            if (path.endsWith(packPath)) {
-  	                path=path.substring(0, (path.length()-packPath.length()));
-  	            }
-  	        }
-  	    }
+        if (path.startsWith("jar:file:")) {
+            // suppression de jar:file: de l'url d'un jar
+            // ainsi que du path de la classe dans le jar
+            index=path.indexOf('!');
+            path=path.substring(9, index);
+        } else {
+            // suppresion du file: de l'url si c'est une classe en dehors d'un jar
+            // et suppression du path du package si il est prÃ©sent.
+            path=path.substring(5, path.length());
+            Package pack=getClass().getPackage();
+            if (null!=pack) {
+                String packPath=pack.toString().replace('.', '/');
+                if (path.endsWith(packPath)) {
+                    path=path.substring(0, (path.length()-packPath.length()));
+                }
+            }
+        }
 
-  	    index=path.lastIndexOf('/');
-  	    path=path.substring(0, index);
+        index=path.lastIndexOf('/');
+        path=path.substring(0, index);
 
-  	    index=path.lastIndexOf('/');
-  	    path=path.substring(0, index);
+        index=path.lastIndexOf('/');
+        path=path.substring(0, index);
+
+        path=path+File.separator+"lessons"+File.separator+language;
   	    
-  	    path=path+File.separator+"lessons"+File.separator+language;
-  	    
-  	    //for test	
-  	   //  path = "/home/christophe/git/code/lessons/en";
-  	//   path = "C:\\Documents and Settings\\crichard\\git\\code\\lessons\\fr";
-  	    
-  	    return path;
-  }
+  	//for test	
+  	//  path = "/home/christophe/git/code/lessons/en";
+  	//  path = "C:\\Documents and Settings\\crichard\\git\\code\\lessons\\fr";
+  	
+  	return path;
+    }
 
 
     public Level getLevel(){
