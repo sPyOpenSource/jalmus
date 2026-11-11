@@ -26,7 +26,7 @@ public class Score {
   public Score() {
     this.nbtrue = 0;
     this.nbfalse  = 0;
-    this.points = 500;
+    this.points = 250;
     win = 0;
   }
 
@@ -81,7 +81,7 @@ public boolean isUnknown() {
   public void initScore(){
     this.nbtrue = 0;
     this.nbfalse = 0;
-    this.points = 500;
+    this.points = 250;
     win = 0;
   }
 
