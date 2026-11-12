@@ -501,8 +501,6 @@ public class Lessons extends DefaultHandler{
          inTime = false;
        }
   
-     
-     
 /******************** Rhythms <rhythms>1,2,4,8</rhythms> 1 whole note ...
 ************************************************************************/
      
@@ -1020,7 +1018,6 @@ else {
      System.out.println("Results of parsing");
 
    }
-
 
    public boolean lastexercice(){
      return this.levelslist.size() - 1 == this.currentlevel;

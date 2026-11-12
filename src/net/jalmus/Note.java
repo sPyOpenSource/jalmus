@@ -78,11 +78,10 @@ import java.util.ResourceBundle;
           this.Height = h;
         }
 
-
         public void paint(NoteLevel nrlevel, Graphics g, Font f, int decalagea, int decalagen, int dportee, Component j, Color couleur, ResourceBundle b){
 
-          // decalagea est utilis� pour le d�calage des alt�rations dans l'accord
-          // decalagen est utilis� pour le d�calage des notes dans l'intervalle
+          // decalagea est utilis pour le dcalage des altrations dans l'accord
+          // decalagen est utilis pour le dcalage des notes dans l'intervalle
            int i;   // compteur
 
            g.setFont(f.deriveFont(50f));
@@ -162,7 +161,7 @@ import java.util.ResourceBundle;
                else if (this.Height<=dportee+75 & this.Height >=dportee+60) {
                  for(i=dportee+80; i>=this.Height+5; i=i-10){
                  g.drawLine(this.X-2+decalagen,i,this.X+18+decalagen, i); }      // dessine la portee en dessus de la port�e normale
-               };
+               }
              }
            }
 
@@ -270,7 +269,6 @@ import java.util.ResourceBundle;
 
                     if (this.Pitch-pitch0 == 2){
                       if (t.Alteration.equals("#")) this.Alteration = "#";
-
                     }
 
                     else if (this.Pitch-pitch0 == 3){
@@ -280,8 +278,6 @@ import java.util.ResourceBundle;
                     else //passer a tierce majeure
                       this.Alteration = "#";
                     }
-
-
 
                     else if (this.Pitch-pitch0 == 4){
                       if (tmp<0.4 | t.Alteration.equals("#")) { //laisser tierce majeure
@@ -394,8 +390,6 @@ import java.util.ResourceBundle;
               }
             }
 
-          
-
           public void updateNotePitch(NoteLevel nrlevel, int dportee, ResourceBundle bundle){
 
             String DO = bundle.getString("_do");
@@ -467,13 +461,10 @@ import java.util.ResourceBundle;
               
               else   if (this.samenotePitch(11)) { this.Nom = SI; this.Height = (71-this.Pitch)*35/12 + dportee+15;  
 				if (accidentalInTonality(nrlevel.getCurrentTonality(), bundle)) this.Alteration = "n"; else this.Alteration = ""; }
-                        
-              
+                                   
   }
 
             else if (nrlevel.isCurrentKeyBass() || (nrlevel.isCurrentKeyBoth() & this.Pitch < 57)){
-            
-
 
                     if (this.samenotePitch(0)) { this.Nom = DO; this.Height = (60-this.Pitch)*35/12 + dportee-15+heigth2staff;  
                     			if (accidentalInTonality(nrlevel.getCurrentTonality(), bundle)) this.Alteration = "n"; else this.Alteration = ""; }

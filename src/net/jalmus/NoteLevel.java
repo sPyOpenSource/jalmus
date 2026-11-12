@@ -393,14 +393,13 @@ public void save(Lessons l, String fileName, String message, String language)
     
     path = l.getLessonPath(language);
     
-    File sousrepertoire=new File(path);
+    File sousrepertoire = new File(path);
     
     // find the personnal lessons directory 99. in the name
     if (sousrepertoire.isDirectory()) {
-        File[] listsp=sousrepertoire.listFiles();
+        File[] listsp = sousrepertoire.listFiles();
         Arrays.sort(listsp);
         if (listsp!=null) { 
-
             for (File listsp1 : listsp) {
                 if (listsp1.getName().contains("99.")) {
                     path = path+File.separator + listsp1.getName();
@@ -469,8 +468,6 @@ public void printtest(){
     System.out.println("nbnotes upper "+this.nbnotesupper);
     System.out.println("nbnotes under "+this.nbnotesunder);
 }
-
-
 
 public void basenotetoLeft(Piano piano){  //base note is move when user pres key left
 
