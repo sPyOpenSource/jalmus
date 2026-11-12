@@ -428,9 +428,9 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     // Dialogs
 
     private JDialog preferencesDialog;
-    private static final int NOTE_READING_TAB=0;
-    private static final int RHYTM_READING_TAB=1;
-    private static final int SCORE_READING_TAB=2;
+    private static final int NOTE_READING_TAB  = 0;
+    private static final int RHYTM_READING_TAB = 1;
+    private static final int SCORE_READING_TAB = 2;
 
     private final JTabbedPane preferencesTabbedPane = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.SCROLL_TAB_LAYOUT); // panel pour les parametres
     private JComboBox noteGameTypeComboBox; //Game type
@@ -499,11 +499,11 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private JButton oklevelMessage=new JButton();
 
     // JDialog for score message
-    private JDialog scoreMessage=new JDialog();
-    private JPanel pscoreMessage=new JPanel();
-    private JLabel textscoreMessage=new JLabel();
-    private JPanel pButtonscoreMessage=new JPanel();
-    private JButton okscoreMessage=new JButton();
+    private JDialog scoreMessage = new JDialog();
+    private final JPanel pscoreMessage = new JPanel();
+    private final JLabel textscoreMessage = new JLabel();
+    private final JPanel pButtonscoreMessage = new JPanel();
+    private JButton okscoreMessage = new JButton();
 
     //----
 
@@ -514,27 +514,27 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private JComboBox keyboardLengthComboBox; // for length-number of touchs of keyboard
     private JSpinner transpositionSpinner; // for transposition MIDI keyboard
     private SpinnerNumberModel m_numberSpinnerModel;
-    private JLabel transpositionLabel=new JLabel();
+    private final JLabel transpositionLabel = new JLabel();
 
-    private JSlider latencySlider = new JSlider(JSlider.HORIZONTAL, 0, 250, 0);
+    private final JSlider latencySlider = new JSlider(JSlider.HORIZONTAL, 0, 250, 0);
 
     private JCheckBox keyboardsoundCheckBox;
 
     private JComboBox midiInComboBox;
     private JComboBox midiOutComboBox;
  
-    private DefaultComboBoxModel midiOutComboBoxModel = new DefaultComboBoxModel();    
-    private DefaultComboBoxModel midiInComboBoxModel = new DefaultComboBoxModel();
+    private final DefaultComboBoxModel midiOutComboBoxModel = new DefaultComboBoxModel();    
+    private final DefaultComboBoxModel midiInComboBoxModel = new DefaultComboBoxModel();
 
     private boolean selectmidi_forlang; // is true when combobox selection occures during language initialization
 
-    private int[] sauvmidi = new int[16]; // for save midi options when cancel
+    private final int[] sauvmidi = new int[16]; // for save midi options when cancel
 
     //----
 
     private JDialog aboutDialog;
-    private JPanel papropos = new JPanel();
-    private JPanel paproposboutons = new JPanel(); // panel for buttons
+    private final JPanel papropos = new JPanel();
+    private final JPanel paproposboutons = new JPanel(); // panel for buttons
     private JTextArea texteapropos;
 
     private JButton bcredits;
@@ -2113,35 +2113,32 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private void updateTonality() {
         String stmp;
 
-        if ((selectedGame==NOTEREADING && noteLevel.getRandomtonality())
-        		|| (selectedGame==SCOREREADING && scoreLevel.getRandomtonality())) { // to change tonality when randomly
-            int i=(int)Math.round((Math.random()*7));
-            double tmp=Math.random();
-            if (tmp<0.1) {
-                stmp="";
-            } else if (tmp>=0.1 && tmp<0.6) {
-                stmp="#";
+        if ((selectedGame == NOTEREADING && noteLevel.getRandomtonality())
+        		|| (selectedGame == SCOREREADING && scoreLevel.getRandomtonality())) { // to change tonality when randomly
+            int i = (int)Math.round((Math.random() * 7));
+            double tmp = Math.random();
+            if (tmp < 0.1) {
+                stmp = "";
+            } else if (tmp >= 0.1 && tmp < 0.6) {
+                stmp = "#";
             } else {
-                stmp="b";
+                stmp = "b";
             }
 
-           if (selectedGame==NOTEREADING) noteLevel.getCurrentTonality().init(i, stmp);
-           else if (selectedGame==SCOREREADING) scoreLevel.getCurrentTonality().init(i, stmp);
+           if (selectedGame == NOTEREADING) noteLevel.getCurrentTonality().init(i, stmp);
+           else if (selectedGame == SCOREREADING) scoreLevel.getCurrentTonality().init(i, stmp);
         } else
-        if (!isLessonMode && noteLevel.getCurrentTonality().getAlterationsNumber()==0) {
+        if (!isLessonMode && noteLevel.getCurrentTonality().getAlterationsNumber() == 0) {
             // Do Major when tonality is no sharp no  flat
-            double tmp=Math.random();
-            if (tmp<0.5) {
-                stmp="#";
+            double tmp = Math.random();
+            if (tmp < 0.5) {
+                stmp = "#";
             } else {
-                stmp="b";
+                stmp = "b";
             }
             noteLevel.getCurrentTonality().init(0, stmp);
         }
-
     }
-    
-
 
     private void initNoteGame() {
 
@@ -2394,7 +2391,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     
     private void startNoteGame() {
     	
-        initNoteGame();     // to stop last game
+        initNoteGame();   // to stop last game
         updateTonality(); //when selected random tonality
 
         if (noteLevel.isNormalgame() || noteLevel.isLearninggame()) {
@@ -2409,7 +2406,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             createline();
         }
 
-        parti=true;        // start of game
+        parti = true;        // start of game
         startButton.setText(bundle.getString("_stop"));
     }
 
@@ -4939,7 +4936,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
         if ((noteLevel.isNormalgame() || noteLevel.isLearninggame()) & parti) {
             notecounter++;
-            if (precedente!=0 & soundOnCheckBox.isSelected()) {
+            if (precedente != 0 & soundOnCheckBox.isSelected()) {
                 stopSound();
             }
             ncourante.init();
@@ -4947,13 +4944,13 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             if (noteLevel.isNotesgame() || noteLevel.isAccidentalsgame()) {
             	//choosing note with height to do change to choose note with pitch
             ncourante.setHeight(setNoteHeight(noteLevel.getNbnotesupper(), noteLevel.getNbnotesunder(), noteLevel.getNbnotesupper(), noteLevel.getNbnotesunder()));
-            while (ncourante.getHeight()==precedente) {
+            while (ncourante.getHeight() == precedente) {
                 ncourante.setHeight(setNoteHeight(noteLevel.getNbnotesupper(), noteLevel.getNbnotesunder(), noteLevel.getNbnotesupper(), noteLevel.getNbnotesunder()));
             }
             ncourante.updateNote(noteLevel, scoreYpos, bundle);
 
             ncourante.updateAccidental(noteLevel, bundle);
-            precedente=ncourante.getHeight();
+            precedente = ncourante.getHeight();
             }
             
             else if (noteLevel.isCustomNotesgame()){
@@ -4961,17 +4958,17 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             	
             	ncourante.setPitch(noteLevel.getRandomPitch());
             	  ncourante.updateNotePitch(noteLevel, scoreYpos, bundle);
-            	  precedente=ncourante.getHeight();
+            	  precedente = ncourante.getHeight();
             }
             		
-            ncourante.setX(getSize().width-notemargin);
+            ncourante.setX(getSize().width - notemargin);
 
             // Falling hint for learning mode (note reading)
             if (selectedGame == NOTEREADING && noteLevel.isLearninggame() && hintEnabled) {
                 int pitch = ncourante.getPitch();
                 String letter = "";
                 for (Map.Entry<Character, Integer> e : PITCH_BY_KEY.entrySet()) {
-                    if (e.getValue().intValue() == pitch) {
+                    if (e.getValue() == pitch) {
                         letter = String.valueOf(e.getKey()).toUpperCase();
                         break;
                     }
@@ -4983,9 +4980,9 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                     hintActive = true;
                 }
             }
-             System.out.println(ncourante.getNom());
+            System.out.println(ncourante.getNom());
             System.out.println(ncourante.getHeight());
-			System.out.println(ncourante.getPitch());
+            System.out.println(ncourante.getPitch());
             //if (soundOnCheckBox.isSelected()) sons[indiceson(ncourante.getHeight())].play();
 
             if (soundOnCheckBox.isSelected()) {
