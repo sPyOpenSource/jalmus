@@ -328,6 +328,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private final Interval[] ligneint = new Interval[40];
     private int position; // position of the current note in the list
     private int precedente; // position of the previous note to avoid repetitions
+    private int lastPitch = 60; // MIDI pitch of the previous note, for melodic (stepwise) motion
 
     private boolean parti; //  partie commencï¿½e ou non
     private boolean paused;
@@ -2148,6 +2149,10 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
         precedente=0;
         notecounter=1;
+        // start the melody from the middle of the available pitch range
+        if (noteLevel.getPitcheslist() != null && !noteLevel.getPitcheslist().isEmpty()) {
+            lastPitch = noteLevel.getPitcheslist().get(noteLevel.getPitcheslist().size() / 2);
+        }
 
         scoreYpos=110;
         paused=false;
@@ -4522,7 +4527,44 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         }
         return h;
     }
-    
+
+    /** Choose the next pitch one step away from the previous pitch so the
+     *  notes move melodically (stepwise motion) instead of jumping at random.
+     *  Mostly a step (+/-1 scale degree), occasionally a small leap. */
+    private int getMelodicPitch(ArrayList<Integer> pitches) {
+        if (pitches == null || pitches.isEmpty()) {
+            return lastPitch;
+        }
+        // index in the list closest to the previous pitch
+        int baseIndex = 0;
+        int bestDiff = Integer.MAX_VALUE;
+        for (int i = 0; i < pitches.size(); i++) {
+            int d = Math.abs(pitches.get(i) - lastPitch);
+            if (d < bestDiff) {
+                bestDiff = d;
+                baseIndex = i;
+            }
+        }
+        double r = Math.random();
+        int shift;
+        if (r < 0.70) {
+            shift = (Math.random() < 0.5) ? -1 : 1;   // step: most common
+        } else if (r < 0.90) {
+            shift = (Math.random() < 0.5) ? -2 : 2;   // small leap
+        } else {
+            shift = (Math.random() < 0.5) ? -3 : 3;   // larger leap (rare)
+        }
+        int newIndex = baseIndex + shift;
+        if (newIndex < 0) {
+            newIndex = 0;
+        }
+        if (newIndex >= pitches.size()) {
+            newIndex = pitches.size() - 1;
+        }
+        lastPitch = pitches.get(newIndex);
+        return lastPitch;
+    }
+
     
     private void rhythmKeyReleased(int pitch){
     	
@@ -4943,22 +4985,45 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             
             if (noteLevel.isNotesgame() || noteLevel.isAccidentalsgame()) {
             	//choosing note with height to do change to choose note with pitch
-            ncourante.setHeight(setNoteHeight(noteLevel.getNbnotesupper(), noteLevel.getNbnotesunder(), noteLevel.getNbnotesupper(), noteLevel.getNbnotesunder()));
-            while (ncourante.getHeight() == precedente) {
-                ncourante.setHeight(setNoteHeight(noteLevel.getNbnotesupper(), noteLevel.getNbnotesunder(), noteLevel.getNbnotesupper(), noteLevel.getNbnotesunder()));
-            }
-            ncourante.updateNote(noteLevel, scoreYpos, bundle);
+                // melodic: move by step from the previous note instead of jumping at random
+                int base = noteLevel.isCurrentKeyTreble()
+                    ? (scoreYpos + noteLevel.getBasetreble())
+                    : (scoreYpos + noteLevel.getBasebass());
+                int nbupper = noteLevel.getNbnotesupper();
+                int nbunder = noteLevel.getNbnotesunder();
+                int minH = base - nbupper * 5;
+                int maxH = base + nbunder * 5;
+                int h;
+                if (noteLevel.isCurrentKeyBoth()) {
+                    h = setNoteHeight(nbupper, nbunder, nbupper, nbunder);
+                } else if (precedente != 0 && Math.random() < 0.70) {
+                    int step = (Math.random() < 0.5) ? -1 : 1;
+                    int amt = (int)(Math.random() * 3) + 1; // 1-3 staff positions
+                    h = precedente + step * amt * 5;
+                    if (h < minH) h = minH;
+                    if (h > maxH) h = maxH;
+                } else {
+                    h = setNoteHeight(nbupper, nbunder, nbupper, nbunder);
+                }
+                ncourante.setHeight(h);
+                while (ncourante.getHeight() == precedente) {
+                    int dir = (ncourante.getHeight() < base) ? 1 : -1;
+                    ncourante.setHeight(ncourante.getHeight() + dir * 5);
+                    if (ncourante.getHeight() < minH) ncourante.setHeight(minH);
+                    if (ncourante.getHeight() > maxH) ncourante.setHeight(maxH);
+                }
+                ncourante.updateNote(noteLevel, scoreYpos, bundle);
 
-            ncourante.updateAccidental(noteLevel, bundle);
-            precedente = ncourante.getHeight();
+                ncourante.updateAccidental(noteLevel, bundle);
+                precedente = ncourante.getHeight();
+                lastPitch = ncourante.getPitch();
             }
             
             else if (noteLevel.isCustomNotesgame()){
-            	// choosing note with pitch
-            	
-            	ncourante.setPitch(noteLevel.getRandomPitch());
-            	  ncourante.updateNotePitch(noteLevel, scoreYpos, bundle);
-            	  precedente = ncourante.getHeight();
+            	// choosing note with pitch - melodic stepwise motion
+            	ncourante.setPitch(getMelodicPitch(noteLevel.getPitcheslist()));
+            	ncourante.updateNotePitch(noteLevel, scoreYpos, bundle);
+            	precedente = ncourante.getHeight();
             }
             		
             ncourante.setX(getSize().width - notemargin);
@@ -5357,7 +5422,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 	stemup = true;
                 }
                 else {
-                	pitch = scoreLevel.getRandomPitch();
+                	pitch = getMelodicPitch(scoreLevel.getPitcheslist());
                 	if (scoreLevel.isCurrentKeyTreble() && pitch >= 71) stemup = false; //SI
                 	else if (scoreLevel.isCurrentKeyTreble() && pitch < 71) stemup = true;
                 	else if (scoreLevel.isCurrentKeyBass() && pitch >= 50) stemup = false; //RE
@@ -5487,15 +5552,15 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
             else if (noteLevel.isCustomNotesgame()) {
             
-                ligne[0]=new Note("", "", 0, size.width-notemargin, noteLevel.getRandomPitch() );
+                ligne[0]=new Note("", "", 0, size.width-notemargin, getMelodicPitch(noteLevel.getPitcheslist()) );
                 ligne[0].updateNotePitch(noteLevel, scoreYpos, bundle);
         
 
                 String tmpa="";
                 for (int i=1; i<ligne.length; i++) {
-                    int tmpp=noteLevel.getRandomPitch();
+                    int tmpp=getMelodicPitch(noteLevel.getPitcheslist());
                     while (tmpp==ligne[i-1].getPitch()) {
-                        tmpp=noteLevel.getRandomPitch(); // to avoid same pitch
+                        tmpp=getMelodicPitch(noteLevel.getPitcheslist()); // avoid identical consecutive pitch
                     }
 
                     ligne[i]=new Note(tmpa, "", 0, size.width-notemargin+i*35, tmpp);

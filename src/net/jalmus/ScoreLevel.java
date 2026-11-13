@@ -187,7 +187,7 @@ public boolean isMessageEmpty(){
 	    
 		this.nbnotes = n.nbnotes;
 		
-		this.pitcheslist =  new ArrayList<Integer>(); 
+		this.pitcheslist =  new ArrayList<>(); 
 		this.pitcheslist.addAll(n.pitcheslist);
 
 	  }
