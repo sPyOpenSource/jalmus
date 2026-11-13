@@ -209,10 +209,10 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     // Main variables
 
     private int selectedGame; // FIRSTSCREEN, NOTEREADING, RHYTHMREADING, SCOREREADING
-    private static final int FIRSTSCREEN = 0;
-    private static final int NOTEREADING = 1;
+    private static final int FIRSTSCREEN   = 0;
+    private static final int NOTEREADING   = 1;
     private static final int RHYTHMREADING = 2;
-    private static final int SCOREREADING = 3;
+    private static final int SCOREREADING  = 3;
 
     //----------------------------------------------------------------
     // Lesson variables
@@ -1307,43 +1307,31 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     	   File sousrepertoire=new File(path);
 
     	  if (sousrepertoire.isDirectory()) {
-    	        File[] listsp=sousrepertoire.listFiles();
+    	        File[] listsp = sousrepertoire.listFiles();
     	        Arrays.sort(listsp);
-    	        if (listsp!=null && listsp.length <= 15) { //15 directory
+    	        if (listsp != null && listsp.length <= 15) { //15 directory
+                    for (int i = 0; i < listsp.length; i++) {
+                        lessonsMenuDir[i] = new JMenu(listsp[i].getName());
+                        lessonsMenu.add(lessonsMenuDir[i]);
 
-    	         for   (int i=0; i<listsp.length; i++) {
-        
-    	                	lessonsMenuDir[i]= new JMenu(listsp[i].getName());
-    	                	lessonsMenu.add(lessonsMenuDir[i]);
-    	                	
-    	                	pathsubdir[i] = path+File.separator+listsp[i].getName();
-    	                    File repertoire=new File(pathsubdir[i]);
-    	                    File[] list=repertoire.listFiles();
-    	                    Arrays.sort(list);
-    	                    if (list!=null && list.length <= 25) { //25 lessons max
+                        pathsubdir[i] = path + File.separator + listsp[i].getName();
+                        File repertoire = new File(pathsubdir[i]);
+                        File[] list = repertoire.listFiles();
+                        Arrays.sort(list);
+                        if (list != null && list.length <= 25) { //25 lessons max
+                            for (int i1 = 0; i1 < list.length; i1++) {
+                                if ("xml".equals(FileTools.getFileExtension(list[i1]))) {
+                                    lessonsMenuItem[i][i1]= new JMenuItem(FileTools.getFileNameWithoutExtension(list[i1]));
+                                    lessonsMenuItem[i][i1].addActionListener(this);
 
-    	                        for (int i1=0; i1<list.length; i1++) {
-
-    	                            if ("xml".equals(FileTools.getFileExtension(list[i1]))) {
-    	                            
-    	                            	lessonsMenuItem[i][i1]= new JMenuItem(FileTools.getFileNameWithoutExtension(list[i1]));
-    	                            	 lessonsMenuItem[i][i1].addActionListener(this);
-    	                            	
-    	                                lessonsMenuDir[i].add(lessonsMenuItem[i][i1]);
-    	                                
-    	                            }
-    	                        }
-
-
-    	                    }
-    	                    
-    	         			}
-
-
+                                    lessonsMenuDir[i].add(lessonsMenuItem[i][i1]);
+                                }
+                            }
+                        }    
+                    }
     	        }
     	  }
     	  
-    	 
     	  
     	  else {
     	        System.err.println(sousrepertoire+" : Reading lessons files error.");
@@ -2574,13 +2562,11 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             	 
             	 repaint();
            
-
-
         }
     }
 
     private void wrongAnswer() {
-        alterationok=false;
+        alterationok = false;
 
         if (!noteLevel.isLearninggame()) {
 
@@ -2604,8 +2590,9 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
   
     /** FONCTIONS POUR SAISIE AU CLAVIER */
+    @Override
     public void keyTyped(KeyEvent evt) {
-        char ch=evt.getKeyChar();  // The character typed.
+        char ch = evt.getKeyChar();  // The character typed.
 
         //  System.out.println(ch);
 
@@ -2631,9 +2618,9 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
         if (selectedGame==NOTEREADING && parti && !paused && noteLevel.isNotesgame()) {
             ensureKeyboardMaps();
-            String note = NOTE_BY_KEY.get(Character.valueOf(ch));
+            String note = NOTE_BY_KEY.get(ch);
             if (note != null) {
-                Integer pitch = PITCH_BY_KEY.get(Character.valueOf(ch));
+                Integer pitch = PITCH_BY_KEY.get(ch);
                 if (pitch != null && piano != null && currentChannel != null) {
                     net.jalmus.Key key = piano.getKeyByPitch(pitch);
                     if (key != null) {
@@ -2668,6 +2655,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         if (hintProgress > 1.0f) hintProgress = 1.0f;
     }
 
+    @Override
     public void keyPressed(KeyEvent evt) {
 
         // Called when the user has pressed a key, which can be
@@ -2698,11 +2686,12 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         repaint();
     } // end keyPressed()
 
+    @Override
     public void keyReleased(KeyEvent evt) {
         // empty method, required by the KeyListener Interface
         ensureKeyboardMaps();
         char ch = evt.getKeyChar();
-        if (NOTE_BY_KEY.containsKey(Character.valueOf(ch))) {
+        if (NOTE_BY_KEY.containsKey(ch)) {
             if (keyboardSoundingKey != null && currentChannel != null) {
                 keyboardSoundingKey.off(currentChannel, soundOnCheckBox.isSelected() && !midierror);
                 keyboardSoundingKey = null;
@@ -2711,6 +2700,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         }
     }
 
+    @Override
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource()==rblanguageen) {
@@ -2750,8 +2740,8 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         }
             
         if (e.getSource()==rblanguagefi) {
-                language="fi";
-                updateLang();
+            language="fi";
+            updateLang();
         } 
         
         if (e.getSource()==rblanguageko) {
@@ -2770,22 +2760,22 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         }   
         
         if (e.getSource()==rblanguageeo) {
-        	language="eo";
-        	updateLang();
+            language="eo";
+            updateLang();
         } 
         
         if (e.getSource()==rblanguagegr) {
-        	language="gr";
-        	updateLang();
+            language="gr";
+            updateLang();
         } 
         
-        for (int i0=0; i0<lessonsMenuItem.length; i0++) {
-        for (int i=0; i<lessonsMenuItem[0].length; i++) {
-        	if (e.getSource() == lessonsMenuItem[i0][i]) {
-        		handleLessonMenuItem(lessonsMenuItem[i0][i].getText(),i0);
-        		System.out.println("lesson " + i0 + i + lessonsMenuItem[i0][i].getText());
+        for (int i = 0; i < lessonsMenuItem.length; i++) {
+            for (int j = 0; j < lessonsMenuItem[0].length; j++) {
+        	if (e.getSource() == lessonsMenuItem[i][j]) {
+        		handleLessonMenuItem(lessonsMenuItem[i][j].getText(), i);
+        		System.out.println("lesson " + i + j + lessonsMenuItem[i][j].getText());
         	}
-        }
+            }
         }
         
          if (e.getSource()==menuPrefs) {
@@ -2887,8 +2877,6 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     	stopGames();
         dispose();
     }
-
-
     
     private void handleLessonMenuItem(String lesson, Integer i) {
     String parseerror;
@@ -3141,31 +3129,27 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     
     private void handleOKSave() {
     	try {
-    		
-    		if (Lessonname.getText().length()!=0){
-    		if (preferencesTabbedPane.getSelectedIndex() == 0) noteLevel.save(currentlesson,Lessonname.getText()+".xml", Lessonmessage.getText(), language);
-    		else if (preferencesTabbedPane.getSelectedIndex() == 1) {
-    			rhythmLevel.printtest();
-    			rhythmLevel.save(currentlesson,Lessonname.getText()+".xml", Lessonmessage.getText(), language);
-    		}
-    		else if (preferencesTabbedPane.getSelectedIndex() == 2) {
-    			scoreLevel.printtest();
-    			scoreLevel.save(currentlesson,Lessonname.getText()+".xml", Lessonmessage.getText(), language);
-    		}
-    		
-    		saveDialog.setVisible(false);
-			
-			lessonsMenu.removeAll();
-			buildLessonsMenu();
-		        
-    		}
-    		else JOptionPane.showMessageDialog(null, "Give the name of the lesson", "Warning", JOptionPane.ERROR_MESSAGE); 
-    	      
-    		
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+            if (Lessonname.getText().length()!=0){
+            if (preferencesTabbedPane.getSelectedIndex() == 0) noteLevel.save(currentlesson,Lessonname.getText()+".xml", Lessonmessage.getText(), language);
+            else if (preferencesTabbedPane.getSelectedIndex() == 1) {
+                    rhythmLevel.printtest();
+                    rhythmLevel.save(currentlesson,Lessonname.getText()+".xml", Lessonmessage.getText(), language);
+            }
+            else if (preferencesTabbedPane.getSelectedIndex() == 2) {
+                    scoreLevel.printtest();
+                    scoreLevel.save(currentlesson,Lessonname.getText()+".xml", Lessonmessage.getText(), language);
+            }
+
+            saveDialog.setVisible(false);
+
+                    lessonsMenu.removeAll();
+                    buildLessonsMenu();
+            }
+            else JOptionPane.showMessageDialog(null, "Give the name of the lesson", "Warning", JOptionPane.ERROR_MESSAGE); 
+        } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
     }
     
     private void handlePreferencesOkClicked() {
@@ -3495,14 +3479,14 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
              System.exit( 1 );
          }
    
-         try {
-       
-              desktop.open(dir);
-             }
-         catch ( Exception e ) {
-                 System.err.println( e.getMessage() );
-             }       
-     } 
+        try {
+            desktop.open(dir);
+        }
+        catch ( IOException e ) {
+            System.err.println( e.getMessage() );
+        }       
+    } 
+     
     private void savesettings(){
     		settings.setProperty("transposition",String.valueOf(transpositionSpinner.getValue())); 
 	    	if (keyboardLengthComboBox.getSelectedIndex()==1) 
@@ -3567,6 +3551,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
     }
 
+    @Override
     public void itemStateChanged(ItemEvent evt) {
 
         if (evt.getItemSelectable()==midiInComboBox && !selectmidi_forlang) {
@@ -3916,6 +3901,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 ChooseNoteP.setVisible(true);
                ChooseNoteP.okButton.addActionListener(new ActionListener() {
             	   
+                   @Override
                    public void actionPerformed(ActionEvent e)
                    {
                        //Execute when button is pressed
@@ -3981,7 +3967,6 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             } else if (noteCountComboBox.getSelectedIndex()==4) {
                 noteLevel.setNbnotes(0);
             }
-            ;
         } else if (evt.getItemSelectable()==chordTypeComboBox) {
             if (chordTypeComboBox.getSelectedIndex()==0) {
                 noteLevel.setChordtype("root");
@@ -4047,6 +4032,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 ScoreChooseNoteP.setVisible(true);
                ScoreChooseNoteP.okButton.addActionListener(new ActionListener() {
             	   
+                   @Override
                    public void actionPerformed(ActionEvent e)
                    {
                        //Execute when button is pressed
@@ -4055,22 +4041,17 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 			 ScorenotesDialog.setVisible(false);
                 			 scoreLevel.setPitcheslist(ScoreChooseNoteP.getPitches());
                 		 }
-                      
                    }
                });    
                
-   
-                 
-                 ScorenotesDialog.setContentPane(ScoreChooseNoteP);
+                ScorenotesDialog.setContentPane(ScoreChooseNoteP);
                 ScorenotesDialog.setSize(650, 220);
-                 ScorenotesDialog.setLocationRelativeTo(this);
-                 ScorenotesDialog.setVisible(true);
+                ScorenotesDialog.setLocationRelativeTo(this);
+                ScorenotesDialog.setVisible(true);
                  
-              
-                 ScoreChooseNoteP.setVisible(true);
+                ScoreChooseNoteP.setVisible(true);
              
-
-                 this.add(ScorenotesDialog);
+                this.add(ScorenotesDialog);
              } 
         }
       
@@ -4109,28 +4090,19 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             } else if (scoreAlterationsComboBox.getSelectedIndex()==14) {
             	scoreLevel.getCurrentTonality().init(7, "b");
             }
-
-
         }
-
-   
     }
 
     // Translating functions
 
     private void updateLang() {
-
-    	
-         
         bundle = ResourceBundle.getBundle("language", new Locale(language));
-      System.out.println(new Locale(language));
+        System.out.println(new Locale(language));
         changeLanguage();
-
     }
 
     private void changeLanguage() {
-        for (Iterator<Localizable> itr=localizables.iterator(); itr.hasNext();) {
-            Localizable localizable=(Localizable)itr.next();
+        for (Localizable localizable : localizables) {
             localizable.update(bundle);
         }
 
@@ -4145,8 +4117,8 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         timeSignLabel.setText(bundle.getString("_timeSignature"));
         scoreTimeSignLabel.setText(bundle.getString("_timeSignature"));
         aboutDialog.setTitle(bundle.getString("_menuAbout"));
-		notesDialog.setTitle("Choose notes to study");
-		ScorenotesDialog.setTitle("Choose notes to study");
+	notesDialog.setTitle("Choose notes to study");
+	ScorenotesDialog.setTitle("Choose notes to study");
 
 
         tlicence=bundle.getString("_licence");
@@ -4962,6 +4934,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         final int delay = 350; // milliseconds between each note
         final int[] idx = { 0 };
         Timer timer = new Timer(delay, new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 currentChannel.playNote(!midierror, pitches[idx[0]]);
                 idx[0]++;
