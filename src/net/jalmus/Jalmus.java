@@ -213,6 +213,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private static final int NOTEREADING   = 1;
     private static final int RHYTHMREADING = 2;
     private static final int SCOREREADING  = 3;
+    private static final int RECORDING     = 4;
 
     //----------------------------------------------------------------
     // Lesson variables
@@ -279,6 +280,17 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private Note ncourante = new Note("", "", 0, 25, 0);
     private Chord acourant = new Chord(ncourante, ncourante, ncourante, "", 0);
     private Interval icourant = new Interval(ncourante, ncourante, "");
+
+    //----------------------------------------------------------------
+    // Piano recording variables
+
+    private final ArrayList<RecordedNote> recordedNotes = new ArrayList<>();
+    private RecordedNote currentRecordingNote = null; // note currently held (no note-off yet)
+    private long recordStartTime = 0;
+    private boolean isRecording = false;
+    private boolean isPlaying = false;
+    private javax.swing.Timer playbackTimer = null;
+    private int playbackIndex = 0;
 
 /*
  *  ************************************* SCORE LAYOUT ***************************************
@@ -424,6 +436,10 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private JButton listenButton;    // button for listen exercise in rhythm game
     private JButton newButton;    // button for new exercise in rhythm game
     private JButton preferencesButton;  // button to access game preferences
+    private JButton recordButton;    // button to start/stop recording
+    private JButton playButton;      // button to play recording
+    private JButton stopButton;      // button to stop playback
+    private JButton clearButton;     // button to clear recording
 
     //----------------------------------------------------------------
     // Dialogs
@@ -632,6 +648,50 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         preferencesButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 handlePreferencesClicked();
+            }
+        });
+
+        recordButton=new JButton();
+        recordButton.setFocusable(false);
+        localizables.add(new Localizable.Button(recordButton, "_record"));
+        recordButton.setPreferredSize(new Dimension(100, 20));
+        recordButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                handleRecordButtonClicked();
+            }
+        });
+
+        playButton=new JButton();
+        playButton.setFocusable(false);
+        localizables.add(new Localizable.Button(playButton, "_play"));
+        playButton.setPreferredSize(new Dimension(100, 20));
+        playButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                handlePlayButtonClicked();
+            }
+        });
+
+        stopButton=new JButton();
+        stopButton.setFocusable(false);
+        localizables.add(new Localizable.Button(stopButton, "_stop"));
+        stopButton.setPreferredSize(new Dimension(100, 20));
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                handleStopButtonClicked();
+            }
+        });
+
+        clearButton=new JButton();
+        clearButton.setFocusable(false);
+        localizables.add(new Localizable.Button(clearButton, "_clear"));
+        clearButton.setPreferredSize(new Dimension(100, 20));
+        clearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                handleClearButtonClicked();
             }
         });
 
@@ -1156,6 +1216,19 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                             }
                         }
                     }
+                } else if (selectedGame==RECORDING && isRecording) {
+                    Key key = piano.getKey(e.getPoint());
+                    if (key != null && currentChannel != null) {
+                        piano.Setprevkey(key);
+                        long now = System.currentTimeMillis() - recordStartTime;
+                        RecordedNote rn = new RecordedNote(key.Getknum(), 80, now);
+                        recordedNotes.add(rn);
+                        currentRecordingNote = rn;
+                        key.on(currentChannel, !midierror);
+                        playButton.setEnabled(true);
+                        clearButton.setEnabled(true);
+                        repaint();
+                    }
                 }
             }
 
@@ -1164,6 +1237,17 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 if (selectedGame==NOTEREADING) {
                     if (piano.Getprevkey()!=null) {
                         piano.Getprevkey().off(currentChannel, soundOnCheckBox.isSelected() && !midierror);
+                        repaint();
+                    }
+                } else if (selectedGame==RECORDING && isRecording) {
+                    if (piano.Getprevkey()!=null && currentChannel != null) {
+                        piano.Getprevkey().off(currentChannel, !midierror);
+                        long now = System.currentTimeMillis() - recordStartTime;
+                        if (currentRecordingNote != null && currentRecordingNote.pitch == piano.Getprevkey().Getknum()) {
+                            currentRecordingNote.setDuration(now - currentRecordingNote.startTime);
+                            currentRecordingNote = null;
+                        }
+                        piano.Setprevkey(null);
                         repaint();
                     }
                 }
@@ -1275,6 +1359,15 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             }
         });
 
+        JMenuItem pianoRecordingMenuItem=new JMenuItem(new ImageIcon(getClass().getResource("/images/exercices.png")));
+        localizables.add(new Localizable.Button(pianoRecordingMenuItem, "_menuPianorecording"));
+        pianoRecordingMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                handlePianoRecordingMenuItem();
+            }
+        });
+
  
         JMenuItem exitMenuItem=new JMenuItem(new ImageIcon(getClass().getResource("/images/exit.png")));
         localizables.add(new Localizable.Button(exitMenuItem, "_menuExit"));
@@ -1291,6 +1384,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         exercisesMenu.add(noteReadingMenuItem);
         //exercisesMenu.add(rhythmReadingMenuItem);  
         exercisesMenu.add(scoreReadingMenuItem);
+        exercisesMenu.add(pianoRecordingMenuItem);
       //  exercisesMenu.add(lessonsMenuItem);
         exercisesMenu.addSeparator();
         exercisesMenu.add(exitMenuItem);
@@ -2095,6 +2189,22 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             listenButton.setVisible(true);
             principal.setVisible(true);
 
+        } else if (selectedGame==RECORDING) {
+            pgamebutton.setVisible(true);
+            pnotes.setVisible(false);
+            startButton.setVisible(false);
+            newButton.setVisible(false);
+            listenButton.setVisible(false);
+            recordButton.setVisible(true);
+            playButton.setVisible(true);
+            stopButton.setVisible(true);
+            clearButton.setVisible(true);
+            preferencesButton.setVisible(true);
+            principal.setVisible(true);
+            playButton.setEnabled(!recordedNotes.isEmpty());
+            stopButton.setEnabled(false);
+            clearButton.setEnabled(!recordedNotes.isEmpty());
+
         }
 
     }
@@ -2205,7 +2315,11 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     
     private void stopGames() {
     	  if (selectedGame==NOTEREADING) stopNoteGame();
-    	  else stopRhythmGame();
+    	  else if (selectedGame==RHYTHMREADING || selectedGame==SCOREREADING) stopRhythmGame();
+    	  else if (selectedGame==RECORDING) {
+    		      if (isRecording) stopRecording();
+    		      if (isPlaying) stopPlayback();
+    	  }
     	
     }
     
@@ -2643,6 +2757,25 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 lastKeyboardKey = ch;
             }
         }
+
+        if (selectedGame==RECORDING && isRecording) {
+            ensureKeyboardMaps();
+            Integer pitch = PITCH_BY_KEY.get(ch);
+            if (pitch != null && piano != null && currentChannel != null) {
+                net.jalmus.Key key = piano.getKeyByPitch(pitch);
+                if (key != null) {
+                    long now = System.currentTimeMillis() - recordStartTime;
+                    RecordedNote rn = new RecordedNote(pitch, 80, now);
+                    recordedNotes.add(rn);
+                    currentRecordingNote = rn;
+                    key.on(currentChannel, !midierror);
+                    keyboardSoundingKey = key;
+                    playButton.setEnabled(true);
+                    clearButton.setEnabled(true);
+                    if (panelanim != null) panelanim.repaint();
+                }
+            }
+        }
     }  // end keyTyped()
 
     /**
@@ -2692,10 +2825,20 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         ensureKeyboardMaps();
         char ch = evt.getKeyChar();
         if (NOTE_BY_KEY.containsKey(ch)) {
+            Integer pitch = PITCH_BY_KEY.get(ch);
             if (keyboardSoundingKey != null && currentChannel != null) {
-                keyboardSoundingKey.off(currentChannel, soundOnCheckBox.isSelected() && !midierror);
+                boolean shouldSound = !midierror;
+                if (selectedGame != RECORDING) {
+                    shouldSound = soundOnCheckBox.isSelected() && !midierror;
+                }
+                keyboardSoundingKey.off(currentChannel, shouldSound);
                 keyboardSoundingKey = null;
                 if (panelanim != null) panelanim.repaint();
+            }
+            if (selectedGame==RECORDING && isRecording && currentRecordingNote != null && currentRecordingNote.pitch == pitch) {
+                long now = System.currentTimeMillis() - recordStartTime;
+                currentRecordingNote.setDuration(now - currentRecordingNote.startTime);
+                currentRecordingNote = null;
             }
         }
     }
@@ -3004,6 +3147,178 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
           isLessonMode=false;
           changeScreen();
       }
+
+    private void handlePianoRecordingMenuItem() {
+    	stopGames();
+    	pgamebutton.removeAll();
+
+    	pgamebutton.add(recordButton);
+    	pgamebutton.add(playButton);
+    	pgamebutton.add(stopButton);
+    	pgamebutton.add(clearButton);
+    	pgamebutton.add(preferencesButton);
+    	scoreYpos=110;
+    	repaint();
+
+    	selectedGame = RECORDING;
+    	isLessonMode=false;
+    	changeScreen();
+    }
+
+    private void handleRecordButtonClicked() {
+        if (isPlaying) {
+            stopPlayback();
+        }
+        if (!isRecording) {
+            startRecording();
+        } else {
+            stopRecording();
+        }
+    }
+
+    private void handlePlayButtonClicked() {
+        if (isRecording) {
+            stopRecording();
+        }
+        if (!isPlaying && !recordedNotes.isEmpty()) {
+            startPlayback();
+        }
+    }
+
+    private void handleStopButtonClicked() {
+        if (isRecording) {
+            stopRecording();
+        }
+        if (isPlaying) {
+            stopPlayback();
+        }
+    }
+
+    private void handleClearButtonClicked() {
+        if (isRecording) {
+            stopRecording();
+        }
+        if (isPlaying) {
+            stopPlayback();
+        }
+        recordedNotes.clear();
+        currentRecordingNote = null;
+        repaint();
+    }
+
+    private void startRecording() {
+        stopSound();
+        recordedNotes.clear();
+        currentRecordingNote = null;
+        recordStartTime = System.currentTimeMillis();
+        isRecording = true;
+        isPlaying = false;
+        recordButton.setText(bundle.getString("_stop"));
+        playButton.setEnabled(false);
+        stopButton.setEnabled(true);
+        clearButton.setEnabled(false);
+        repaint();
+    }
+
+    private void stopRecording() {
+        isRecording = false;
+        // finalize any held note
+        if (currentRecordingNote != null) {
+            currentRecordingNote.setDuration(System.currentTimeMillis() - recordStartTime - currentRecordingNote.startTime);
+            currentRecordingNote = null;
+        }
+        recordButton.setText(bundle.getString("_record"));
+        playButton.setEnabled(!recordedNotes.isEmpty());
+        stopButton.setEnabled(false);
+        clearButton.setEnabled(!recordedNotes.isEmpty());
+        repaint();
+    }
+
+    private void startPlayback() {
+        if (recordedNotes.isEmpty()) return;
+        stopSound();
+        isPlaying = true;
+        isRecording = false;
+        recordStartTime = System.currentTimeMillis();
+        playbackIndex = 0;
+        playButton.setEnabled(false);
+        recordButton.setEnabled(false);
+        stopButton.setEnabled(true);
+        clearButton.setEnabled(false);
+
+        playbackTimer = new javax.swing.Timer(10, new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                if (!isPlaying) {
+                    ((javax.swing.Timer) e.getSource()).stop();
+                    return;
+                }
+                long now = System.currentTimeMillis() - recordStartTime;
+                // turn on notes that should start now
+                while (playbackIndex < recordedNotes.size() &&
+                        recordedNotes.get(playbackIndex).startTime <= now) {
+                    RecordedNote rn = recordedNotes.get(playbackIndex);
+                    currentChannel.playNote(!midierror, rn.pitch);
+                    piano.playNote(currentChannel, !midierror, rn.pitch, 1);
+                    playbackIndex++;
+                }
+                // turn off notes that should end now
+                for (int i = 0; i < recordedNotes.size(); i++) {
+                    RecordedNote rn = recordedNotes.get(i);
+                    if (rn.duration > 0 && rn.getEndTime() <= now && rn.startTime < now) {
+                        // only turn off once: mark by setting duration to negative
+                        if (rn.duration > 0) {
+                            currentChannel.stopnote(!midierror, rn.pitch);
+                            piano.playNote(currentChannel, !midierror, rn.pitch, 0);
+                            rn.duration = -rn.duration; // mark as already released
+                        }
+                    }
+                }
+                // check if playback is done
+                boolean allDone = true;
+                for (RecordedNote rn : recordedNotes) {
+                    if (rn.duration >= 0 && rn.getEndTime() > now) {
+                        allDone = false;
+                        break;
+                    }
+                }
+                if (allDone && playbackIndex >= recordedNotes.size()) {
+                    stopPlayback();
+                }
+                repaint();
+            }
+        });
+        playbackTimer.setRepeats(true);
+        playbackTimer.start();
+    }
+
+    private void stopPlayback() {
+        isPlaying = false;
+        if (playbackTimer != null) {
+            playbackTimer.stop();
+            playbackTimer = null;
+        }
+        currentChannel.stopnotes();
+        // reset all keys visual state
+        for (int i = 0; i < piano.whiteKeys.size(); i++) {
+            piano.whiteKeys.get(i).setNoteState(0);
+        }
+        for (int i = 0; i < piano.blackKeys.size(); i++) {
+            piano.blackKeys.get(i).setNoteState(0);
+        }
+        // restore recorded notes duration markers
+        for (RecordedNote rn : recordedNotes) {
+            if (rn.duration < 0) {
+                rn.duration = -rn.duration;
+            }
+        }
+        playbackIndex = 0;
+        playButton.setEnabled(!recordedNotes.isEmpty());
+        recordButton.setEnabled(true);
+        stopButton.setEnabled(false);
+        clearButton.setEnabled(!recordedNotes.isEmpty());
+        repaint();
+    }
 
     private void handleNoteReadingMenuItem() {
     	stopGames();
@@ -4948,7 +5263,6 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     }
 
     private void newnote() {
-
         if ((noteLevel.isNormalgame() || noteLevel.isLearninggame()) & parti) {
             notecounter++;
             if (precedente != 0 & soundOnCheckBox.isSelected()) {
@@ -4991,7 +5305,6 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 precedente = ncourante.getHeight();
                 lastPitch = ncourante.getPitch();
             }
-            
             else if (noteLevel.isCustomNotesgame()){
             	// choosing note with pitch - melodic stepwise motion
             	ncourante.setPitch(getMelodicPitch(noteLevel.getPitcheslist()));
@@ -5026,7 +5339,6 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             if (soundOnCheckBox.isSelected()) {
                 synthNote(ncourante.getPitch(), 80, noteDuration);
             }
-
         } else if (noteLevel.isInlinegame()) {
             //sons[indiceson(ncourante.getHeight())].stop();
         	if (precedente!=0 & soundOnCheckBox.isSelected()) {
@@ -6073,6 +6385,45 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 	
                 if (paintrhythms)
                     drawNotesAndAnswers(g, MusiSync);
+            } else if (selectedGame==RECORDING) {
+
+                g.setColor(Color.white);
+                g.fillRect(0, 0, d.width, d.height);
+                pgamebutton.setBackground(Color.white);
+
+                // Title
+                g.setColor(Color.black);
+                g.setFont(new Font("Arial", Font.BOLD, 24));
+                g.drawString(bundle.getString("_menuPianorecording"), d.width/2 - 150, 40);
+
+                // Status
+                g.setFont(new Font("Arial", Font.PLAIN, 18));
+                String status;
+                if (isRecording) {
+                    status = bundle.getString("_record") + "...";
+                    g.setColor(Color.red);
+                } else if (isPlaying) {
+                    status = bundle.getString("_play") + "...";
+                    g.setColor(new Color(0, 128, 0));
+                } else {
+                    status = "Ready";
+                    g.setColor(Color.black);
+                }
+                g.drawString(status, d.width/2 - 40, 75);
+
+                // Note count
+                g.setColor(Color.black);
+                g.setFont(new Font("Arial", Font.PLAIN, 16));
+                g.drawString("Notes: " + recordedNotes.size(), d.width/2 - 40, 105);
+
+                // Piano keyboard
+                piano.paint(g, d.width, false, 0, 0, 0, 0, 0, 0, 0, false, null);
+
+                // Instructions
+                g.setFont(new Font("Arial", Font.PLAIN, 14));
+                g.setColor(Color.gray);
+                g.drawString("Play on MIDI keyboard or use computer keys (a s d f g h j k)", d.width/2 - 220, d.height - 30);
+                g.drawString("Record / Play / Stop / Clear", d.width/2 - 100, d.height - 15);
             }
         }
     }
@@ -6186,7 +6537,32 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                             	}
                             	
                             }
-                           
+
+                            if (selectedGame==RECORDING) {
+                            	boolean noteOn = ((ShortMessage)event).getData2()!=0;
+                            	if (noteOn) {
+                            		piano.playNote(currentChannel, !midierror, notejouee, 1);
+                            	} else {
+                            		piano.playNote(currentChannel, !midierror, notejouee, 0);
+                            	}
+                            	repaint();
+                            	if (isRecording) {
+                            		long now = System.currentTimeMillis() - recordStartTime;
+                            		if (noteOn) {
+                            			RecordedNote rn = new RecordedNote(notejouee, ((ShortMessage)event).getData2(), now);
+                            			recordedNotes.add(rn);
+                            			currentRecordingNote = rn;
+                            			playButton.setEnabled(true);
+                            			clearButton.setEnabled(true);
+                            		} else {
+                            			if (currentRecordingNote != null && currentRecordingNote.pitch == notejouee) {
+                            				currentRecordingNote.setDuration(now - currentRecordingNote.startTime);
+                            				currentRecordingNote = null;
+                            			}
+                            		}
+                            	}
+                            }
+                            
                             break;
                         case 0x80:
                             output=("   Note Off  Key: "+((ShortMessage)event).getData1()+
