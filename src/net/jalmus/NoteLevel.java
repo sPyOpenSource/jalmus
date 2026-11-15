@@ -138,7 +138,6 @@ public class NoteLevel implements Level{
   }
 
 
-
 /*******************************************/
 
   public void setCurrentKey(String s) {
@@ -226,12 +225,12 @@ public class NoteLevel implements Level{
 
 
 
- public  Integer getRandomPitch(){     
-		Random generator = new Random();
-		int index = generator.nextInt ( this.pitcheslist.size() );
-		if( index >-1 )  return (this.pitcheslist.get( index ));  	
-		else return 0;
-	}
+    public  Integer getRandomPitch(){     
+        Random generator = new Random();
+        int index = generator.nextInt ( this.pitcheslist.size() );
+        if( index >-1 )  return (this.pitcheslist.get( index ));  	
+        else return 0;
+    }
 	    
  /*****************************************/
 
@@ -351,7 +350,6 @@ public int getNbnotesupper(){
 public int getNbnotesunder(){
   return this.nbnotesunder;
 }
-
 
 public void copy(NoteLevel nl){
     this.message = nl.message;

@@ -114,7 +114,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -313,7 +312,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private int alterationWidth = 0; // width of alterations symbols. None by default
     private final int timeSignWidth = 30; // width of current score time signature symbol. This includes also the first note margin
 
-    private int scoreYpos = 110; // Y coordinate of the first row of the score
+    private int scoreYpos = 150; // Y coordinate of the first row of the score
     private int rowsDistance = 100; // distance in pixel between staff rows
     private int numberOfMeasures = 2; // number of measures in a single row
     private int numberOfRows = 4; // number of score rows
@@ -1485,6 +1484,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 instruments=syn.getDefaultSoundbank().getInstruments();
 
                 if (instruments!=null) {
+                    // Load Acoustic Grand Piano (program 0) for the best piano sound
                     syn.loadInstrument(instruments[0]);
 
                 } else {
@@ -1500,6 +1500,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 channels[i]=new ChannelData(mc[i], i);
             }
             currentChannel=channels[0];
+            currentChannel.getchannel().programChange(0);
         }
         return true;
     }
@@ -1514,7 +1515,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
   	    
         instrumentsComboBox=new JComboBox();
         if (instruments!=null) {
-            for (int i=0; i<20; i++) {
+            for (int i=0; i<instruments.length; i++) {
                 instrumentsComboBox.addItem(instruments[i].getName());
             }
         } else {
@@ -4706,7 +4707,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     }
 
     private void drawScore(Graphics g) {
-        Dimension size=getSize();
+        Dimension size = getSize();
         g.setColor(Color.black);
         alterationWidth = scoreLevel.getCurrentTonality().getAlterationsNumber() * 12;
         int tmpnum = 4;

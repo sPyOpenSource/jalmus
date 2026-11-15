@@ -22,6 +22,9 @@ public class ChannelData {
            this.channel = channel;
            this.num = num;
            velocity = pressure = bend = reverb = 64;
+           // Add reverb and chorus for a fuller, richer piano sound
+           channel.controlChange(91, reverb);   // reverb send level
+           channel.controlChange(93, 40);       // chorus send level
         }
 
         public MidiChannel getchannel(){
@@ -30,9 +33,9 @@ public class ChannelData {
 
         public void playNote(boolean midiok, int kNum){
           if (midiok)
-                   this.channel.noteOn(kNum, 25);
+                   this.channel.noteOn(kNum, this.velocity);
                }
-        
+         
         public void playNote(boolean midiok, int kNum, int i){
             if (midiok)
                      this.channel.noteOn(kNum, i);
@@ -40,7 +43,7 @@ public class ChannelData {
 
         public void stopnote(boolean midiok, int kNum){
                if (midiok)
-                        this.channel.noteOff(kNum, 25);
+                        this.channel.noteOff(kNum, this.velocity);
                     }
 
         public void stopnotes(){

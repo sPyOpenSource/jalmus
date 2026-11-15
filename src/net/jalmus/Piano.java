@@ -31,7 +31,7 @@ public class Piano {
   net.jalmus.Key hintKey;
   float hintProgress;
   String hintLetter;
-  final int kw = 20, kh = 100;
+  final int kw = 25, kh = 120;
   final int ypos = 315;
   int marge = 43;
   int length = 73;
@@ -295,10 +295,10 @@ public class Piano {
       }
       else if (iscustom && paintbutton ) 
     		for (Integer pitch : pitchesl) {
-	    	  if (key.kNum == pitch) {
-	    	  g2.setColor(cg);
-	    	  g2.fill(key);
-	    	  }
+                    if (key.kNum == pitch) {
+                        g2.setColor(cg);
+                        g2.fill(key);
+                    }
     		}		
       
       
@@ -349,12 +349,12 @@ public class Piano {
       
       if (iscustom && paintbutton ) 
     		for (Integer pitch : pitchesl) {
-  	    	  if (key.kNum == pitch) {
-  	    	  g2.setColor(cg);
-  	    	  g2.fill(key);
-  	    	  g2.setColor(Color.black);
-  	    	  g2.draw(key);
-  	    	  }
+                    if (key.kNum == pitch) {
+                        g2.setColor(cg);
+                        g2.fill(key);
+                        g2.setColor(Color.black);
+                        g2.draw(key);
+                    }
     		}	
     }
 
