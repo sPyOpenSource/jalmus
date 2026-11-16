@@ -1,6 +1,7 @@
 package net.jalmus;
 
 
+import assets.Assets;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -29,6 +30,7 @@ public class ChooseNotePanel extends JPanel {
     private boolean DEBUG = false;
     private JTable table;
     JButton okButton;
+    private Assets assets = new Assets();
     
     private static int NOTEREADING = 1;
     private static int RHYTHMREADING = 2;
@@ -61,11 +63,11 @@ public class ChooseNotePanel extends JPanel {
  
         okButton=new JButton();
        okButton.setText(bundle.getString("_buttonok"));
-       okButton.setIcon(new ImageIcon(getClass().getResource("/images/ok.png")));
+       okButton.setIcon(assets.getIcon("/assets/png/ok.png"));
 
         JButton clearButton=new JButton();
         clearButton.setText(bundle.getString("_buttonclear"));
-       clearButton.setIcon(new ImageIcon(getClass().getResource("/images/eraser.png")));
+       clearButton.setIcon(assets.getIcon("/assets/png/eraser.png"));
         
 
   /*      okButton.addActionListener(new ActionListener() {

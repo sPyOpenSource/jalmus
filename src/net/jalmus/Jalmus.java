@@ -79,6 +79,7 @@ E-mail : cvrichard@infonie.fr */
 
 package net.jalmus;
 
+import assets.Assets;
 import org.xml.sax.SAXException;
 
 import java.awt.BorderLayout;
@@ -203,7 +204,8 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     Font MusiSync; // font used to render scores 
     private ResourceBundle bundle;
     private final Collection<Localizable> localizables = new ArrayList<>();
-
+    private final Assets assets = new Assets();
+    
     //----------------------------------------------------------------
     // Main variables
 
@@ -390,8 +392,8 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private final JMenuBar maBarre = new JMenuBar();
 
     private final JMenu menuParameters = new JMenu();
-    private final JMenuItem menuPrefs = new JMenuItem(new ImageIcon(getClass().getResource("/images/prefs.png")));
-    private final JMenuItem menuMidi = new JMenuItem(new ImageIcon(getClass().getResource("/images/midi.png")));
+    private final JMenuItem menuPrefs = new JMenuItem(assets.get("/assets/png/prefs.png"));
+    private final JMenuItem menuMidi = new JMenuItem(assets.get("/assets/png/midi.png"));
     private final JMenu languages = new JMenu();
     private JRadioButtonMenuItem rblanguagefr=new JRadioButtonMenuItem();
     private JRadioButtonMenuItem rblanguagede=new JRadioButtonMenuItem();
@@ -409,9 +411,9 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
 
     private final JMenu aide = new JMenu();
-    private final JMenuItem aidesommaire = new JMenuItem(new ImageIcon(getClass().getResource("/images/aide.png")));
-    private final JMenuItem siteinternet = new JMenuItem(new ImageIcon(getClass().getResource("/images/internet.png")));
-    private final JMenuItem propos = new JMenuItem(new ImageIcon(getClass().getResource("/images/about.png")));
+    private final JMenuItem aidesommaire = new JMenuItem(assets.get("/assets/png/aide.png"));
+    private final JMenuItem siteinternet = new JMenuItem(assets.get("/assets/png/internet.png"));
+    private final JMenuItem propos = new JMenuItem(assets.get("/assets/png/about.png"));
 
     //----------------------------------------------------------------
     // GAME BUTTONS - NOTES/GO
@@ -591,7 +593,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         }
 
         try {
-        	jbackground = ImageIO.read(getClass().getClassLoader().getResource("images/bg1.png"));
+        	jbackground = ImageIO.read(assets.getInputStream("/assets/png/bg1.png"));
         }
         catch(IOException e){
             System.out.println("Cannot load background image");
@@ -599,7 +601,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
           }
 
         try {
-        	InputStream fInput = this.getClass().getResourceAsStream("/images/MusiSync.ttf");
+        	InputStream fInput = assets.getInputStream("/assets/MusiSync.ttf");
         	MusiSync = Font.createFont (Font.PLAIN, fInput);
         }
         catch(FontFormatException | IOException e){
@@ -695,7 +697,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         });
 
         
-        bundle = ResourceBundle.getBundle("language", new Locale(language));
+        bundle = ResourceBundle.getBundle("NOI18N/language", new Locale(language));
         System.out.println(new Locale(language));
         
     	ChooseNoteP = new  ChooseNotePanel(noteLevel.getKey(),NOTEREADING,  bundle);
@@ -976,7 +978,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 break;
         }
        
-        languages.setIcon(new ImageIcon(getClass().getResource("/images/language.png")));
+        languages.setIcon(assets.getIcon("/assets/png/language.png"));
 
         languages.addActionListener(this);
         languages.setMnemonic(KeyEvent.VK_L);
@@ -1015,16 +1017,16 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         papropos.setVisible(true);
         bcredits=new JButton();
 
-        bcredits.setIcon(new ImageIcon(getClass().getResource("/images/credits.png")));
+        bcredits.setIcon(assets.getIcon("/assets/png/credits.png"));
         bcredits.addActionListener(this);
 
         blicence=new JButton();
 
-        blicence.setIcon(new ImageIcon(getClass().getResource("/images/licence.png")));
+        blicence.setIcon(assets.getIcon("/assets/png/licence.png"));
         blicence.addActionListener(this);
         bfermer=new JButton();
 
-        bfermer.setIcon(new ImageIcon(getClass().getResource("/images/cancel.png")));
+        bfermer.setIcon(assets.getIcon("/assets/png/cancel.png"));
         bfermer.addActionListener(this);
 
         aboutDialog.setContentPane(papropos);
@@ -1063,7 +1065,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 handleLevelOkClicked();
             }
         });
-        oklevelMessage.setIcon(new ImageIcon(getClass().getResource("/images/ok.png")));
+        oklevelMessage.setIcon(assets.getIcon("/assets/png/ok.png"));
         localizables.add(new Localizable.Button(oklevelMessage, "_buttonok"));
 
         textlevelMessage.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 2));
@@ -1081,7 +1083,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
         okscoreMessage=new JButton();
         okscoreMessage.addActionListener(this);
-        okscoreMessage.setIcon(new ImageIcon(getClass().getResource("/images/ok.png")));
+        okscoreMessage.setIcon(assets.getIcon("/assets/png/ok.png"));
 
         textscoreMessage.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 2));
         pscoreMessage.add(textscoreMessage);
@@ -1108,7 +1110,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                handleOKSave();
            }
         });
-        oksaveButton.setIcon(new ImageIcon(getClass().getResource("/images/ok.png")));
+        oksaveButton.setIcon(assets.getIcon("/assets/png/ok.png"));
         oksaveButton.setText(bundle.getString("_buttonok"));
         savePanel.add(oksaveButton);
         saveDialog.setContentPane(savePanel);
@@ -1135,7 +1137,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         Image icone;
         
         try {
-            icone = ImageIO.read(getClass().getClassLoader().getResource("images/icon.png"));
+            icone = ImageIO.read(assets.getInputStream("/assets/png/icon.png"));
             setIconImage(icone);
         }
         catch(IOException e){
@@ -1331,7 +1333,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
     //----------------------------------------------------------------
     private JMenu buildExercisesMenu() {
-        JMenuItem noteReadingMenuItem=new JMenuItem(new ImageIcon(getClass().getResource("/images/note.png")));
+        JMenuItem noteReadingMenuItem=new JMenuItem(assets.getIcon("/assets/png/note.png"));
         localizables.add(new Localizable.Button(noteReadingMenuItem, "_menuNotereading"));
         noteReadingMenuItem.addActionListener(new ActionListener() {
             @Override
@@ -1340,7 +1342,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             }
         });
 
-        JMenuItem rhythmReadingMenuItem = new JMenuItem(new ImageIcon(getClass().getResource("/images/rythme.png")));
+        JMenuItem rhythmReadingMenuItem = new JMenuItem(assets.getIcon("/assets/png/rythme.png"));
         localizables.add(new Localizable.Button(rhythmReadingMenuItem, "_menuRythmreading"));
         rhythmReadingMenuItem.addActionListener(new ActionListener() {
             @Override
@@ -1349,7 +1351,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             }
         });
         
-        JMenuItem scoreReadingMenuItem=new JMenuItem(new ImageIcon(getClass().getResource("/images/score.png")));
+        JMenuItem scoreReadingMenuItem=new JMenuItem(assets.getIcon("/assets/png/score.png"));
         localizables.add(new Localizable.Button(scoreReadingMenuItem, "_menuScorereading"));
         scoreReadingMenuItem.addActionListener(new ActionListener() {
             @Override
@@ -1358,7 +1360,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
             }
         });
 
-        JMenuItem pianoRecordingMenuItem=new JMenuItem(new ImageIcon(getClass().getResource("/images/exercices.png")));
+        JMenuItem pianoRecordingMenuItem=new JMenuItem(assets.getIcon("/assets/png/exercices.png"));
         localizables.add(new Localizable.Button(pianoRecordingMenuItem, "_menuPianorecording"));
         pianoRecordingMenuItem.addActionListener(new ActionListener() {
             @Override
@@ -1368,7 +1370,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         });
 
  
-        JMenuItem exitMenuItem=new JMenuItem(new ImageIcon(getClass().getResource("/images/exit.png")));
+        JMenuItem exitMenuItem=new JMenuItem(assets.getIcon("/assets/png/exit.png"));
         localizables.add(new Localizable.Button(exitMenuItem, "_menuExit"));
         exitMenuItem.addActionListener(new ActionListener() {
             @Override
@@ -1438,7 +1440,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
    	 
    	         lessonsMenu.addSeparator();
    	  	     
-   	         JMenuItem manageMenuItem=new JMenuItem(new ImageIcon(getClass().getResource("/images/folder.png")));
+   	         JMenuItem manageMenuItem=new JMenuItem(assets.getIcon("/assets/png/folder.png"));
      	       localizables.add(new Localizable.Button(manageMenuItem, "_menuBrowse"));
      	        manageMenuItem.addActionListener(new ActionListener() {
                          @Override
@@ -1635,8 +1637,9 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
         JButton okButton=new JButton();
         localizables.add(new Localizable.Button(okButton, "_buttonok"));
-        okButton.setIcon(new ImageIcon(getClass().getResource("/images/ok.png")));
+        okButton.setIcon(assets.getIcon("/assets/png/ok.png"));
         okButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 handleMidiOptionsOkClicked();
             }
@@ -1644,7 +1647,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
         JButton cancelButton=new JButton();
         localizables.add(new Localizable.Button(cancelButton, "_buttoncancel"));
-        cancelButton.setIcon(new ImageIcon(getClass().getResource("/images/cancel.png")));
+        cancelButton.setIcon(assets.getIcon("/assets/png/cancel.png"));
         cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 handleMidiOptionsCancelClicked();
@@ -1683,31 +1686,33 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         JPanel scoreReadingPanel=buildScoreReadingPreferencesPanel();
       
         
-        preferencesTabbedPane.addTab(null, new ImageIcon(getClass().getResource("/images/note.png")), noteReadingPanel);
+        preferencesTabbedPane.addTab(null, assets.getIcon("/assets/png/note.png"), noteReadingPanel);
         localizables.add(new Localizable.Tab(preferencesTabbedPane, NOTE_READING_TAB, "_menuNotereading"));
-        preferencesTabbedPane.addTab(null, new ImageIcon(getClass().getResource("/images/rythme.png")), rhythmReadingPanel);
+        preferencesTabbedPane.addTab(null, assets.getIcon("/assets/png/rythme.png"), rhythmReadingPanel);
         localizables.add(new Localizable.Tab(preferencesTabbedPane, RHYTM_READING_TAB, "_menuRythmreading"));
-        preferencesTabbedPane.addTab(null, new ImageIcon(getClass().getResource("/images/score.png")), scoreReadingPanel);
+        preferencesTabbedPane.addTab(null, assets.getIcon("/assets/png/score.png"), scoreReadingPanel);
         localizables.add(new Localizable.Tab(preferencesTabbedPane, SCORE_READING_TAB, "_menuScorereading"));
 
         // buttons below tabs
 
         JButton okButton=new JButton();
         okButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 handlePreferencesOkClicked();
             }
         });
-        okButton.setIcon(new ImageIcon(getClass().getResource("/images/ok.png")));
+        okButton.setIcon(assets.getIcon("/assets/png/ok.png"));
         localizables.add(new Localizable.Button(okButton, "_buttonok"));
 
         JButton cancelButton=new JButton();
         cancelButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 handlePreferencesCancelClicked();
             }
         });
-        cancelButton.setIcon(new ImageIcon(getClass().getResource("/images/cancel.png")));
+        cancelButton.setIcon(assets.getIcon("/assets/png/cancel.png"));
         localizables.add(new Localizable.Button(cancelButton, "_buttoncancel"));
         
         JButton saveButton=new JButton();
@@ -1716,7 +1721,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
                 handlePreferencesSaveClicked();
             }
         });
-        saveButton.setIcon(new ImageIcon(getClass().getResource("/images/save.png")));
+        saveButton.setIcon(assets.getIcon("/assets/png/save.png"));
         localizables.add(new Localizable.Button(saveButton, "_buttonsave"));
         
 
@@ -4412,7 +4417,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     // Translating functions
 
     private void updateLang() {
-        bundle = ResourceBundle.getBundle("language", new Locale(language));
+        bundle = ResourceBundle.getBundle("NOI18N/language", new Locale(language));
         System.out.println(new Locale(language));
         changeLanguage();
     }
