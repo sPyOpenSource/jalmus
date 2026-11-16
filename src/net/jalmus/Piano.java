@@ -31,7 +31,7 @@ public class Piano {
   net.jalmus.Key hintKey;
   float hintProgress;
   String hintLetter;
-  final int kw = 25, kh = 120;
+  final int kw = 30, kh = 160;
   final int ypos = 315;
   int marge = 43;
   int length = 73;
@@ -253,7 +253,7 @@ public class Piano {
     
     Color c = new Color(255, 235, 235);
     Color cg = new Color(152, 251, 152);
-    int offx = (width/2) - 490;
+    int offx = (width/2) - 600;
 
     if (paintbutton){
 	    //paint bouton to move notes to train

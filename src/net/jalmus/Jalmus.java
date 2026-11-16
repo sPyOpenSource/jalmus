@@ -647,6 +647,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         localizables.add(new Localizable.Button(preferencesButton, "_menuPreferences"));
         preferencesButton.setPreferredSize(new Dimension(150, 20));
         preferencesButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 handlePreferencesClicked();
             }
@@ -1271,12 +1272,14 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
         addWindowListener(new WindowAdapter() {
 
+            @Override
             public void windowClosed(java.awt.event.WindowEvent evt) {
             	savesettings();
                 dispose();
                 System.exit(0);
             }
 
+            @Override
             public void windowClosing(java.awt.event.WindowEvent evt) {
             	savesettings();
                 dispose();
@@ -1573,22 +1576,18 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         midiInComboBoxModel.addElement(pasclavier);
         midiOutComboBoxModel.addElement(pasclavier);
         MidiDevice.Info[] aInfos=MidiSystem.getMidiDeviceInfo();
-        for (int i=0; i<aInfos.length; i++) {
+        for (MidiDevice.Info aInfo : aInfos) {
             try {
-                MidiDevice device=MidiSystem.getMidiDevice(aInfos[i]);
+                MidiDevice device = MidiSystem.getMidiDevice(aInfo);
                 boolean bAllowsInput=(device.getMaxTransmitters()!=0);
                 boolean bAllowsOutput=(device.getMaxReceivers()!=0);
-                
                 if (bAllowsInput) {
-                    midiInComboBoxModel.addElement(aInfos[i].getName());
+                    midiInComboBoxModel.addElement(aInfo.getName());
                 }
-                
                 if (bAllowsOutput) {
-                	midiOutComboBoxModel.addElement(aInfos[i].getName());
+                    midiOutComboBoxModel.addElement(aInfo.getName());
                 }
-
-            }
-            catch (MidiUnavailableException e) {
+            }catch (MidiUnavailableException e) {
             }
         }
                
@@ -1607,10 +1606,10 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
 
   
         
-        Integer current = new Integer(0);
-        Integer min = new Integer(-24);
-        Integer max = new Integer(24);
-        Integer step = new Integer(1);
+        Integer current = 0;
+        Integer min = -24;
+        Integer max = 24;
+        Integer step = 1;
         m_numberSpinnerModel = new SpinnerNumberModel(current, min, max, step);
         transpositionSpinner = new JSpinner(m_numberSpinnerModel);
         transpositionSpinner.setSize(40, 40);
@@ -1649,6 +1648,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         localizables.add(new Localizable.Button(cancelButton, "_buttoncancel"));
         cancelButton.setIcon(assets.getIcon("/assets/png/cancel.png"));
         cancelButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 handleMidiOptionsCancelClicked();
             }
@@ -1717,6 +1717,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         
         JButton saveButton=new JButton();
         saveButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 handlePreferencesSaveClicked();
             }
@@ -1724,8 +1725,6 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         saveButton.setIcon(assets.getIcon("/assets/png/save.png"));
         localizables.add(new Localizable.Button(saveButton, "_buttonsave"));
         
-
-
         JPanel buttonPanel=new JPanel();
         buttonPanel.add(okButton);
         buttonPanel.add(cancelButton);
@@ -6247,7 +6246,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     private class Anim extends JPanel {
 	private static final long serialVersionUID = 1L;
 		
-        int width = 1060, height = 520;
+        int width = 1500, height = 520;
 
         public Anim() {
             setPreferredSize(new Dimension(width, height));
@@ -6622,7 +6621,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
     public static void main(String[] arg) {
         // Event pour la gestion des Evenements et principalement le message EXIT
         // Constructions de la frame
-    	Dimension dim = new Dimension(1000, 700);
+    	Dimension dim = new Dimension(1300, 700);
 
         Jalmus jalmus = new Jalmus();
         // Initialization
@@ -6633,7 +6632,7 @@ public class Jalmus extends JFrame implements KeyListener, ActionListener, ItemL
         }
 
         // Force the window size
-        jalmus.setSize(1120, 760);
+        jalmus.setSize(1300, 700);
         jalmus.setMinimumSize(dim);
 
         // Draw
